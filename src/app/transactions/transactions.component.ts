@@ -98,21 +98,6 @@ export class TransactionsComponent implements OnInit {
     }
   ];
 
-  [
-    header: {
-      supplierName: string;
-      supplierNumber: number;
-      charge: number;
-  },
-  body: {
-    shipFrom:{
-      name: string;
-      address: string;
-
-    }
-  }
-    ]
-
   constructor( changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry ) {
     this.mobileQuery = media.matchMedia('(max-width: 400px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
