@@ -1,0 +1,87 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <h1 class="example-app-name">Connectica</h1>
+    <a mat-button routerLink="/home" routerLinkActive="active"><span class="fa fa-home fa-lg" ></span> Home</a>
+    <a mat-button routerLink="/about" routerLinkActive="active"><span class="fa fa-info fa-lg"></span> About</a>
+    <a mat-button routerLink="/contact" routerLinkActive="active"><span class="fa fa-list fa-lg"></span> Contact</a>
+    <a mat-button routerLink="/login" routerLinkActive="active"><span class="fa fa-address-card fa-lg"></span> Login</a>
+  </mat-toolbar>
+
+
+  <mat-sidenav-container class="example-sidenav-container"
+                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+
+
+      <!--
+      <mat-list>
+        <mat-list-item class="mat-2-line" *ngFor="let item of menuList" role="link" (click)="toggleSidenav('left')">
+          <mat-icon svgIcon="{{item.icon}}" ></mat-icon>
+          <div class="mat-list-item-text">
+            <span class="mat-body-2">{{item.title}}</span>
+          </div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item class="mat-2-line" *ngFor="let item of adminList" role="link" (click)="toggleSidenav('left')">
+          <mat-icon svgIcon="{{item.icon}}" class="left-menu-icons"></mat-icon>
+          <div class="mat-list-item-text">
+            <span class="mat-body-2">{{item.title}}</span>
+          </div>
+        </mat-list-item>
+      </mat-list>
+      -->
+
+      <mat-nav-list>
+        <mat-list-item *ngFor="let item of menuList">
+          <mat-icon svgIcon="{{item.icon}}"></mat-icon>
+          <a routerLink="{{item.link}}" routerLinkActive="active">{{item.title}}</a>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item *ngFor="let item of adminList">
+          <mat-icon svgIcon="{{item.icon}}"></mat-icon>
+          <a routerLink="{{item.link}}" routerLinkActive="active">{{item.title}}</a>
+        </mat-list-item>
+      </mat-nav-list>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+     <!--  <p *ngFor="let content of fillerContent">{{content}}</p>  -->
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+
+<!--
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+<mat-sidenav layout="column" class="mat-sidenav-left mat-whiteframe-z2 mat-navigation-drawer" mat-component-id="left" is-locked-open="$mdMedia('gt-md')">
+  <mat-toolbar class="mat-hue-2 mat-tall">
+    <span flex></span>
+    <div layout="row" layout-align="start center">
+      <mat-icon class="mat-avatar" svgIcon="avatars:svg-1"></mat-icon>
+      <span flex></span>
+    </div>
+    <span flex></span>
+    <div class="mat-body-2">Firstname Lastname</div>
+    <div class="mat-body-1">email@domainname.com</div>
+  </mat-toolbar>
+  <mat-list>
+    <mat-list-item class="mat-2-line" *ngFor="let item of menuList" role="link" (click)="toggleSidenav('left')">
+      <mat-icon svgIcon="{{item.icon}}" ></mat-icon>
+      <div class="mat-list-item-text">
+        <span class="mat-body-2">{{item.title}}</span>
+      </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item class="mat-2-line" *ngFor="let item of adminList" role="link" ng-click="toggleSidenav('left')">
+      <mat-icon svgIcon="{{item.icon}}"></mat-icon>
+      <div class="mat-list-item-text">
+        <span class="mat-body-2">{{item.title}}</span>
+      </div>
+    </mat-list-item>
+  </mat-list>
+</mat-sidenav>
+</div>
+-->

@@ -1,0 +1,153 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.example-is-mobile .example-toolbar {
+  position: fixed;
+  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+  z-index: 2;
+}
+
+h1.example-app-name {
+  margin-left: 8px;
+}
+
+.example-sidenav-container {
+  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+     causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+  flex: 1;
+}
+
+.example-is-mobile .example-sidenav-container {
+  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+     `<body>` to be our scrolling element for mobile layouts. */
+  flex: 1 0 auto;
+}
+
+
+
+  // Colors
+  $gray: #eee;
+
+  // Angular
+  [click] {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  // Main content bg color
+  mat-content.mat-default-theme {
+    background-color: $gray;
+  }
+
+  // Navigation drawer pattern: https://www.google.com/design/spec/patterns/navigation-drawer.html#navigation-drawer-specs
+  mat-sidenav {
+    &.mat-sidenav-list {
+      z-index: 1;
+      @media (max-width: 620px) {
+        max-width: 100%;
+        width: 100%;
+      }
+      & mat-list {
+        border-right: 1px solid darken($gray, 10%);
+      }
+    }
+    & > mat-toolbar.mat-tall {
+      padding: 15px;
+      height: auto;
+      max-height: 150px;
+    }
+    & mat-divider {
+      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+    &.mat-sidenav-list {
+      mat-list-item.mat-2-line .mat-list-item-text,
+      mat-list-item.mat-2-line>.mat-no-style .mat-list-item-text {
+        margin-bottom: 10px;
+      }
+    }
+    &.mat-navigation-drawer {
+
+      mat-list-item.mat-2-line .mat-list-item-text,
+      mat-list-item.mat-2-line>.mat-no-style .mat-list-item-text {
+        padding-top: 6px;
+        padding-bottom: 6px;
+      }
+      &, &.mat-locked-open {
+        width: 256px;
+        min-width: 256px;
+        max-width: 256px;
+      }
+    }
+  }
+  mat-backdrop + mat-sidenav {
+    &.mat-sidenav-list {
+      z-index: 3;
+    }
+  }
+  // White svg icons in toolbar and fab
+
+  mat-sidenav:not(.mat-sidenav-list) {
+    mat-icon {
+      fill: #737373;
+      position: relative;
+    }
+    .mat-avatar {
+      height: 64px;
+      width: 64px;
+    }
+  }
+
+  /* More closely matches https://www.google.com/design/spec/components/lists.html#lists-specs */
+  mat-list-item.mat-3-line {
+    mat-divider {
+      &[mat-inset] {
+        left: 70px;
+      }
+    }
+  }
+
+  // Round avatar
+  .mat-avatar {
+    & > svg {
+      border-radius: 50%;
+    }
+  }
+
+  /* Hide backdrop for internal sidenav */
+  mat-content mat-backdrop {
+    display: none;
+  }
+
+  /* Shrink inputs */
+  .edit-app {
+    mat-input-container {
+      padding-bottom: 0;
+      line-height: 30px;
+      font-size: 14px;
+      &:first-of-type {
+        margin-top: -16px;
+      }
+    }
+  }
+
+  /* fade animation */
+  .animate-show {
+    transition: 0.75s ease-out all;
+    opacity: 1;
+    &.ng-hide {
+      height: 0;
+      min-height: 0;
+      opacity: 0;
+      overflow: hidden;
+    }
+  }
+
