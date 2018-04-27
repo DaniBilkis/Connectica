@@ -46,6 +46,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   'extended': 'false'
 }));
+
+// Create link to Angular build directory
+var distDir = __dirname + "/dist/";
+app.use( express.static( distDir ) );
+
 // app.use(cookieParser());
 
 //app.use(mongo_db());
