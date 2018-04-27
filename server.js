@@ -1,5 +1,5 @@
 var express = require('express');
-// var path = require('path');
+var path = require('path');
 // var favicon = require('serve-favicon');
 var logger = require('morgan');
 // var cookieParser = require('cookie-parser');
@@ -48,9 +48,9 @@ app.use(bodyParser.urlencoded({
 }));
 
 // Create link to Angular build directory
-var distDir = __dirname + "/dist/";
-app.use( express.static( distDir ) );
-
+// var distDir = __dirname + "/dist/";
+// app.use( express.static( distDir ) );
+app.use( express.static( path.join( __dirname, 'dist/connectica' ) ) );
 // app.use(cookieParser());
 
 //app.use(mongo_db());
