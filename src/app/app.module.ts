@@ -13,6 +13,7 @@ import { MenuComponent }                from './menu/menu.component';
 import { TransactionsComponent }        from './transactions/transactions.component';
 import { InvoicesComponent }            from './invoices/invoices.component';
 import { InvoiceSummaryComponent }      from './invoice-summary/invoice-summary.component';
+import { ManageContractsComponent } from './manage-contracts/manage-contracts.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { InvoiceSummaryComponent }      from './invoice-summary/invoice-summary.
     MenuComponent,
     TransactionsComponent,
     InvoicesComponent,
-    InvoiceSummaryComponent
+    InvoiceSummaryComponent,
+    ManageContractsComponent
   ],
   imports: [
     BrowserModule,

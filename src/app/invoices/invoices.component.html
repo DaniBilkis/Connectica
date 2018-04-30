@@ -19,7 +19,7 @@
     <!-- Weight Column -->
     <ng-container matColumnDef="invoiceValue">
       <mat-header-cell *matHeaderCellDef> Invoice Value </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.invoiceValue}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.invoiceValue | currency: element.currency}} </mat-cell>
     </ng-container>
 
     <!-- Symbol Column -->
