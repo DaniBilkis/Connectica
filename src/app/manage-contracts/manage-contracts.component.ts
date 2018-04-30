@@ -32,6 +32,7 @@ export interface ContractList {
   partner: string;
   description: string;
   download: boolean;
+  icon: string;
 }
 
 const CONTRACT_LIST_DATA: ContractList[] = [

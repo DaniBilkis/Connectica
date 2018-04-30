@@ -43,7 +43,6 @@ export class InvoicesComponent implements OnInit {
       if ( result ) {
         this._router.navigate([ 'manageContracts' ]);
       }
-      // this.animal = result;
     });
   }
 }
