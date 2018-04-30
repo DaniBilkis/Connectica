@@ -35,7 +35,7 @@ export class MenuComponent implements OnInit {
       icon: 'transactions_icon'
     },
     {
-      link : '',
+      link : '/invoices',
       title: 'Invoice Financing',
       icon: 'invoice_icon'
     },

@@ -11,12 +11,16 @@ import { AppRoutingModule }             from './app-routing/app-routing.module';
 import { AppComponent }                 from './app.component';
 import { MenuComponent }                from './menu/menu.component';
 import { TransactionsComponent }        from './transactions/transactions.component';
+import { InvoicesComponent }            from './invoices/invoices.component';
+import { InvoiceSummaryComponent }      from './invoice-summary/invoice-summary.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    TransactionsComponent
+    TransactionsComponent,
+    InvoicesComponent,
+    InvoiceSummaryComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +31,7 @@ import { TransactionsComponent }        from './transactions/transactions.compon
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [InvoiceSummaryComponent]
 })
 export class AppModule { }

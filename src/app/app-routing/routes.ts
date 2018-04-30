@@ -1,5 +1,6 @@
 import { Routes }                       from '@angular/router';
-import {TransactionsComponent} from '../transactions/transactions.component';
+import {TransactionsComponent}          from '../transactions/transactions.component';
+import {InvoicesComponent}              from '../invoices/invoices.component';
 // import { MenuComponent }                from '../menu/menu.component';
 // import { DishdetailComponent }          from '../dishdetail/dishdetail.component';
 // import { HomeComponent }                from '../home/home.component';
@@ -9,7 +10,7 @@ import {TransactionsComponent} from '../transactions/transactions.component';
 export const routes: Routes = [
   // { path: 'home', component: HomeComponent },
   // { path: 'menu', component: MenuComponent },
-  // { path: 'about', component: AboutComponent },
+  { path: 'invoices', component: InvoicesComponent },
   { path: 'transactions', component: TransactionsComponent },
   { path: '',     redirectTo: 'index.html', pathMatch: 'full' }
 ];
