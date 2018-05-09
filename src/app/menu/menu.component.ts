@@ -20,42 +20,110 @@ export class MenuComponent implements OnInit {
 
   menuList = [
     {
-      link : '',
+      link : '/dashboard',
       title: 'Dashboard',
-      icon: 'dashboard_icon' // we have to use Google's naming convention for the IDs of the SVGs in the spritesheet
+      icon: 'dashboard' // we have to use Google's naming convention for the IDs of the SVGs in the spritesheet
     },
     {
       link : '',
       title: 'Messages',
-      icon: 'messages_icon'
+      icon: 'message'
     },
     {
       link : '/transactions',
       title: 'Transactions',
-      icon: 'transactions_icon'
-    },
-    {
-      link : '/invoices',
-      title: 'Invoice Financing',
-      icon: 'invoice_icon'
+      icon: 'compare_arrows'
     },
     {
       link : '',
       title: 'Statistics',
-      icon: 'statistics_icon'
+      icon: 'insert_chart'
+    },
+    {
+      link : '',
+      title: 'Invoice financing',
+      icon: 'description',
+      submenus: [
+        {
+          link : '/invoices',
+          title: 'Invoices',
+          icon: 'filter_none'
+        },
+        {
+          link : '/offers',
+          title: 'Offers',
+          icon: 'local_offer'
+        }
+      ]
+    },
+    {
+      link : '',
+      title: 'Logistics',
+      icon: 'local_shipping',
+      submenus: [
+        {
+          link : '',
+          title: 'List of offerings',
+          icon: 'list'
+        },
+        {
+          link : '',
+          title: 'Manage contracts',
+          icon: 'assignment'
+        }
+      ]
+    },
+    {
+      link : '',
+      title: 'Manage all contracts',
+      icon: 'work'
+    },
+    {
+      link : '',
+      title: 'Manage access rights',
+      icon: 'style',
+      submenus: [
+        {
+          link : '',
+          title: 'Current access pool',
+          icon: 'style'
+        },
+        {
+          link : '',
+          title: 'Manage open pools',
+          icon: 'style'
+        },
+        {
+          link : '',
+          title: 'Granted access pools',
+          icon: 'style'
+        }
+      ]
+    },
+    {
+      link : '',
+      title: 'FX hedging',
+      icon: 'euro_symbol',
+      submenus: [
+        {
+          link : '',
+          title: 'List of FX invoices',
+          icon: 'euro_symbol'
+        },
+        {
+          link : '',
+          title: 'History of FX hedging',
+          icon: 'euro_symbol'
+        }
+      ]
     }
   ];
 
   adminList = [
     {
-      link : '',
-      title: 'Notification',
-      icon: 'notification_icon'
-    },
-    {
       link : 'showListBottomSheet($event)',
       title: 'Settings',
-      icon: 'settings_icon'
+      icon: 'settings'
     }
   ];
 
@@ -67,7 +135,7 @@ export class MenuComponent implements OnInit {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
-
+/*
     iconRegistry.addSvgIcon(
       'avatar_icon',
       sanitizer.bypassSecurityTrustResourceUrl('assets/images/ic_perm_identity_black_24px.svg'));
@@ -99,6 +167,7 @@ export class MenuComponent implements OnInit {
     iconRegistry.addSvgIcon(
       'settings_icon',
       sanitizer.bypassSecurityTrustResourceUrl('assets/images/ic_settings_black_24px.svg'));
+      */
   }
 
   ngOnInit() {

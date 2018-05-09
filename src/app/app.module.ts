@@ -13,7 +13,10 @@ import { MenuComponent }                from './menu/menu.component';
 import { TransactionsComponent }        from './transactions/transactions.component';
 import { InvoicesComponent }            from './invoices/invoices.component';
 import { InvoiceSummaryComponent }      from './invoice-summary/invoice-summary.component';
-import { ManageContractsComponent } from './manage-contracts/manage-contracts.component';
+import { ManageContractsComponent }     from './manage-contracts/manage-contracts.component';
+import { TransactionTreeComponent }     from './transaction-tree/transaction-tree.component';
+
+import { D3Service }                    from 'd3-ng2-service';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,8 @@ import { ManageContractsComponent } from './manage-contracts/manage-contracts.co
     TransactionsComponent,
     InvoicesComponent,
     InvoiceSummaryComponent,
-    ManageContractsComponent
+    ManageContractsComponent,
+    TransactionTreeComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,7 @@ import { ManageContractsComponent } from './manage-contracts/manage-contracts.co
     FlexLayoutModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ D3Service ],
   bootstrap: [AppComponent],
   entryComponents: [InvoiceSummaryComponent]
 })

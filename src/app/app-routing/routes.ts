@@ -2,6 +2,7 @@ import { Routes }                       from '@angular/router';
 import {TransactionsComponent}          from '../transactions/transactions.component';
 import {InvoicesComponent}              from '../invoices/invoices.component';
 import {ManageContractsComponent}       from '../manage-contracts/manage-contracts.component';
+import {TransactionTreeComponent} from '../transaction-tree/transaction-tree.component';
 // import { MenuComponent }                from '../menu/menu.component';
 // import { DishdetailComponent }          from '../dishdetail/dishdetail.component';
 // import { HomeComponent }                from '../home/home.component';
@@ -9,7 +10,7 @@ import {ManageContractsComponent}       from '../manage-contracts/manage-contrac
 // import { ContactComponent }             from '../contact/contact.component';
 
 export const routes: Routes = [
-  // { path: 'home', component: HomeComponent },
+  { path: 'dashboard', component: TransactionTreeComponent },
   { path: 'manageContracts', component: ManageContractsComponent },
   { path: 'invoices', component: InvoicesComponent },
   { path: 'transactions', component: TransactionsComponent },
