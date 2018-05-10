@@ -35,7 +35,7 @@
           </mat-list>
         </div>
 
-        <mat-list-item *ngFor="let item of adminList">
+        <mat-list-item *ngFor="let item of adminList" >
           <i class="material-icons">{{item.icon}}</i>
           <a routerLink="{{item.link}}" routerLinkActive="active">{{item.title}}</a>
           <mat-divider></mat-divider>
