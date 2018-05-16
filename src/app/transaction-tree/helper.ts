@@ -1,5 +1,5 @@
 import * as _ from 'underscore';
-import Helper from '../shared/helper';
+import Helper from '../_shared/helper';
 // import Modernizr from 'modernizr'
 
 

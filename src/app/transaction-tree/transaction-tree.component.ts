@@ -28,11 +28,11 @@ import panZoom from 'jquery.panzoom';
 
 
 
-import { SUBWAYMAP_DATA }       from '../shared/subwayMapData';
-import { SUBWAY_CONFIGURATION } from '../shared/subwayMapConfiguration';
+import { SUBWAYMAP_DATA }       from '../_shared/subwayMapData';
+import { SUBWAY_CONFIGURATION } from '../_shared/subwayMapConfiguration';
 import { SubwayMapHelper }      from './helper';
-import Helper                   from '../shared/helper';
-import Station                  from '../shared/stations';
+import Helper                   from '../_shared/helper';
+import Station                  from '../_shared/stations';
 
 
 @Component({

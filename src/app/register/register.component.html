@@ -1,0 +1,59 @@
+<div id="container">
+
+  <mat-toolbar>
+    <span>{{registrationDescription}}</span>
+
+    <span class="fill-remaining-space"></span>
+
+  </mat-toolbar>
+  <app-alerts></app-alerts>
+  <div fxLayout="column" fxLayoutAlign="space-around center">
+    <form class="input-form" fxLayout="column" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <input matInput placeholder="First Name" [formControl]="registrationForm.controls.firstNameFormControl"
+               [errorStateMatcher]="matcher">
+        <mat-error *ngIf="firstNameFormControl.hasError('required')">
+          First name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Last Name" [formControl]="registrationForm.controls.lastNameFormControl"
+               [errorStateMatcher]="matcher">
+        <mat-error *ngIf="lastNameFormControl.hasError('required')">
+          Last name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Email" [formControl]="registrationForm.controls.emailFormControl"
+               [errorStateMatcher]="matcher">
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field>
+        <input matInput placeholder="Password" type="password" [formControl]="registrationForm.controls.passwordFormControl">
+        <mat-error *ngIf="passwordFormControl.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <div fxLayout="column" fxLayoutAlign="space-around center">
+        <mat-dialog-actions>
+          <button [disabled]="loading" type="submit" mat-raised-button>Register</button>
+          <img *ngIf="loading"
+               src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+          <span>Already a user? </span><a [routerLink]="['/login']">Login</a>
+        </mat-dialog-actions>
+      </div>
+    </form>
+  </div>
+
+
+</div>
