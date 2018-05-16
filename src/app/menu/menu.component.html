@@ -11,7 +11,7 @@
     <span>
       <a mat-button routerLink="/login" routerLinkActive="active"><span></span> Log In</a>
       <span></span>
-      <a mat-button mat-raised-button color="warn" routerLink="/sign_up" routerLinkActive="active"><span></span> Sign Up</a>
+      <a mat-button mat-raised-button color="warn" routerLink="/register" routerLinkActive="active"><span></span> Sign Up</a>
     </span>
   </mat-toolbar>
 
@@ -27,22 +27,22 @@
             </mat-list-item>
           </div>
           <div class="sidenav-container__accordion" *ngIf="(item.submenus && item.submenus.length > 0)">
-            <mat-accordion>                  
+            <mat-accordion>
               <mat-expansion-panel class="mat-elevation-z">
-                <mat-expansion-panel-header>                  
+                <mat-expansion-panel-header>
                   <i class="material-icons">{{item.icon}}</i>
                   <a routerLink="{{item.link}}" routerLinkActive="active">{{item.title}}</a>
                 </mat-expansion-panel-header>
-                <mat-list>              
+                <mat-list>
                   <div *ngFor="let submenu of item.submenus">
                       <mat-list-item>
                         <i class="material-icons">{{submenu.icon}}</i>
                         <a routerLink="{{submenu.link}}" routerLinkActive="active">{{submenu.title}}</a>
-                      </mat-list-item>                    
+                      </mat-list-item>
                   </div>
                 </mat-list>
               </mat-expansion-panel>
-            </mat-accordion>            
+            </mat-accordion>
           </div>
         </div>
         <mat-list-item *ngFor="let item of adminList" >
