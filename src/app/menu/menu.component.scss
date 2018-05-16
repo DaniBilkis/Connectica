@@ -60,6 +60,21 @@
   color: #FFF;
 }
 
+.mat-expansion-panel-header {
+  padding-left: 16px;
+}
+
+.mat-expansion-panel-header:hover {
+  background-color: #1e1e1e !important;
+  color: #FFF !important;
+}
+
+.mat-expansion-panel {
+  background-color: #3c3c3c;
+  color: #d9d9d9;
+  border-bottom: 1px solid #333333;
+}
+
 .example-is-mobile .example-toolbar {
   position: fixed;
   /* Make sure the toolbar will stay on top of the content as it scrolls past. */

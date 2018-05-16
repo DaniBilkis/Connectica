@@ -17,24 +17,34 @@
 
   <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #snav mode="side" opened [fixedInViewport]="fixed" [fixedTopGap]="fixedTop" [fixedBottomGap]="fixedBottom">
-
       <mat-nav-list>
         <div  *ngFor="let item of menuList">
-          <mat-list-item>
-            <i class="material-icons">{{item.icon}}</i>
-            <a routerLink="{{item.link}}" routerLinkActive="active">{{item.title}}</a>
-            <mat-divider></mat-divider>
-          </mat-list-item>
-          <mat-list style="margin-left:30px;">
-            <div *ngFor="let submenu of item.submenus">
-              <mat-list-item>
-                <i class="material-icons">{{submenu.icon}}</i>
-                <a routerLink="{{submenu.link}}" routerLinkActive="active">{{submenu.title}}</a>
-              </mat-list-item>
-            </div>
-          </mat-list>
+          <div *ngIf="!(item.submenus && item.submenus.length > 0)">
+            <mat-list-item>
+              <i class="material-icons">{{item.icon}}</i>
+              <a routerLink="{{item.link}}" routerLinkActive="active">{{item.title}}</a>
+              <mat-divider></mat-divider>
+            </mat-list-item>
+          </div>
+          <div class="sidenav-container__accordion" *ngIf="(item.submenus && item.submenus.length > 0)">
+            <mat-accordion>                  
+              <mat-expansion-panel class="mat-elevation-z">
+                <mat-expansion-panel-header>                  
+                  <i class="material-icons">{{item.icon}}</i>
+                  <a routerLink="{{item.link}}" routerLinkActive="active">{{item.title}}</a>
+                </mat-expansion-panel-header>
+                <mat-list>              
+                  <div *ngFor="let submenu of item.submenus">
+                      <mat-list-item>
+                        <i class="material-icons">{{submenu.icon}}</i>
+                        <a routerLink="{{submenu.link}}" routerLinkActive="active">{{submenu.title}}</a>
+                      </mat-list-item>                    
+                  </div>
+                </mat-list>
+              </mat-expansion-panel>
+            </mat-accordion>            
+          </div>
         </div>
-
         <mat-list-item *ngFor="let item of adminList" >
           <i class="material-icons">{{item.icon}}</i>
           <a routerLink="{{item.link}}" routerLinkActive="active">{{item.title}}</a>
