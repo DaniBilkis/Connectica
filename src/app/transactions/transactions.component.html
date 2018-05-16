@@ -1,44 +1,86 @@
-<div
-     fxLayout="row"
-     fxLayout.sm="column"
-     fxLayout.xs="column"
-     fxLayoutAlign.gt-md="space-around center"
-     fxLayoutGap="10px"
-     fxLayoutGap.xs="0">
-  <mat-nav-list class="connectica_list">
-    <mat-toolbar class="connectica_tool_bar">
-      <div fxLayout="row">
-        <button class="mat-icon-button" (click)="toggleSidenav('left')" fxHide.gt-md aria-label="Menu">
-          <mat-icon svgIcon="menu_icon" aria-label="Menu"></mat-icon>
-        </button>
-        <h3 *ngIf="!showSearch">
-          Transactions
-        </h3>
-        <span flex *ngIf="!showSearch"></span>
-        <button class="mat-icon-button" aria-label="Search" (click)="toggleSearch()">
-          <mat-icon *ngIf="!showSearch" svgIcon="search_icon"></mat-icon>
-          <mat-icon *ngIf="showSearch" svgIcon="back_icon"></mat-icon>
-        </button>
-        <div [hidden]="!showSearch">
-          <input matInput #searchBox (keyup)="onKeyUp(searchBox.value)" type="search" placeholder="enter search">
+<div 
+	fxLayout="row"
+	fxLayout.sm="column" 
+	fxLayout.xs="column" 
+	fxLayoutAlign.gt-md="space-around center" 
+	fxLayoutGap="10px"
+  	fxLayoutGap.xs="0">
+  <div fxLayout="row" class="connectica_list_details">
+    <div fxFlex class="connectica-list-container">
+      <mat-nav-list class="connectica_list">
+        <mat-toolbar class="connectica_tool_bar">
+          <div fxLayout="row">
+            <button class="mat-icon-button" (click)="toggleSidenav('left')" fxHide.gt-md aria-label="Menu">
+              <mat-icon svgIcon="menu_icon" aria-label="Menu"></mat-icon>
+            </button>
+            <h3 *ngIf="!showSearch">
+              Transactions
+            </h3>
+            <span flex *ngIf="!showSearch"></span>
+            <button class="mat-icon-button" aria-label="Search" (click)="toggleSearch()">
+              <mat-icon *ngIf="!showSearch" svgIcon="search_icon"></mat-icon>
+              <mat-icon *ngIf="showSearch" svgIcon="back_icon"></mat-icon>
+            </button>
+            <div [hidden]="!showSearch">
+              <input matInput #searchBox (keyup)="onKeyUp(searchBox.value)" type="search" placeholder="enter search">
+            </div>
+          </div>
+        </mat-toolbar>
+        <!-- <h3 matSubheader>Folders</h3> -->
+        <mat-list-item class="flex-item" fxLayout="row" fxLayoutAlign="space-between stretch" *ngFor="let item of apps" role="link"
+          (click)="toggleSidenav('nav');  $parent.appName = item.title; $parent.appDesc = item.desc;">
+          <mat-checkbox class="connectica_check_box"></mat-checkbox>
+          <div class="">
+            <div class="">{{item.title}}</div>
+            <p>{{item.desc}}</p>
+          </div>
+          <div class="connectica_date_div">
+            <div class="connectica_date">{{item.date | date}}</div>
+            <p>{{item.status}}</p>
+          </div>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-nav-list>
+    </div>
+
+    <div fxFlex class="connectica-list-detail-container">
+      <div class="flex-item">
+      <!-- To be replaced by new component - START -->
+      <div class="d-flex">
+        <div class="d-flex flex-row">
+          <div class="p-2">
+            <section class="mat-typography">
+              <h1>Consignment Order</h1>
+              <h6>Consignment Order Online</h6>
+            </section>
+          </div>
+          <div class="p-2">
+            <section class="mat-typography">
+              <h4>Document Number</h4>
+              <h2>1013012103</h2>
+            </section>
+          </div>
+          <div class="p-2">
+          </div>
         </div>
       </div>
-    </mat-toolbar>
-    <!-- <h3 matSubheader>Folders</h3> -->
-    <mat-list-item class="flex-item" fxLayout="row" fxLayoutAlign="space-between stretch" *ngFor="let item of apps" role="link" (click)="toggleSidenav('nav');  $parent.appName = item.title; $parent.appDesc = item.desc;">
-      <mat-checkbox class="connectica_check_box"></mat-checkbox>
-      <div class="">
-        <div class="">{{item.title}}</div>
-        <p>{{item.desc}}</p>
+      <section class="mat-typography">
+        <h4>Sender</h4>
+        <h2>BAHAG Webedi</h2>
+      </section>
+      <section class="mat-typography">
+        <h4>Document date</h4>
+        <h2>15.04.2015</h2>
+      </section>
+      <div class="fields-container">
+        <mat-form-field>
+          <input matInput placeholder="Input">
+        </mat-form-field>
       </div>
-      <div class="connectica_date_div">
-        <div class="connectica_date">{{item.date | date}}</div>
-        <p>{{item.status}}</p>
-      </div>
-      <mat-divider></mat-divider>
-    </mat-list-item>
-  </mat-nav-list>
-</div>
+      <!-- To be replaced by new component - END -->
+    </div>
+  </div>
+  </div>
   <!--
   <mat-sidenav-content layout="column" layout-fill>
     <mat-toolbar class="animate-show mat-whiteframe-z1">

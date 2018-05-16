@@ -66,6 +66,25 @@ mat-content.mat-default-theme {
 .connectica_list {
   flex-grow: 1;
 }
+
+.connectica_list_details {
+  flex-grow: 1;
+}
+
+.connectica-list-container{
+  -webkit-flex-grow: 0; /* Safari 6.1+ */
+  -webkit-flex-shrink: 0; /* Safari 6.1+ */
+  -webkit-flex-basis: 25%; /* Safari 6.1+ */
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 25% !important;
+}
+
+.connectica-list-detail-container{
+  -webkit-flex-basis: 75px; /* Safari 6.1+ */
+    flex-basis: 75% !important;
+}
+
 .connectica_check_box {
   width: 24px;
   margin-top: 16px;
