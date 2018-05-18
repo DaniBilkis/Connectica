@@ -17,6 +17,7 @@ import { InvoicesComponent }                              from './invoices/invoi
 import { InvoiceSummaryComponent }                        from './invoice-summary/invoice-summary.component';
 import { ManageContractsComponent }                       from './manage-contracts/manage-contracts.component';
 import { TransactionTreeComponent }                       from './transaction-tree/transaction-tree.component';
+import { TransactionDetailsComponent } 					  from './transaction-details/transaction-details.component';
 import { AuthGuard }                                      from './_guards/auth.guard';
 import { JwtInterceptor }                                 from './_helpers/jwt.interceptor';
 import { AlertService, AuthenticationService, UserService } from './_services/index';
@@ -36,6 +37,7 @@ import { ShowAuthedDirective }                            from './_shared/show-a
     AppComponent,
     MenuComponent,
     TransactionsComponent,
+	TransactionDetailsComponent,
     InvoicesComponent,
     InvoiceSummaryComponent,
     ManageContractsComponent,
