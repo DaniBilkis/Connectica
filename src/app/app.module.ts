@@ -29,6 +29,8 @@ import { D3Service }                                      from 'd3-ng2-service';
 
 import { fakeBackendProvider }                            from './_helpers/fake-backend';
 
+import { ShowAuthedDirective }                            from './_shared/show-authed.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +43,8 @@ import { fakeBackendProvider }                            from './_helpers/fake-
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    AlertsComponent
+    AlertsComponent,
+    ShowAuthedDirective
   ],
   imports: [
     BrowserModule,
@@ -51,6 +54,9 @@ import { fakeBackendProvider }                            from './_helpers/fake-
     FlexLayoutModule,
     AppRoutingModule,
     ReactiveFormsModule
+  ],
+  exports: [
+    ShowAuthedDirective
   ],
   providers: [
     AuthGuard,

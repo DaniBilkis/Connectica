@@ -30,7 +30,6 @@ export interface TokenPayload {
 
 export class LoginComponent implements OnInit {
 
-  model: any = {};
   loading = false;
   returnUrl: string;
   loginDescription: string;
@@ -50,10 +49,6 @@ export class LoginComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher();
 
-  loginCredentials: TokenPayload = {
-    email: '',
-    password: ''
-  };
 
   constructor(
     private fb: FormBuilder,

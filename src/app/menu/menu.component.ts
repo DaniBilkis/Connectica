@@ -3,10 +3,14 @@ import {
   OnInit,
   ChangeDetectorRef,
   ViewChild
-}                       from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
-import { MediaMatcher } from '@angular/cdk/layout';
-import {MatIconRegistry} from '@angular/material';
+}                          from '@angular/core';
+import { DomSanitizer }    from '@angular/platform-browser';
+import { MediaMatcher }    from '@angular/cdk/layout';
+import { MatIconRegistry } from '@angular/material';
+
+import { AuthenticationService } from '../_services/authentication.service';
+import {User} from '../_shared/user';
+import {stringDistance} from 'codelyzer/util/utils';
 
 @Component({
   selector: 'app-menu',
@@ -17,6 +21,8 @@ export class MenuComponent implements OnInit {
 
   mobileQuery: MediaQueryList;
   @ViewChild('snav') navigationBar;
+
+  user;
 
   menuList = [
     {
@@ -131,7 +137,7 @@ export class MenuComponent implements OnInit {
   private _mobileQueryListener: () => void;
 
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry) {
+  constructor( changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private authService: AuthenticationService, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -171,6 +177,9 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.user = this.authService.getUser();
+    console.log( 'This is a current user -> ' +  this.user.toString() );
+    console.log( 'This is a current user first name-> ' + this.user.firstName );
     this.navigationBar.toggle();
   }
 
@@ -178,6 +187,8 @@ export class MenuComponent implements OnInit {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
-
+  logout() {
+    this.authService.logout();
+  }
 
 }

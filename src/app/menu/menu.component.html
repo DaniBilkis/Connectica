@@ -1,22 +1,26 @@
 <div class="menu-container" [class.example-is-mobile]="mobileQuery.matches">
 
   <mat-toolbar>
-    <span>
+    <span [appShowAuth]="true">
       <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
     </span>
     <span><h1>Connectica</h1></span>
     <span class="fill-remaining-space"></span>
-    <span fxLayoutAlign="space-around center" style="cursor: pointer" routerLink="/about" routerLinkActive="active"><i class="material-icons">notifications</i></span>
+    <span [appShowAuth]="true" fxLayoutAlign="space-around center" style="cursor: pointer" routerLink="/about" routerLinkActive="active"><i class="material-icons">notifications</i></span>
     <span></span>
-    <span>
+    <span [appShowAuth]="false">
       <a mat-button routerLink="/login" routerLinkActive="active"><span></span> Log In</a>
       <span></span>
       <a mat-button mat-raised-button color="warn" routerLink="/register" routerLinkActive="active"><span></span> Sign Up</a>
     </span>
+    <span [appShowAuth]="true">
+      <span>{{user}} {{user.lastName}}</span>
+      <a mat-button mat-raised-button color="warn" routerLink="/login" (click)="logout()" routerLinkActive="active"><span></span> Logout</a>
+    </span>
   </mat-toolbar>
 
   <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #snav mode="side" opened [fixedInViewport]="fixed" [fixedTopGap]="fixedTop" [fixedBottomGap]="fixedBottom">
+    <mat-sidenav [appShowAuth]="true" #snav mode="side" opened [fixedInViewport]="fixed" [fixedTopGap]="fixedTop" [fixedBottomGap]="fixedBottom">
       <mat-nav-list>
         <div  *ngFor="let item of menuList">
           <div *ngIf="!(item.submenus && item.submenus.length > 0)">

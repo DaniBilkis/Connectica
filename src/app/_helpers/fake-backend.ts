@@ -14,6 +14,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
   constructor() { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    console.log( 'Inside FakeBackendInterceptor' );
     // array in local storage for registered users
     let users: any[] = JSON.parse(localStorage.getItem('users')) || [];
 
@@ -122,16 +123,19 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         }
       }
 
+      console.log( 'Leaving FakeBackendInterceptor' );
+
       // pass through any requests not handled above
       return next.handle(request);
 
     })
 
-    // call materialize and dematerialize to ensure delay even if an error is thrown (https://github.com/Reactive-Extensions/RxJS/issues/648)
+    /* call materialize and dematerialize to ensure delay even if an error is thrown (https://github.com/Reactive-Extensions/RxJS/issues/648)*/
       .materialize()
       .delay(500)
       .dematerialize();
   }
+
 }
 
 export let fakeBackendProvider = {
