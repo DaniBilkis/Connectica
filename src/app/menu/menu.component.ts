@@ -178,8 +178,8 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.authService.getUser();
-    console.log( 'This is a current user -> ' +  this.user.toString() );
-    console.log( 'This is a current user first name-> ' + this.user.firstName );
+    console.log( 'This is a current user -> ' +  this.user );
+    // console.log( 'This is a current user first name-> ' + this.user.fi);
     this.navigationBar.toggle();
   }
 
