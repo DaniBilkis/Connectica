@@ -31,6 +31,8 @@ import { D3Service }                                      from 'd3-ng2-service';
 import { fakeBackendProvider }                            from './_helpers/fake-backend';
 
 import { ShowAuthedDirective }                            from './_shared/show-authed.directive';
+import { FxPaymentsComponent } from './fx-payments/fx-payments.component';
+import { FxPaymentsModalComponent } from './fx-payments-modal/fx-payments-modal.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { ShowAuthedDirective }                            from './_shared/show-a
     RegisterComponent,
     DashboardComponent,
     AlertsComponent,
-    ShowAuthedDirective
+    ShowAuthedDirective,
+    FxPaymentsComponent,
+    FxPaymentsModalComponent
   ],
   imports: [
     BrowserModule,

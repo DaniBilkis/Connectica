@@ -112,6 +112,11 @@ export class MenuComponent implements OnInit {
       icon: 'euro_symbol',
       submenus: [
         {
+          link : '/fx_payments',
+          title: 'FX payments',
+          icon: 'euro_symbol'
+        },
+        {
           link : '',
           title: 'List of FX invoices',
           icon: 'euro_symbol'

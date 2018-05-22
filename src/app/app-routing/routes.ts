@@ -7,6 +7,7 @@ import {LoginComponent}                 from '../login/login.component';
 import {RegisterComponent}              from '../register/register.component';
 import {DashboardComponent}             from '../dashboard/dashboard.component';
 import { AuthGuard }                    from '../_guards/auth.guard';
+import {FxPaymentsComponent}            from '../fx-payments/fx-payments.component';
 // import { MenuComponent }                from '../menu/menu.component';
 // import { DishdetailComponent }          from '../dishdetail/dishdetail.component';
 // import { HomeComponent }                from '../home/home.component';
@@ -19,6 +20,7 @@ export const routes: Routes = [
   { path: 'manageContracts', component: ManageContractsComponent, canActivate: [AuthGuard] },
   { path: 'invoices', component: InvoicesComponent, canActivate: [AuthGuard] },
   { path: 'transactions', component: TransactionsComponent, canActivate: [AuthGuard] },
+  { path: 'fx_payments', component: FxPaymentsComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   // { path: '',     redirectTo: 'index.html', pathMatch: 'full' }

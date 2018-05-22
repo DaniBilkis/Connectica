@@ -1,0 +1,51 @@
+<div class="example-container mat-elevation-z8">
+  <mat-table #table [dataSource]="dataSource">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="businessPartner">
+      <mat-header-cell *matHeaderCellDef> Business Partner </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.businessPartner}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="paymentDate">
+      <mat-header-cell *matHeaderCellDef> Payment Date </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.paymentDate | date}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="adviceDate">
+      <mat-header-cell *matHeaderCellDef> Advice Date </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.adviceDate | date}} </mat-cell>
+    </ng-container>
+
+    <!-- Target Currency -->
+    <ng-container matColumnDef="targetCurrency">
+      <mat-header-cell *matHeaderCellDef> Amt. in Target Currency </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.amtInTargetCurrency | currency: element.targetCurrency}} </mat-cell>
+    </ng-container>
+
+    <!-- Local Currency -->
+    <ng-container matColumnDef="localCurrency">
+      <mat-header-cell *matHeaderCellDef> Amt. in Local Currency </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.amtInLocalCurrency | currency: element.localCurrency}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+      <mat-cell *matCellDef="let element"> <button mat-button color="warn" (click)="buttonClick(element)"> View </button></mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

@@ -1,8 +1,8 @@
-<div 
+<div
 	fxLayout="row"
-	fxLayout.sm="column" 
-	fxLayout.xs="column" 
-	fxLayoutAlign.gt-md="space-around center" 
+	fxLayout.sm="column"
+	fxLayout.xs="column"
+	fxLayoutAlign.gt-md="space-around center"
 	fxLayoutGap="10px"
   	fxLayoutGap.xs="0">
   <div fxLayout="row" class="connectica_list_details">
@@ -49,97 +49,3 @@
         </div>
     </div>
   </div>
-  <!--
-  <mat-sidenav-content layout="column" layout-fill>
-    <mat-toolbar class="animate-show mat-whiteframe-z1">
-      <div class="mat-toolbar-tools">
-        <button class="mat-icon-button" (click)="toggleSidenav('nav')" hide-gt-sm aria-label="Menu">
-          <mat-icon svgIcon="navigation:ic_arrow_back_24px" aria-label="Menu"></mat-icon>
-        </button>
-        <span flex></span>
-        <button class="mat-icon-button" aria-label="Open Settings" (click)="showListBottomSheet($event)">
-          <mat-icon svgIcon="navigation:ic_more_vert_24px" aria-label="More"></mat-icon>
-        </button>
-      </div>
-    </mat-toolbar>
-    <div class="inset" hide-sm></div>
-    <div layout-gt-sm="row" layout-align="center center">
-      <div flex-gt-sm="95" flex-gt-lg="80">
-        <mat-card>
-          <mat-toolbar class="animate-show mat-hue-2" ng-show="!editApp">
-            <mat-list-item class="mat-3-line">
-              <mat-icon class="mat-avatar" hide-sm svgIcon="{{appIcon || 'navigation:ic_apps_24px'}}"></mat-icon>
-              <div class="mat-list-item-text">
-                <div class="mat-headline">{{appName || 'App Name'}}</div>
-                <h4>{{appDesc || 'App description goes here'}}</h4>
-              </div>
-            </mat-list-item>
-          </mat-toolbar>
-          <mat-toolbar class="animate-show mat-hue-1 edit-app" ng-show="editApp">
-            <mat-list-item class="mat-3-line">
-              <mat-icon class="mat-avatar" hide-sm svgIcon="{{appIcon || 'navigation:ic_apps_24px'}}"></mat-icon>
-              <div class="mat-list-item-text">
-
-                <form class="example-form">
-                  <mat-form-field class="example-full-width">
-                    <input matInput placeholder="App Name">
-                  </mat-form-field>
-
-                  <mat-form-field class="example-full-width">
-                    <input matInput placeholder="App Description">
-                  </mat-form-field>
-                </form>
-
-              </div>
-            </mat-list-item>
-            <mat-divider></mat-divider>
-          </mat-toolbar>
-          <mat-list>
-            <mat-list-item class="mat-3-line" ng-repeat="item in attributes">
-              <mat-icon class="mat-accent" hide-sm svgIcon="{{item.icon}}"></mat-icon>
-              <div class="mat-list-item-text">
-                <h3>{{item.value || 'Attribute value'}}</h3>
-                <p>{{item.title || 'Attribute title'}}</p>
-              </div>
-              <mat-divider mat-inset hide-sm></mat-divider>
-              <mat-divider hide-gt-sm></mat-divider>
-            </mat-list-item>
-            <mat-list-item class="mat-3-line">
-              <mat-icon class="mat-accent" hide-sm svgIcon="editor:ic_linear_scale_24px"></mat-icon>
-              <div class="mat-list-item-text" ng-init="appScale = 20">
-                <h3>{{appScale}} units</h3>
-                <mat-slider ng-show="editApp" flex mat-discrete step="1" min="1" max="50" ng-model="appScale" aria-label="Scale"></mat-slider>
-                <p>Scale</p>
-              </div>
-            </mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item>
-              <button class="mat-primary" ng-show="!editApp">
-                <mat-icon svgIcon="navigation:ic_arrow_forward_24px" aria-label="Forward"></mat-icon>
-                <span>Execute</span>
-              </button>
-              <button class="mat-primary" ng-click="editApp = 0" ng-show="editApp">
-                <mat-icon svgIcon="navigation:ic_check_24px" aria-label="Save"></mat-icon>
-                <span>Save</span>
-              </button>
-              <button ng-click="editApp = 1" ng-show="!editApp">
-                <mat-icon svgIcon="editor:ic_mode_edit_24px" aria-label="Edit"></mat-icon>
-                <span>Edit</span>
-              </button>
-              <span flex></span>
-              <button class="mat-warn" ng-show="!editApp">
-                <mat-icon svgIcon="action:ic_delete_24px" aria-label="Delete"></mat-icon>
-                <span>Delete</span>
-              </button>
-              <button ng-click="editApp = 0" ng-show="editApp">
-                <mat-icon svgIcon="navigation:ic_close_24px" aria-label="Cancel"></mat-icon>
-                <span>Cancel</span>
-              </button>
-            </mat-list-item>
-          </mat-list>
-        </mat-card>
-      </div>
-    </div>
-  </mat-sidenav-content>
-
--->
