@@ -6541,6 +6541,10 @@ uglifyjs-webpack-plugin@^1.2.4, uglifyjs-webpack-plugin@^1.2.5:
     webpack-sources "^1.1.0"
     worker-farm "^1.5.2"
 
+ui-carousel@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/ui-carousel/-/ui-carousel-0.2.0.tgz#ee93dfaeb7d5f7353b8d7ec215e9fab6ce16ae33"
+
 ultron@1.0.x:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/ultron/-/ultron-1.0.2.tgz#ace116ab557cd197386a4e88f4685378c8b2e4fa"

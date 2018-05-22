@@ -107,6 +107,11 @@ export class MenuComponent implements OnInit {
       ]
     },
     {
+      link: '/openContracts' ,
+      title: 'Open Contracts',
+      icon: 'monetization_on'
+    },
+    {
       link : '',
       title: 'FX hedging',
       icon: 'euro_symbol',
