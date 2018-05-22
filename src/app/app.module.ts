@@ -8,6 +8,7 @@ import { ReactiveFormsModule }                            from '@angular/forms';
 
 import { MaterialModule }                                 from './material.module';
 import { AppRoutingModule }                               from './app-routing/app-routing.module';
+import { UICarouselModule  } from 'ui-carousel';
 
 
 import { AppComponent }                                   from './app.component';
@@ -18,6 +19,7 @@ import { InvoiceSummaryComponent }                        from './invoice-summar
 import { ManageContractsComponent }                       from './manage-contracts/manage-contracts.component';
 import { TransactionTreeComponent }                       from './transaction-tree/transaction-tree.component';
 import { TransactionDetailsComponent } 					  from './transaction-details/transaction-details.component';
+import { OpenContractsComponent } from './open-contracts/open-contracts.component';
 import { AuthGuard }                                      from './_guards/auth.guard';
 import { JwtInterceptor }                                 from './_helpers/jwt.interceptor';
 import { AlertService, AuthenticationService, UserService } from './_services/index';
@@ -37,11 +39,12 @@ import { ShowAuthedDirective }                            from './_shared/show-a
     AppComponent,
     MenuComponent,
     TransactionsComponent,
-	TransactionDetailsComponent,
+    TransactionDetailsComponent,
     InvoicesComponent,
     InvoiceSummaryComponent,
     ManageContractsComponent,
     TransactionTreeComponent,
+    OpenContractsComponent,
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
@@ -55,7 +58,8 @@ import { ShowAuthedDirective }                            from './_shared/show-a
     MaterialModule,
     FlexLayoutModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    UICarouselModule
   ],
   exports: [
     ShowAuthedDirective

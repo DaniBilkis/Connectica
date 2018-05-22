@@ -20,3 +20,10 @@
 .sidenav-container__accordion .mat-expansion-indicator::after {
   color: #d9d9d9 !important;
 }
+
+.ui-carousel-item {
+  background: none !important;
+}
+.arrow::before, .arrow::after {
+  background: #3c3c3c !important;
+}

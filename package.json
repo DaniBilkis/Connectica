@@ -42,6 +42,7 @@
     "morgan": "^1.9.0",
     "rxjs": "^6.0.0-rc.0",
     "rxjs-compat": "^6.0.0-rc.0",
+    "ui-carousel": "^0.2.0",
     "underscore": "^1.9.0",
     "zone.js": "^0.8.24"
   },
