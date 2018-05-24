@@ -24,8 +24,8 @@ export class FxPaymentsComponent implements OnInit {
     console.log('Clicking Button of Invoice');
 
     const dialogRef = this.dialog.open( FxPaymentsModalComponent, {
-      // width: '250px',
       data: {
+        paymentId: element.paymentId,
         businessPartner: element.businessPartner,
         paymentDate: element.paymentDate,
         adviceDate: element.adviceDate,
@@ -51,6 +51,7 @@ export class FxPaymentsComponent implements OnInit {
 
 
 export interface Element {
+  paymentId: string,
   businessPartner: string;
   paymentDate: string;
   adviceDate: string;
@@ -62,9 +63,9 @@ export interface Element {
 }
 
 const ELEMENT_DATA: Element[] = [
-  {businessPartner: 'Rewe Zentralfinanz eG', paymentDate: '2017-10-16T17:57:28.556094Z', adviceDate: '2017-10-16T17:57:28.556094Z', amtInTargetCurrency: 14236.45, targetCurrency: 'USD', amtInLocalCurrency: 13249, localCurrency: 'EUR', status: 'Open' },
-  {businessPartner: 'Rewe Zentralfinanz eG', paymentDate: '2017-10-16T17:57:28.556094Z', adviceDate: '2017-10-16T17:57:28.556094Z', amtInTargetCurrency: 14236.45, targetCurrency: 'USD', amtInLocalCurrency: 13249, localCurrency: 'EUR', status: 'Open' },
-  {businessPartner: 'Rewe Zentralfinanz eG', paymentDate: '2017-10-16T17:57:28.556094Z', adviceDate: '2017-10-16T17:57:28.556094Z', amtInTargetCurrency: 14236.45, targetCurrency: 'USD', amtInLocalCurrency: 13249, localCurrency: 'EUR', status: 'Open' },
-  {businessPartner: 'Rewe Zentralfinanz eG', paymentDate: '2017-10-16T17:57:28.556094Z', adviceDate: '2017-10-16T17:57:28.556094Z', amtInTargetCurrency: 14236.45, targetCurrency: 'USD', amtInLocalCurrency: 13249, localCurrency: 'EUR', status: 'Open' },
-  {businessPartner: 'Rewe Zentralfinanz eG', paymentDate: '2017-10-16T17:57:28.556094Z', adviceDate: '2017-10-16T17:57:28.556094Z', amtInTargetCurrency: 14236.45, targetCurrency: 'USD', amtInLocalCurrency: 13249, localCurrency: 'EUR', status: 'Open' },
+  {paymentId: '123-456-789Z', businessPartner: 'Rewe Zentralfinanz eG', paymentDate: '2017-10-16T17:57:28.556094Z', adviceDate: '2017-10-16T17:57:28.556094Z', amtInTargetCurrency: 14236.45, targetCurrency: 'USD', amtInLocalCurrency: 13249, localCurrency: 'EUR', status: 'Open' },
+  {paymentId: '123-456-789Z', businessPartner: 'Rewe Zentralfinanz eG', paymentDate: '2017-10-16T17:57:28.556094Z', adviceDate: '2017-10-16T17:57:28.556094Z', amtInTargetCurrency: 14236.45, targetCurrency: 'USD', amtInLocalCurrency: 13249, localCurrency: 'EUR', status: 'Open' },
+  {paymentId: '123-456-789Z', businessPartner: 'Rewe Zentralfinanz eG', paymentDate: '2017-10-16T17:57:28.556094Z', adviceDate: '2017-10-16T17:57:28.556094Z', amtInTargetCurrency: 14236.45, targetCurrency: 'USD', amtInLocalCurrency: 13249, localCurrency: 'EUR', status: 'Open' },
+  {paymentId: '123-456-789Z', businessPartner: 'Rewe Zentralfinanz eG', paymentDate: '2017-10-16T17:57:28.556094Z', adviceDate: '2017-10-16T17:57:28.556094Z', amtInTargetCurrency: 14236.45, targetCurrency: 'USD', amtInLocalCurrency: 13249, localCurrency: 'EUR', status: 'Open' },
+  {paymentId: '123-456-789Z', businessPartner: 'Rewe Zentralfinanz eG', paymentDate: '2017-10-16T17:57:28.556094Z', adviceDate: '2017-10-16T17:57:28.556094Z', amtInTargetCurrency: 14236.45, targetCurrency: 'USD', amtInLocalCurrency: 13249, localCurrency: 'EUR', status: 'Open' },
 ];

@@ -1,3 +1,26 @@
-<p>
-  fx-payments-modal works!
-</p>
+<h2 mat-dialog-title>Payment Instruction #{{data.paymentId}}</h2>
+
+
+<mat-dialog-content layout-xs="column">
+  <div class="fx-payment-div">
+    <div class="fx-payment-grid-tile-left">
+      <h3> Transaction Details </h3>
+      <p>You Send: {{data.amtInTargetCurrency}}{{data.targetCurrency}}</p>
+      <p>Recepient Gets: {{data.amtInLocalCurrency}}{{data.localCurrency}}</p>
+      <p>Exchange Rate: 1.34 {{data.targetCurrency}}/{{data.localCurrency}}</p>
+      <p>Payment Date: {{data.paymentDate | date}}</p>
+      <p>Instruction Date: {{data.adviceDate | date}}</p>
+    </div>
+    <div class="fx-payment-grid-tile-right">
+      <h3> Recepient Details </h3>
+      <p>Name: {{data.businessPartner}}</p>
+      <p>IBAN: 123456789</p>
+      <p>BIC: NOLADE12345</p>
+    </div>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions class="fx-payment-buttons">
+  <i class="material-icons">print</i>
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

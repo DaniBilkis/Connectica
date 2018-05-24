@@ -1,0 +1,42 @@
+.fx-payment-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  height: 100%;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.fx-payment-grid-tile-left {
+  flex: 1;
+  padding-right: 12px;
+}
+
+.fx-payment-grid-tile-left p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fx-payment-grid-tile-right {
+  flex: 1;
+  padding-left: 12px;
+}
+
+.fx-payment-grid-tile-right p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fx-payment-buttons {
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.fx-payment-buttons i {
+  margin-right: 12px;
+  cursor: pointer;
+}

@@ -84,6 +84,9 @@ import { FxPaymentsModalComponent } from './fx-payments-modal/fx-payments-modal.
     fakeBackendProvider
   ],
   bootstrap: [AppComponent],
-  entryComponents: [InvoiceSummaryComponent]
+  entryComponents: [
+    InvoiceSummaryComponent,
+    FxPaymentsModalComponent
+  ]
 })
 export class AppModule { }
