@@ -1,4 +1,10 @@
-<div class="example-container mat-elevation-z8">
+<mat-toolbar>
+  <span>Invoices</span>
+
+  <span class="fill-remaining-space"></span>
+
+</mat-toolbar>
+<div class="container mat-elevation-z8">
   <mat-table #table [dataSource]="dataSource">
 
     <!--- Note that these columns can be defined in any order.
@@ -25,7 +31,7 @@
     <!-- Symbol Column -->
     <ng-container matColumnDef="status">
       <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
-      <mat-cell *matCellDef="let element"> <button mat-raised-button color="warn" [disabled]="!element.active" (click)="buttonClick(element)">{{element.status}}</button></mat-cell>
+      <mat-cell *matCellDef="let element"> <button mat-button color="warn" [disabled]="!element.active" (click)="buttonClick(element)">{{element.status}}</button></mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

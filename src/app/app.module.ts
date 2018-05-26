@@ -34,7 +34,8 @@ import { fakeBackendProvider }                            from './_helpers/fake-
 
 import { ShowAuthedDirective }                            from './_shared/show-authed.directive';
 import { FxPaymentsComponent } from './fx-payments/fx-payments.component';
-import { FxPaymentsModalComponent } from './fx-payments-modal/fx-payments-modal.component';
+import { FxViewPaymentsModalComponent } from './fx-view-payments-modal/fx-view-payments-modal.component';
+import { FxMakePaymentsModalComponent } from './fx-make-payments-modal/fx-make-payments-modal.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { FxPaymentsModalComponent } from './fx-payments-modal/fx-payments-modal.
     AlertsComponent,
     ShowAuthedDirective,
     FxPaymentsComponent,
-    FxPaymentsModalComponent
+    FxViewPaymentsModalComponent,
+    FxMakePaymentsModalComponent
   ],
   imports: [
     BrowserModule,
@@ -86,7 +88,8 @@ import { FxPaymentsModalComponent } from './fx-payments-modal/fx-payments-modal.
   bootstrap: [AppComponent],
   entryComponents: [
     InvoiceSummaryComponent,
-    FxPaymentsModalComponent
+    FxViewPaymentsModalComponent,
+    FxMakePaymentsModalComponent
   ]
 })
 export class AppModule { }

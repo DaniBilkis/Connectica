@@ -1,4 +1,14 @@
-<div class="example-container mat-elevation-z8">
+<mat-toolbar>
+  <span>Manage Cross Border Payments</span>
+
+  <span class="fill-remaining-space"></span>
+
+</mat-toolbar>
+<div class="fx-payment-button-div">
+  <button mat-raised-button color="warn" (click)="newPayment()"> New Payment</button>
+</div>
+<div class="container mat-elevation-z8">
+
   <mat-table #table [dataSource]="dataSource">
 
     <!--- Note that these columns can be defined in any order.
@@ -6,43 +16,45 @@
 
     <!-- Position Column -->
     <ng-container matColumnDef="businessPartner">
-      <mat-header-cell *matHeaderCellDef> Business Partner </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.businessPartner}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef> Business Partner</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.businessPartner}}</mat-cell>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="paymentDate">
-      <mat-header-cell *matHeaderCellDef> Payment Date </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.paymentDate | date}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef> Payment Date</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.paymentDate | date}}</mat-cell>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="adviceDate">
-      <mat-header-cell *matHeaderCellDef> Advice Date </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.adviceDate | date}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef> Advice Date</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.adviceDate | date}}</mat-cell>
     </ng-container>
 
     <!-- Target Currency -->
     <ng-container matColumnDef="targetCurrency">
-      <mat-header-cell *matHeaderCellDef> Amt. in Target Currency </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.amtInTargetCurrency | currency: element.targetCurrency}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef> Amt. in Target Currency</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.amtInTargetCurrency | currency: element.targetCurrency}}</mat-cell>
     </ng-container>
 
     <!-- Local Currency -->
     <ng-container matColumnDef="localCurrency">
-      <mat-header-cell *matHeaderCellDef> Amt. in Local Currency </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.amtInLocalCurrency | currency: element.localCurrency}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef> Amt. in Local Currency</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.amtInLocalCurrency | currency: element.localCurrency}}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="status">
-      <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef> Status</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.status}}</mat-cell>
     </ng-container>
 
     <!-- Symbol Column -->
     <ng-container matColumnDef="action">
-      <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
-      <mat-cell *matCellDef="let element"> <button mat-button color="warn" (click)="buttonClick(element)"> View </button></mat-cell>
+      <mat-header-cell *matHeaderCellDef> Action</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-button color="warn" (click)="buttonClick(element)"> View</button>
+      </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

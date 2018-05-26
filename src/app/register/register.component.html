@@ -7,7 +7,7 @@
 
   </mat-toolbar>
   <app-alerts></app-alerts>
-  <div fxLayout="column" fxLayoutAlign="space-around center">
+  <div fxLayout="column" fxLayoutAlign="space-around center" *ngIf="registrationForm">
     <form class="input-form" fxLayout="column" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
       <mat-form-field>
         <input matInput placeholder="First Name" [formControl]="registrationForm.controls.firstNameFormControl"
