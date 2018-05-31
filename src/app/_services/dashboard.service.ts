@@ -8,6 +8,8 @@ export class DashboardCardsService {
   constructor() {
   }
 
+  private cardsAreSet = false;
+
   private _cards: BehaviorSubject<DashboardCard[]> = new BehaviorSubject<DashboardCard[]>([]);
 
   addCard(card: DashboardCard): void {
@@ -16,5 +18,13 @@ export class DashboardCardsService {
 
   get cards(): BehaviorSubject<DashboardCard[]> {
     return this._cards;
+  }
+
+  setCards(): void {
+    this.cardsAreSet = true;
+  }
+
+  getCardsAreSet(): boolean {
+    return this.cardsAreSet;
   }
 }

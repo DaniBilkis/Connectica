@@ -1,4 +1,4 @@
-import { Component, OnInit }             from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Observable }                    from 'rxjs/Observable';
 import { ObservableMedia }               from '@angular/flex-layout';
 import 'rxjs/add/operator/map';
@@ -33,9 +33,11 @@ export class DashboardComponent implements OnInit {
 
   constructor(private cardsService: DashboardCardsService,
               private observableMedia: ObservableMedia) {
+
     this.cardsService.cards.subscribe(cards => {
       this.cards = cards;
     });
+
   }
 
   /*
@@ -111,7 +113,12 @@ export class DashboardComponent implements OnInit {
       .map(change => {
         return cols_map_sml.get(change.mqAlias);
       }).startWith(start_cols_sml);
-    this.createCards();
+
+    if( !this.cardsService.getCardsAreSet() ) {
+      this.createCards();
+      this.cardsService.setCards();
+    }
+
   }
 
 
