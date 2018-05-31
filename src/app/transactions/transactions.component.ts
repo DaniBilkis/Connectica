@@ -1,7 +1,6 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import { DomSanitizer }      from '@angular/platform-browser';
-import { MatIconRegistry }   from '@angular/material';
-import {MediaMatcher} from '@angular/cdk/layout';
+import { Component, OnInit } from '@angular/core';
+import { TransactionDetails } from '../_shared/transaction-details';
+import {TransactionDetailsNotes} from '../_shared/transaction-details-notes';
 
 @Component({
   selector: 'app-transactions',
@@ -15,105 +14,106 @@ export class TransactionsComponent implements OnInit {
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
 
-  apps = [
+  selectedItem: TransactionDetails;
+
+  transactions: TransactionDetails = [
     {
-      link : '',
-      title: 'Workload',
-      desc: 'App description goes here',
-      icon: 'action:ic_donut_large_24px',
-      date: '2012-10-16T17:57:28.556094Z',
-      status: 'Complete'
+      typeOfOrder: 'Purchase Order',
+      orderNumber: '00776167',
+      documentNumber: '123DXS',
+      documentSender: 'BAHAG Webedi',
+      date: '2017-10-16T17:57:28.556094Z',
+      deliveryStatus: 'Confirmed',
+      supplier: {
+        supplierId: '111776',
+        supplierName: 'Wolff Winhouse',
+        supplierAddress: 'Guetenbergstrasse 21',
+        supplierSomeNumber: '129992123456'
+      },
+      buyer: {
+        buyerId: '123456ZP',
+        buyerName: 'BAHAG AG',
+        buyerAddress: 'Guetenbergstrasse 21',
+        buyerVAT: 'DE123456778890',
+        buyerSomeNumber: '402456345345345'
+      },
+      shipTo: {
+        name: '',
+        street: '3990 Vitruvian way',
+        city: 'Addison',
+        zip: '75001',
+        country: 'USA',
+        phone: '2145782643',
+        email: 'dani.bilkis@gmail.com'
+      },
+      ultimateCustomer: {
+        name: 'Some Name',
+        street: '3990 Vitruvian way',
+        city: 'Addison',
+        zip: '75001',
+        country: 'USA',
+        phone: '2145782643',
+        email: 'dani.bilkis@gmail.com'
+      },
+      deliveryInfo: {
+        earliestDate: '2018-05-31T17:57:28.556094Z',
+        latestDate: '2018-06-29T17:57:28.556094Z',
+        requestedDate: '2018-06-15T17:57:28.556094Z'
+      },
+      paymentConditions: {
+        paymentDueDate: '2018-06-15T17:57:28.556094Z'
+      }
     },
     {
-      link : '',
-      title: 'Memberships',
-      desc: 'App description goes here',
-      icon: 'action:ic_card_membership_24px',
-      date: '2012-10-16T17:57:28.556094Z',
-      status: 'Complete'
-    },
-    {
-      link : '',
-      title: 'Transactions',
-      desc: 'App description goes here',
-      icon: 'action:ic_shopping_cart_24px',
-      date: '2012-10-16T17:57:28.556094Z',
-      status: 'Pending'
-    },
-    {
-      link : '',
-      title: 'Categories',
-      desc: 'App description goes here',
-      icon: 'device:ic_storage_24px',
-      date: '2012-10-16T17:57:28.556094Z',
-      status: 'Pending'
-    },
-    {
-      link : '',
-      title: 'Geographics',
-      desc: 'App description goes here',
-      icon: 'maps:ic_place_24px',
-      date: '2012-10-16T17:57:28.556094Z',
-      status: 'Pending'
-    },
-    {
-      link : '',
-      title: 'Business',
-      desc: 'App description goes here',
-      icon: 'action:ic_store_24px',
-      date: '2012-10-16T17:57:28.556094Z',
-      status: 'Pending'
-    },
-    {
-      link : '',
-      title: 'Financials',
-      desc: 'App description goes here',
-      icon: 'editor:ic_attach_money_24px',
-      date: '2012-10-16T17:57:28.556094Z',
-      status: 'Pending'
-    },
-    {
-      link : '',
-      title: 'VP Dashboard',
-      desc: 'App description goes here',
-      icon: 'action:ic_dashboard_24px',
-      date: '2012-10-16T17:57:28.556094Z',
-      status: 'Pending'
-    },
-    {
-      link : '',
-      title: 'Inventory',
-      desc: 'App description goes here',
-      icon: 'editor:ic_format_list_numbered_24px',
-      date: '2012-10-16T17:57:28.556094Z',
-      status: 'Pending'
-    },
-    {
-      link : '',
-      title: 'Employees',
-      desc: 'App description goes here',
-      icon: 'action:ic_perm_identity_24px',
-      date: '2012-10-16T17:57:28.556094Z',
-      status: 'Pending'
+      typeOfOrder: 'Consigment Order',
+      orderNumber: '00776167',
+      documentNumber: '123DXS',
+      documentSender: 'BAHAG Webedi',
+      date: '2017-10-16T17:57:28.556094Z',
+      deliveryStatus: 'Confirmed',
+      supplier: {
+        supplierId: '111776',
+        supplierName: 'Wolff Winhouse',
+        supplierAddress: 'Guetenbergstrasse 21',
+        supplierSomeNumber: '129992123456'
+      },
+      buyer: {
+        buyerId: '123456ZP',
+        buyerName: 'BAHAG AG',
+        buyerAddress: 'Guetenbergstrasse 21',
+        buyerVAT: 'DE123456778890',
+        buyerSomeNumber: '402456345345345'
+      },
+      shipTo: {
+        name: 'Vasily',
+        street: '3990 Vitruvian way',
+        city: 'Addison',
+        zip: '75001',
+        country: 'USA',
+        phone: '2145782643',
+        email: 'dani.bilkis@gmail.com'
+      },
+      ultimateCustomer: {
+        name: 'Some Name',
+        street: '3990 Vitruvian way',
+        city: 'Addison',
+        zip: '75001',
+        country: 'USA',
+        phone: '2145782643',
+        email: 'dani.bilkis@gmail.com'
+      },
+      deliveryInfo: {
+        earliestDate: '2018-05-31T17:57:28.556094Z',
+        latestDate: '2018-06-29T17:57:28.556094Z',
+        requestedDate: '2018-06-15T17:57:28.556094Z'
+      },
+      paymentConditions: {
+        paymentDueDate: '2018-06-15T17:57:28.556094Z'
+      }
     }
   ];
 
-  constructor( changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry ) {
-    this.mobileQuery = media.matchMedia('(max-width: 400px)');
-    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addListener(this._mobileQueryListener);
-
-    iconRegistry.addSvgIcon(
-      'search_icon',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/images/ic_search_black_24px.svg'));
-
-    iconRegistry.addSvgIcon(
-      'back_icon',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/images/ic_arrow_back_black_24px.svg'));
-
-    iconRegistry.addSvgIcon(
-      'menu_icon',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/images/ic_menu_black_24px.svg'));
+  constructor() {
   }
 
   ngOnInit() {
@@ -121,12 +121,14 @@ export class TransactionsComponent implements OnInit {
 
   toggleSearch(): void {
     this.showSearch = !this.showSearch;
-  };
+  }
 
-  onKeyUp( searchTerm ) {
-    console.log('Transaction Component. Trying to search for ' + searchTerm );
-    // this._router.navigate([ 'search' ]);
-    // this.sharedService.searchFor( searchTerm );
+  clickedItem(item: TransactionDetails): void {
+    console.log('Transaction Component. Clicked on ' + JSON.stringify(item));
+
+    this.selectedItem = item;
+// this._router.navigate([ 'search' ]);
+// this.sharedService.searchFor( searchTerm );
   }
 
 }

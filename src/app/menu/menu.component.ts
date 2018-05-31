@@ -31,7 +31,7 @@ export class MenuComponent implements OnInit {
       icon: 'dashboard' // we have to use Google's naming convention for the IDs of the SVGs in the spritesheet
     },
     {
-      link : '',
+      link : '/messages',
       title: 'Messages',
       icon: 'message'
     },

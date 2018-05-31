@@ -1,0 +1,28 @@
+<mat-card class="dashboard-card">
+  <mat-card-header>
+    <mat-card-title>
+      <a mat-button color="warn" routerLink="{{routerLink}}">{{name}}</a>
+      <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <mat-menu #menu="matMenu" xPosition="before">
+        <button mat-menu-item>Expand</button>
+        <button mat-menu-item>Remove</button>
+      </mat-menu>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="line-div">
+      <div><p>Number:</p></div>
+      <div>{{numberOfSentInvoices}}</div>
+    </div>
+    <div class="line-div">
+      <div>
+        <p>Total Amount:</p>
+      </div>
+      <div>
+        {{totalAmount | currency: currency}}
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

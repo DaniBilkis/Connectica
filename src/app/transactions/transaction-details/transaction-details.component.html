@@ -1,0 +1,84 @@
+<div *ngIf="transactionDetails" class="transaction_details_container">
+  <mat-toolbar>
+    <div>
+      <h3>{{transactionDetails.typeOfOrder}}</h3>
+    </div>
+  </mat-toolbar>
+  <div class="transaction_details_content">
+    <div class="transaction_details_left_pane">
+      <div><h3>Supplier ({{transactionDetails.supplier.supplierId}})</h3></div>
+      <div class="transaction_details_sections">
+        <div>
+          <p>{{transactionDetails.supplier.supplierName}}</p>
+          <p>{{transactionDetails.supplier.supplierAddress}}</p>
+        </div>
+        <div>
+          <p>GLN {{transactionDetails.supplier.supplierSomeNumber}}</p>
+        </div>
+      </div>
+      <div><h3>Buyer</h3></div>
+      <div class="transaction_details_sections">
+        <div>
+          <p>{{transactionDetails.buyer.buyerName}}</p>
+          <p>{{transactionDetails.buyer.buyerAddress}}</p>
+        </div>
+        <div>
+          <p>VAT {{transactionDetails.buyer.buyerVAT}}</p>
+          <p>GLN {{transactionDetails.buyer.buyerSomeNumber}}</p>
+        </div>
+      </div>
+      <div><h3>Ship To</h3></div>
+      <div class="transaction_details_sections">
+        <div>
+          <p>{{transactionDetails.shipTo.name}}</p>
+          <p>{{transactionDetails.shipTo.street}}</p>
+          <p>{{transactionDetails.shipTo.city}}</p>
+          <p>{{transactionDetails.shipTo.country}}</p>
+          <p>{{transactionDetails.shipTo.zip}}</p>
+        </div>
+        <div>
+          <p>phone: {{transactionDetails.shipTo.phone}}</p>
+          <p>email: {{transactionDetails.shipTo.email}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="transaction_details_right_pane">
+      <div ><h3>General</h3></div>
+      <div>
+        <p>Order Date: {{transactionDetails.date | date}}</p>
+        <p>Order-Nr. Customer: {{transactionDetails.orderNumber}}</p>
+      </div>
+      <div ><h3>Delivery Info</h3></div>
+      <div>
+        <p>Earliest Delivery Date: {{transactionDetails.deliveryInfo.earliestDate | date}}</p>
+        <p>Latest Delivery Date: {{transactionDetails.deliveryInfo.latestDate | date}}</p>
+        <p>Requested Delivery Date: {{transactionDetails.deliveryInfo.requestedDate | date}}</p>
+      </div>
+      <div ><h3>Payment Conditions</h3></div>
+      <div>
+        <p>Payment due at: {{transactionDetails.date | date}}</p>
+      </div>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="transaction_details_footer">
+    <div><i class="material-icons">print</i></div>
+    <div>
+      <p>Delivery Status</p>
+      <p>{{transactionDetails.deliveryStatus}}</p>
+    </div>
+    <div>
+      <button mat-raised-button>Update</button>
+    </div>
+    <div>
+      <p>Info</p>
+      <i class="material-icons">local_shipping</i>
+    </div>
+    <div>
+      <button mat-raised-button color="warn">Delivery Note</button>
+    </div>
+    <div>
+      <button mat-raised-button color="primary">Invoice</button>
+    </div>
+  </div>
+</div>

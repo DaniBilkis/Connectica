@@ -1,8 +1,8 @@
 import { Component, OnInit }          from '@angular/core';
 import { Router }                     from '@angular/router';
 import { MatDialog }                  from '@angular/material';
-import { FxViewPaymentsModalComponent }   from '../fx-view-payments-modal/fx-view-payments-modal.component';
-import { FxMakePaymentsModalComponent } from '../fx-make-payments-modal/fx-make-payments-modal.component';
+import { FxViewPaymentsModalComponent }   from './fx-view-payments-modal/fx-view-payments-modal.component';
+import { FxMakePaymentsModalComponent } from './fx-make-payments-modal/fx-make-payments-modal.component';
 import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 

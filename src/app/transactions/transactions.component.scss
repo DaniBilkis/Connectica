@@ -1,3 +1,85 @@
+.transactions_container {
+  display: flex;
+}
+
+.transactions_list_container {
+  flex: 1;
+  margin-left: 15px;
+}
+
+.transactions_list_details_container {
+  flex: 3;
+  margin: 8px 15px 15px 15px;
+}
+
+.transactions_nav_list {
+  flex-grow: 1;
+  overflow: auto;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.transactions_nav_list_toolbar {
+
+}
+
+.transactions_list_toolbar {
+  display: flex;
+  flex: 1;
+  padding: 15px;
+  height: auto;
+  max-height: 150px;
+  align-items: center;
+  flex-direction: row;
+}
+
+.transactions_list_toolbar_search_buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.transactions_list_toolbar_fill_remaining_space {
+  flex: 1 1 auto;
+}
+
+::ng-deep .mat-list .mat-list-item .mat-list-item-content, .mat-nav-list .mat-list-item .mat-list-item-content {
+  width: 100% !important;
+  padding: 0 8px;
+}
+
+.transactions_list_item {
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  font-size: 14px;
+  font-weight: 300;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+
+.transaction_list_item_div {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.transactions_list_item_description {
+  flex: 3;
+}
+
+.transactions_list_item_date {
+  flex: 1;
+}
+
+.transactions_list_item_date > p {
+  justify-content: center;
+}
+
+
 // Colors
 $gray: #eee;
 
@@ -13,202 +95,5 @@ mat-content.mat-default-theme {
   background-color: $gray;
 }
 
-.mat-toolbar-tools {
 
-}
 
-.flex-container {
-  /* We first create a flex layout context */
-  display: flex;
-
-  /* Then we define the flow direction
-     and if we allow the items to wrap
-   * Remember this is the same as:
-   * flex-direction: row;
-   * flex-wrap: wrap;
-   */
-  flex-flow: row wrap;
-
-  /* Then we define how is distributed the remaining space */
-  justify-content: space-around;
-}
-
-.flex-item {
-  background: white;
-  //padding: 5px;
-  //width: 400px;
-  height: 100px;
-  margin-top: 0px;
-
-  //padding: 0 16px;
-  line-height: 36px;
-  min-height: 36px;
-  font: 400 14px system-ui;
-  //font-size: 14px;
-  font-weight: 500;
-  letter-spacing: .01em;
-  line-height: 24px;
-
- // line-height: 150px;
-  color: rgba(0,0,0,.87);
- // font-weight: bold;
- // font-size: 3em;
- // text-align: center;
-}
-
-.flex-item p {
-  color: rgba(0,0,0,0.54);
-  margin: 0;
-  line-height: 1.6em;
-  flex-grow: 4;
-
-}
-.connectica_list {
-  flex-grow: 1;
-}
-
-.connectica_list_details {
-  flex-grow: 1;
-}
-
-.connectica-list-container{
-  -webkit-flex-grow: 0; /* Safari 6.1+ */
-  -webkit-flex-shrink: 0; /* Safari 6.1+ */
-  -webkit-flex-basis: 25%; /* Safari 6.1+ */
-  flex-grow: 1;
-  flex-shrink: 0;
-  flex-basis: 25% !important;
-}
-
-.connectica-list-detail-container{
-  -webkit-flex-basis: 75px; /* Safari 6.1+ */
-    flex-basis: 75% !important;
-}
-
-.connectica_check_box {
-  width: 24px;
-  margin-top: 16px;
-  margin-bottom: 12px;
-  box-sizing: content-box;
-  margin-right: 32px;
-  flex-grow: 1;
-}
-
-.connectica_tool_bar {
-  padding: 15px;
-  height: auto;
-  max-height: 150px;
-  flex-grow: 1;
-}
-
-.connectica_date_div {
-  justify-content: flex-end;
-  flex-grow: 2;
-}
-.connectica_date {
-  font: 400 11px system-ui;
-}
-
-// Navigation drawer pattern: https://www.google.com/design/spec/patterns/navigation-drawer.html#navigation-drawer-specs
-mat-sidenav {
-  &.mat-sidenav-list {
-    z-index: 1;
-    @media (max-width: 620px) {
-      max-width: 100%;
-      width: 100%;
-    }
-    & mat-list {
-      border-right: 1px solid darken($gray, 10%);
-    }
-  }
-  & > mat-toolbar.mat-tall {
-    padding: 15px;
-    height: auto;
-    max-height: 150px;
-  }
-  & mat-divider {
-    margin-top: 4px;
-    margin-bottom: 4px;
-  }
-  &.mat-sidenav-list {
-    mat-list-item.mat-2-line .mat-list-item-text,
-    mat-list-item.mat-2-line>.mat-no-style .mat-list-item-text {
-      margin-bottom: 10px;
-    }
-  }
-  &.mat-navigation-drawer {
-
-    mat-list-item.mat-2-line .mat-list-item-text,
-    mat-list-item.mat-2-line>.mat-no-style .mat-list-item-text {
-      padding-top: 6px;
-      padding-bottom: 6px;
-    }
-    &, &.mat-locked-open {
-      width: 256px;
-      min-width: 256px;
-      max-width: 256px;
-    }
-  }
-}
-mat-backdrop + mat-sidenav {
-  &.mat-sidenav-list {
-    z-index: 3;
-  }
-}
-// White svg icons in toolbar and fab
-
-mat-sidenav:not(.mat-sidenav-list) {
-  mat-icon {
-    fill: #737373;
-    position: relative;
-  }
-  .mat-avatar {
-    height: 64px;
-    width: 64px;
-  }
-}
-
-/* More closely matches https://www.google.com/design/spec/components/lists.html#lists-specs */
-mat-list-item.mat-3-line {
-  mat-divider {
-    &[mat-inset] {
-      left: 70px;
-    }
-  }
-}
-
-// Round avatar
-.mat-avatar {
-  & > svg {
-    border-radius: 50%;
-  }
-}
-
-/* Hide backdrop for internal sidenav */
-mat-content mat-backdrop {
-  display: none;
-}
-
-/* Shrink inputs */
-.edit-app {
-  mat-input-container {
-    padding-bottom: 0;
-    line-height: 30px;
-    font-size: 14px;
-    &:first-of-type {
-      margin-top: -16px;
-    }
-  }
-}
-
-/* fade animation */
-.animate-show {
-  transition: 0.75s ease-out all;
-  opacity: 1;
-  &.ng-hide {
-    height: 0;
-    min-height: 0;
-    opacity: 0;
-    overflow: hidden;
-  }
-}

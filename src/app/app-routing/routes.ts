@@ -19,7 +19,8 @@ import { OpenContractsComponent }                from '../open-contracts/open-co
 
 export const routes: Routes = [
   { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: 'dashboard', component: TransactionTreeComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'messages', component: TransactionTreeComponent, canActivate: [AuthGuard] },
   { path: 'manageContracts', component: ManageContractsComponent, canActivate: [AuthGuard] },
   { path: 'invoices', component: InvoicesComponent, canActivate: [AuthGuard] },
   { path: 'transactions', component: TransactionsComponent, canActivate: [AuthGuard] },

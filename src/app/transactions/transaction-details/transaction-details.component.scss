@@ -1,0 +1,32 @@
+.transaction_details_content {
+  display: flex;
+  font-size: 14px;
+  font-weight: 300;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+
+.transaction_details_left_pane {
+  flex: 2;
+}
+
+.transaction_details_right_pane {
+  flex: 1;
+}
+
+.transaction_details_sections {
+  display: flex;
+}
+
+.transaction_details_sections > div {
+  flex: 1;
+}
+
+.transaction_details_footer {
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+  font-weight: 300;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  justify-content: space-between;
+  align-items: center;
+}

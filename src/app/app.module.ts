@@ -8,7 +8,7 @@ import { ReactiveFormsModule }                            from '@angular/forms';
 
 import { MaterialModule }                                 from './material.module';
 import { AppRoutingModule }                               from './app-routing/app-routing.module';
-import { UICarouselModule  } from 'ui-carousel';
+import { UICarouselModule  }                              from 'ui-carousel';
 
 
 import { AppComponent }                                   from './app.component';
@@ -18,8 +18,8 @@ import { InvoicesComponent }                              from './invoices/invoi
 import { InvoiceSummaryComponent }                        from './invoice-summary/invoice-summary.component';
 import { ManageContractsComponent }                       from './manage-contracts/manage-contracts.component';
 import { TransactionTreeComponent }                       from './transaction-tree/transaction-tree.component';
-import { TransactionDetailsComponent } 					  from './transaction-details/transaction-details.component';
-import { OpenContractsComponent } from './open-contracts/open-contracts.component';
+import { TransactionDetailsComponent } 					          from './transactions/transaction-details/transaction-details.component';
+import { OpenContractsComponent }                         from './open-contracts/open-contracts.component';
 import { AuthGuard }                                      from './_guards/auth.guard';
 import { JwtInterceptor }                                 from './_helpers/jwt.interceptor';
 import { AlertService, AuthenticationService, UserService } from './_services/index';
@@ -33,9 +33,17 @@ import { D3Service }                                      from 'd3-ng2-service';
 import { fakeBackendProvider }                            from './_helpers/fake-backend';
 
 import { ShowAuthedDirective }                            from './_shared/show-authed.directive';
-import { FxPaymentsComponent } from './fx-payments/fx-payments.component';
-import { FxViewPaymentsModalComponent } from './fx-view-payments-modal/fx-view-payments-modal.component';
-import { FxMakePaymentsModalComponent } from './fx-make-payments-modal/fx-make-payments-modal.component';
+import { FxPaymentsComponent }                            from './fx-payments/fx-payments.component';
+import { FxViewPaymentsModalComponent }                   from './fx-payments/fx-view-payments-modal/fx-view-payments-modal.component';
+import { FxMakePaymentsModalComponent }                   from './fx-payments/fx-make-payments-modal/fx-make-payments-modal.component';
+
+import { DashboardCardsSpawnerComponent }                 from './dashboard/dashboard-cards-spawner/dashboard-cards-spawner.component';
+import { DashboardUsersComponent }                        from './dashboard/dashboard-users/dashboard-users.component';
+import { DashboardCardsService }                          from './_services/dashboard.service';
+import { DashboardInvoicesReceivedComponent } from './dashboard/dashboard-invoices-received/dashboard-invoices-received.component';
+import { DashboardInvoicesSentComponent } from './dashboard/dashboard-invoices-sent/dashboard-invoices-sent.component';
+import { DashboardOrdersReceivedComponent } from './dashboard/dashboard-orders-received/dashboard-orders-received.component';
+import { DashboardDeliveryNotesSentComponent } from './dashboard/dashboard-delivery-notes-sent/dashboard-delivery-notes-sent.component';
 
 @NgModule({
   declarations: [
@@ -50,12 +58,19 @@ import { FxMakePaymentsModalComponent } from './fx-make-payments-modal/fx-make-p
     OpenContractsComponent,
     LoginComponent,
     RegisterComponent,
-    DashboardComponent,
+    // DashboardComponent,
     AlertsComponent,
     ShowAuthedDirective,
     FxPaymentsComponent,
     FxViewPaymentsModalComponent,
-    FxMakePaymentsModalComponent
+    FxMakePaymentsModalComponent,
+    DashboardComponent,
+    DashboardCardsSpawnerComponent,
+    DashboardUsersComponent,
+    DashboardInvoicesReceivedComponent,
+    DashboardInvoicesSentComponent,
+    DashboardOrdersReceivedComponent,
+    DashboardDeliveryNotesSentComponent
   ],
   imports: [
     BrowserModule,
@@ -83,9 +98,10 @@ import { FxMakePaymentsModalComponent } from './fx-make-payments-modal/fx-make-p
     },
 
     // provider used to create fake backend
-    fakeBackendProvider
+    fakeBackendProvider,
+    DashboardCardsService
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [ AppComponent ],
   entryComponents: [
     InvoiceSummaryComponent,
     FxViewPaymentsModalComponent,

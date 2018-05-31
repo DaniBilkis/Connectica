@@ -1,0 +1,33 @@
+<!--
+<mat-card class="mat-elevation-z15 dashboard-card">
+  <mat-card-header>
+    <mat-card-title>{{name}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p> content </p>
+  </mat-card-content>
+  <mat-card-footer>
+    <mat-card-actions>
+      <button mat-raised-button color="primary">button1</button>
+      <button mat-raised-button color="primary">button2</button>
+    </mat-card-actions>
+  </mat-card-footer>
+</mat-card>
+-->
+<mat-card class="dashboard-card">
+  <mat-card-header>
+    <mat-card-title>
+      {{name}}
+      <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <mat-menu #menu="matMenu" xPosition="before">
+        <button mat-menu-item>Expand</button>
+        <button mat-menu-item>Remove</button>
+      </mat-menu>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="dashboard-card-content">
+    <p>some content</p>
+  </mat-card-content>
+</mat-card>
