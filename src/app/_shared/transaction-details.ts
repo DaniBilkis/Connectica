@@ -1,4 +1,11 @@
 import { TransactionDetailsNotes } from './transaction-details-notes';
+import {TransactionDetailsSupplier} from './transaction-details-supplier';
+import {TransactionDetailsBuyer} from './transaction-details-buyer';
+import {TransactionDetailsShipTo} from './transaction-details-shipTo';
+import {TransactionDetailsUltimateCustomer} from './transaction-details-ultimateCustomer';
+import {TransactionDetailsDeliveryInfo} from './transaction-details-deliveryInfo';
+import {TransactionDetailsArticles} from './transaction-details-articles';
+import {TransactionDetailsPaymentConditions} from './transaction-details-paymentConditions';
 
 export class TransactionDetails {
   typeOfOrder: string;
@@ -7,53 +14,12 @@ export class TransactionDetails {
   documentSender: string;
   date: string;
   deliveryStatus: string;
-  supplier: {
-    supplierId: string;
-    supplierName: string;
-    supplierAddress: string;
-    supplierSomeNumber: string;
-  };
-  buyer: {
-    buyerId: string;
-    buyerName: string;
-    buyerAddress: string;
-    buyerVAT: string;
-    buyerSomeNumber: string;
-  };
-  shipTo: {
-    name: string;
-    street: string;
-    city: string;
-    zip: string;
-    country: string;
-    phone: string;
-    email: string;
-  };
-  ultimateCustomer: {
-    name: string;
-    street: string;
-    city: string;
-    zip: string;
-    country: string;
-    phone: string;
-    email: string;
-  };
-  deliveryInfo: {
-    earliestDate: string;
-    latestDate: string;
-    requestedDate: string;
-  };
-  paymentConditions: {
-    paymentDueDate: string;
-  };
+  supplier: TransactionDetailsSupplier;
+  buyer: TransactionDetailsBuyer;
+  shipTo: TransactionDetailsShipTo;
+  ultimateCustomer: TransactionDetailsUltimateCustomer;
+  deliveryInfo: TransactionDetailsDeliveryInfo;
+  paymentConditions: TransactionDetailsPaymentConditions;
   notes?: TransactionDetailsNotes[];
-  articles?: {
-    pos: number;
-    articleNumber: string;
-    description: string;
-    quantity: number;
-    quantityUnit: string;
-    pricePerUnit: number;
-    currency: string;
-  };
+  articles?: TransactionDetailsArticles;
 }
