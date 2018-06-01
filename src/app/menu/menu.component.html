@@ -26,7 +26,7 @@
   </mat-toolbar>
 
   <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav [appShowAuth]="true" #snav mode="side" opened="navToggle" [fixedInViewport]="fixed" [fixedTopGap]="fixedTop" [fixedBottomGap]="fixedBottom">
+    <mat-sidenav [appShowAuth]="true" #snav mode="side" opened={{navToggle}} [fixedInViewport]="fixed" [fixedTopGap]="fixedTop" [fixedBottomGap]="fixedBottom">
       <mat-nav-list>
         <div *ngFor="let item of menuList">
           <div *ngIf="!(item.submenus && item.submenus.length > 0)">
