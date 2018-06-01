@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TransactionDetails } from '../../_shared/transaction-details';
+import { TransactionDetails } from '../../_shared/transaction-details/transaction-details';
 
 @Component({
   selector: 'app-transaction-details',

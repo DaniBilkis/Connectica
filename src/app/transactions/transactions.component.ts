@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TransactionDetails } from '../_shared/transaction-details';
-import {TransactionDetailsNotes} from '../_shared/transaction-details-notes';
+import { TransactionDetails } from '../_shared/transaction-details/transaction-details';
+import {TransactionDetailsNotes} from '../_shared/transaction-details/transaction-details-notes';
 
 export const TRANSACTIONS: TransactionDetails[] = [
   {

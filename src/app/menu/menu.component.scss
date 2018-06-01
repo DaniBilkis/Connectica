@@ -7,8 +7,50 @@
   color: #FFF;
 }
 
-.fill-remaining-space {
-  flex: 1 1 auto;
+.menu_toolbar {
+  display: flex;
+}
+
+.menu_toolbar_logo {
+  flex: 1;
+  display: flex;
+}
+
+.menu_toolbar_logo > div {
+  flex: 1;
+  align-self: center;
+}
+
+.menu_toolbar_fill-remaining-space {
+  flex: 5;
+}
+
+.menu_toolbar_right {
+  flex: 1;
+  display: flex;
+}
+
+.menu_toolbar_right > div {
+  flex: 1;
+  align-self: center;
+  padding: 0 5px 0 5px;
+}
+
+.menu_toolbar_right_notifications {
+  flex: 1;
+  cursor: pointer;
+}
+
+.menu_toolbar_right_login_signup {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  height: 100%;
+}
+
+.menu_toolbar_right_login_signup > div {
+  flex: 1;
+  padding: 0 5px 0 5px;
 }
 
 .material-icons.md-24 { font-size: 24px; }

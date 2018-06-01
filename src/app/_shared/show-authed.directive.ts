@@ -20,7 +20,7 @@ export class ShowAuthedDirective implements OnInit {
     this.authService.isAuthenticated.subscribe(
       (isAuthenticated) => {
         if (isAuthenticated && this.condition || !isAuthenticated && !this.condition) {
-          this.el.nativeElement.style.display = 'inline';
+          this.el.nativeElement.style.display = 'flex';
           console.log('This user is Authenticated!!! ->' + isAuthenticated + ' ' + this.condition );
         } else {
           this.el.nativeElement.style.display = 'none';

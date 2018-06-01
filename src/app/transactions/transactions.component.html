@@ -1,6 +1,6 @@
 <div class="transactions_container">
-  <div class="transactions_list_container">
-    <mat-list class="transactions_nav_list">
+  <div class="transactions_list_container mat-elevation-z8">
+    <mat-nav-list class="transactions_nav_list">
       <mat-toolbar class="transactions_nav_list_toolbar">
         <div class="transactions_list_toolbar">
           <div>
@@ -38,10 +38,10 @@
         <mat-divider></mat-divider>
 
       </mat-list-item>
-    </mat-list>
+    </mat-nav-list>
   </div>
 
-  <div class="transactions_list_details_container">
+  <div class="transactions_list_details_container mat-elevation-z8">
       <app-transaction-details [transactionDetails]="selectedItem"></app-transaction-details>
   </div>
 </div>

@@ -1,28 +1,34 @@
 <div class="menu-container" [class.example-is-mobile]="mobileQuery.matches">
 
-  <mat-toolbar>
-    <span [appShowAuth]="true">
-      <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-    </span>
-    <span><h1>Connectica</h1></span>
-    <span class="fill-remaining-space"></span>
-    <span [appShowAuth]="true" fxLayoutAlign="space-around center" style="cursor: pointer" routerLink="/about" routerLinkActive="active"><i class="material-icons">notifications</i></span>
-    <span></span>
-    <span [appShowAuth]="false">
-      <a mat-button routerLink="/login" routerLinkActive="active"><span></span> Log In</a>
-      <span></span>
-      <a mat-button mat-raised-button color="warn" routerLink="/register" routerLinkActive="active"><span></span> Sign Up</a>
-    </span>
-    <span [appShowAuth]="true">
-      <span>{{user}}</span>
-      <a mat-button mat-raised-button color="warn" routerLink="/login" (click)="logout()" routerLinkActive="active"><span></span> Logout</a>
-    </span>
+  <mat-toolbar class="menu_toolbar">
+    <div class="menu_toolbar_logo">
+      <div [appShowAuth]="true">
+        <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+      </div>
+      <div><h1>Connectica</h1></div>
+    </div>
+    <div class="menu_toolbar_fill-remaining-space"></div>
+    <div class="menu_toolbar_right">
+      <div class="menu_toolbar_right_notifications" [appShowAuth]="true" routerLink="/about"
+           routerLinkActive="active">
+        <i class="material-icons">notifications</i>
+      </div>
+      <div class="menu_toolbar_right_login_signup" [appShowAuth]="false">
+        <div><a mat-button routerLink="/login" routerLinkActive="active">Log In</a></div>
+        <div><a mat-button mat-raised-button color="warn" routerLink="/register" routerLinkActive="active">Sign Up</a>
+        </div>
+      </div>
+      <div [appShowAuth]="true">{{user}}</div>
+      <div class="menu_toolbar_right_user_login" [appShowAuth]="true">
+          <a mat-button mat-raised-button color="warn" routerLink="/login" (click)="logout()" routerLinkActive="active">Logout</a>
+      </div>
+    </div>
   </mat-toolbar>
 
   <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav [appShowAuth]="true" #snav mode="side" opened [fixedInViewport]="fixed" [fixedTopGap]="fixedTop" [fixedBottomGap]="fixedBottom">
+    <mat-sidenav [appShowAuth]="true" #snav mode="side" opened="navToggle" [fixedInViewport]="fixed" [fixedTopGap]="fixedTop" [fixedBottomGap]="fixedBottom">
       <mat-nav-list>
-        <div  *ngFor="let item of menuList">
+        <div *ngFor="let item of menuList">
           <div *ngIf="!(item.submenus && item.submenus.length > 0)">
             <mat-list-item>
               <i class="material-icons">{{item.icon}}</i>
@@ -39,17 +45,17 @@
                 </mat-expansion-panel-header>
                 <mat-list>
                   <div *ngFor="let submenu of item.submenus">
-                      <mat-list-item>
-                        <i class="material-icons">{{submenu.icon}}</i>
-                        <a routerLink="{{submenu.link}}" routerLinkActive="active">{{submenu.title}}</a>
-                      </mat-list-item>
+                    <mat-list-item>
+                      <i class="material-icons">{{submenu.icon}}</i>
+                      <a routerLink="{{submenu.link}}" routerLinkActive="active">{{submenu.title}}</a>
+                    </mat-list-item>
                   </div>
                 </mat-list>
               </mat-expansion-panel>
             </mat-accordion>
           </div>
         </div>
-        <mat-list-item *ngFor="let item of adminList" >
+        <mat-list-item *ngFor="let item of adminList">
           <i class="material-icons">{{item.icon}}</i>
           <a routerLink="{{item.link}}" routerLinkActive="active">{{item.title}}</a>
           <mat-divider></mat-divider>
@@ -59,7 +65,7 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-     <!--  <p *ngFor="let content of fillerContent">{{content}}</p>  -->
+      <!--  <p *ngFor="let content of fillerContent">{{content}}</p>  -->
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
