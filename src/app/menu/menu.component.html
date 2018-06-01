@@ -18,7 +18,7 @@
         <div><a mat-button mat-raised-button color="warn" routerLink="/register" routerLinkActive="active">Sign Up</a>
         </div>
       </div>
-      <div [appShowAuth]="true">{{user}}</div>
+      <div [appShowAuth]="true">{{user.firstName}} {{user.lastName}}</div>
       <div class="menu_toolbar_right_user_login" [appShowAuth]="true">
           <a mat-button mat-raised-button color="warn" routerLink="/login" (click)="logout()" routerLinkActive="active">Logout</a>
       </div>

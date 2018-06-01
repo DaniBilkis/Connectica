@@ -19,7 +19,7 @@ export class MenuComponent implements OnInit {
   mobileQuery: MediaQueryList;
   @ViewChild('snav') navigationBar;
 
-  user;
+  user: any;
 
   navToggle: boolean;
 
@@ -155,7 +155,7 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     this.user = this.authService.getUser();
     this.authService.isAuthenticated.subscribe(message => { this.navToggle = message; });
-    console.log( 'This is a current user -> ' +  this.user );
+    // console.log( 'This is a current user -> ' +  JSON.stringify( this.user.firstName ));
     // console.log( 'This is a current user first name-> ' + this.user.fi);
     // this.navigationBar.toggle();
   }
