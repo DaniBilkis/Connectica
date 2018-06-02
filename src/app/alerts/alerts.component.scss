@@ -1,0 +1,30 @@
+.alerts_danger {
+  color: #721c24;
+  background-color: #f7ada7;
+  border-color: #f5c6cb;
+}
+
+.alerts_message {
+  position: relative;
+  padding: .75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  font-size: 14px;
+  font-weight: 300;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+
+.alerts_message_danger {
+  position: relative;
+  padding: .75rem 1.25rem;
+  margin-bottom: 1rem;
+  border-radius: .25rem;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  color: #ffffff;
+  background-color: #f44336;
+  border: 1px solid;
+  border-color: #f5c6cb;
+}

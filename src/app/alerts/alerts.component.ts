@@ -17,4 +17,23 @@ export class AlertsComponent {
   ngOnInit() {
     this.alertService.getMessage().subscribe(message => { this.message = message; });
   }
+
+  cssClass( message ) {
+    console.log( 'Here is the message -> ' + JSON.stringify( message ) );
+    if (!message) {
+      return;
+    }
+
+    // return css class based on alert type
+    switch (message.type) {
+      case 'success':
+        return 'alerts_message alert-success';
+      case 'error':
+        return 'alerts_message_danger';
+      case 'info':
+        return 'alerts_message alert-info';
+      case 'warning':
+        return 'alerts_message alert-warning';
+    }
+  }
 }
