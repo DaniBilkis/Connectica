@@ -1,6 +1,6 @@
 <mat-sidenav-container class="grid-container">
   <mat-sidenav-content>
-    <mat-grid-list [cols]="cols | async" rowHeight="200px">
+    <mat-grid-list [cols]="12" rowHeight="200px">
       <mat-grid-tile *ngFor="let card of cards" [colspan]="card.input.cols.value" [rowspan]="card.input.rows.value">
         <app-dashboard-cards-spawner [card]="card"></app-dashboard-cards-spawner>
       </mat-grid-tile>
