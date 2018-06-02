@@ -46,6 +46,8 @@ import { DashboardOrdersReceivedComponent } from './dashboard/dashboard-orders-r
 import { DashboardDeliveryNotesSentComponent } from './dashboard/dashboard-delivery-notes-sent/dashboard-delivery-notes-sent.component';
 import { DashboardRecentTransactionsComponent } from './dashboard/dashboard-recent-transactions/dashboard-recent-transactions.component';
 import { DashboardServiceOfferingsComponent } from './dashboard/dashboard-service-offerings/dashboard-service-offerings.component';
+import { DashboardAdvertisementTransportationComponent } from './dashboard/dashboard-advertisement-transportation/dashboard-advertisement-transportation.component';
+import { DashboardAdvertisementFinancialComponent } from './dashboard/dashboard-advertisement-financial/dashboard-advertisement-financial.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +76,9 @@ import { DashboardServiceOfferingsComponent } from './dashboard/dashboard-servic
     DashboardOrdersReceivedComponent,
     DashboardDeliveryNotesSentComponent,
     DashboardRecentTransactionsComponent,
-    DashboardServiceOfferingsComponent
+    DashboardServiceOfferingsComponent,
+    DashboardAdvertisementTransportationComponent,
+    DashboardAdvertisementFinancialComponent
   ],
   imports: [
     BrowserModule,

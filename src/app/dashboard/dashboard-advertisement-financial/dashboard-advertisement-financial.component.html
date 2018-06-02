@@ -1,0 +1,28 @@
+<mat-card class="dashboard-card">
+  <mat-card-header>
+    <mat-card-title class="dashboard-card-title">
+      <div class="dashboard-card-title-link"><a color="warn" routerLink="{{routerLink}}">{{name}}</a></div>
+      <div class="dashboard-card-title-menu">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+          <i class="material-icons">more_vert</i>
+        </button>
+      </div>
+      <mat-menu #menu="matMenu" xPosition="before">
+        <button mat-menu-item>Expand</button>
+        <button mat-menu-item>Remove</button>
+      </mat-menu>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="wrapper">
+      <ui-carousel [infinite]="true" [fade]="true" [speed]="500" height="300px" width="100%">
+        <ui-carousel-item>
+          <img src="./assets/images/finance_1.jpg" alt="" draggable="false">
+        </ui-carousel-item>
+        <ui-carousel-item>
+          <img src="./assets/images/finance_2.jpg" alt="" draggable="false">
+        </ui-carousel-item>
+      </ui-carousel>
+    </div>
+  </mat-card-content>
+</mat-card>

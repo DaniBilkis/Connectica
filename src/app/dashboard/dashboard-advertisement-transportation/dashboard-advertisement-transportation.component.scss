@@ -1,0 +1,64 @@
+:host {
+  display: flex;
+  flex: 1;
+}
+
+.dashboard-card {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 5px;
+  padding: 0 10px 0 10px !important;
+}
+
+.dashboard-card-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+::ng-deep div.mat-card-header-text {
+  /* CSS styles go here */
+  flex: 1;
+  margin: 0px; // for example to remove the margin
+}
+
+.dashboard-card-title-link {
+  flex: 4 1 auto;
+}
+
+.dashboard-card-title-link > a {
+  color: #f44336;
+  text-decoration: none;
+}
+
+.dashboard-card-title-menu {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.wrapper{
+  height: 300px;
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+}
+
+ui-carousel{
+  //display: block;
+  //position: relative;
+}
+.text{
+  text-align:  center;
+  line-height: 300px;
+  font-size: 40px;
+  color: #fff;
+}
+
+
+img {
+  width: 100%;
+}

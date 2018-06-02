@@ -13,6 +13,8 @@ import { DashboardOrdersReceivedComponent }     from './dashboard-orders-receive
 import { DashboardDeliveryNotesSentComponent }  from './dashboard-delivery-notes-sent/dashboard-delivery-notes-sent.component';
 import { DashboardRecentTransactionsComponent } from './dashboard-recent-transactions/dashboard-recent-transactions.component';
 import { DashboardServiceOfferingsComponent }   from './dashboard-service-offerings/dashboard-service-offerings.component';
+import { DashboardAdvertisementTransportationComponent } from './dashboard-advertisement-transportation/dashboard-advertisement-transportation.component';
+import {DashboardAdvertisementFinancialComponent} from './dashboard-advertisement-financial/dashboard-advertisement-financial.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -25,7 +27,9 @@ import { DashboardServiceOfferingsComponent }   from './dashboard-service-offeri
     DashboardOrdersReceivedComponent,
     DashboardDeliveryNotesSentComponent,
     DashboardRecentTransactionsComponent,
-    DashboardServiceOfferingsComponent
+    DashboardServiceOfferingsComponent,
+    DashboardAdvertisementTransportationComponent,
+    DashboardAdvertisementFinancialComponent
   ]
 })
 export class DashboardComponent implements OnInit {
@@ -286,7 +290,7 @@ export class DashboardComponent implements OnInit {
           },
           routerLink: {
             key: DashboardCard.metadata.ROUTERLINK,
-            value: '/dashboard/users'
+            value: '/invoices'
           },
           iconClass: {
             key: DashboardCard.metadata.ICONCLASS,
@@ -328,7 +332,7 @@ export class DashboardComponent implements OnInit {
           },
           rows: {
             key: DashboardCard.metadata.ROWS,
-            value: 3
+            value: 2
           },
           color: {
             key: DashboardCard.metadata.COLOR,
@@ -342,7 +346,7 @@ export class DashboardComponent implements OnInit {
         {
           name: {
             key: DashboardCard.metadata.NAME,
-            value: 'users'
+            value: 'Transportation Ad.'
           },
           routerLink: {
             key: DashboardCard.metadata.ROUTERLINK,
@@ -354,47 +358,17 @@ export class DashboardComponent implements OnInit {
           },
           cols: {
             key: DashboardCard.metadata.COLS,
-            value: 4
+            value: 8
           },
           rows: {
             key: DashboardCard.metadata.ROWS,
-            value: 3
+            value: 2
           },
           color: {
             key: DashboardCard.metadata.COLOR,
             value: 'blue'
           }
-        }, DashboardUsersComponent
-      )
-    );
-    this.cardsService.addCard(
-      new DashboardCard(
-        {
-          name: {
-            key: DashboardCard.metadata.NAME,
-            value: 'users'
-          },
-          routerLink: {
-            key: DashboardCard.metadata.ROUTERLINK,
-            value: '/dashboard/users'
-          },
-          iconClass: {
-            key: DashboardCard.metadata.ICONCLASS,
-            value: 'fa-users'
-          },
-          cols: {
-            key: DashboardCard.metadata.COLS,
-            value: 4
-          },
-          rows: {
-            key: DashboardCard.metadata.ROWS,
-            value: 3
-          },
-          color: {
-            key: DashboardCard.metadata.COLOR,
-            value: 'blue'
-          }
-        }, DashboardUsersComponent
+        }, DashboardAdvertisementTransportationComponent
       )
     );
     this.cardsService.addCard(
@@ -418,7 +392,7 @@ export class DashboardComponent implements OnInit {
           },
           rows: {
             key: DashboardCard.metadata.ROWS,
-            value: 3
+            value: 2
           },
           color: {
             key: DashboardCard.metadata.COLOR,
@@ -432,7 +406,7 @@ export class DashboardComponent implements OnInit {
         {
           name: {
             key: DashboardCard.metadata.NAME,
-            value: 'users'
+            value: 'Financial Ad.'
           },
           routerLink: {
             key: DashboardCard.metadata.ROUTERLINK,
@@ -448,13 +422,13 @@ export class DashboardComponent implements OnInit {
           },
           rows: {
             key: DashboardCard.metadata.ROWS,
-            value: 3
+            value: 2
           },
           color: {
             key: DashboardCard.metadata.COLOR,
             value: 'blue'
           }
-        }, DashboardUsersComponent
+        }, DashboardAdvertisementFinancialComponent
       )
     );
     this.cardsService.addCard(
