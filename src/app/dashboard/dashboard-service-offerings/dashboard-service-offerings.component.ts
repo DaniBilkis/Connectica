@@ -1,6 +1,8 @@
 import {Component, Injector, OnInit} from '@angular/core';
-import {DashboardCard} from '../../_shared/dashboard-card';
-import {AbstractDashboardCard} from '../../_shared/abstract-dashboard-card';
+import { DashboardCard } from '../../_shared/dashboard-card';
+import { AbstractDashboardCard } from '../../_shared/abstract-dashboard-card';
+import { Invoice } from '../../_shared/invoice-interface';
+import { INVOICES } from '../../_shared/data-invoices';
 
 @Component({
   selector: 'app-dashboard-service-offerings',
@@ -8,6 +10,10 @@ import {AbstractDashboardCard} from '../../_shared/abstract-dashboard-card';
   styleUrls: ['./dashboard-service-offerings.component.scss']
 })
 export class DashboardServiceOfferingsComponent extends AbstractDashboardCard implements OnInit {
+
+  invoices: Invoice[];
+  totalAmount = 137224.98;
+  currency = 'EUR';
 
   constructor(private injector: Injector) {
     super(injector.get(DashboardCard.metadata.NAME),
@@ -19,6 +25,7 @@ export class DashboardServiceOfferingsComponent extends AbstractDashboardCard im
   }
 
   ngOnInit() {
+    this.invoices = INVOICES;
   }
 
 }
