@@ -1,5 +1,59 @@
+.signup_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.signup_form_container {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: 300;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
 .input-form {
+  display: flex;
+  flex-direction: column;
   min-width: 150px;
   max-width: 500px;
   width: 100%;
+}
+
+.input-form > div {
+  display: flex;
+  align-self: stretch;
+}
+
+.input-form > div > mat-form-field {
+  flex: 1;
+  align-self: stretch;
+}
+
+.signup_form_buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.signup_form_button_signup {
+  flex: 1;
+  align-self: center;
+}
+
+.signup_form_button_login {
+  display: flex;
+  flex: 2;
+  justify-content: flex-end;
+}
+
+.signup_form_button_login > a {
+  margin-left: 5px;
+  align-self: center;
+  color: #f44336;
+  text-decoration: none;
 }
