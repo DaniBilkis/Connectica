@@ -1,10 +1,12 @@
 <mat-card class="dashboard-card">
   <mat-card-header>
-    <mat-card-title>
-      <a mat-button color="warn" routerLink="{{routerLink}}">{{name}}</a>
-      <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-        <i class="material-icons">more_vert</i>
-      </button>
+    <mat-card-title class="dashboard-card-title">
+        <div class="dashboard-card-title-link"><a color="warn" routerLink="{{routerLink}}">{{name}}</a></div>
+        <div class="dashboard-card-title-menu">
+          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+            <i class="material-icons">more_vert</i>
+          </button>
+        </div>
       <mat-menu #menu="matMenu" xPosition="before">
         <button mat-menu-item>Expand</button>
         <button mat-menu-item>Remove</button>

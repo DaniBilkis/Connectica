@@ -44,6 +44,8 @@ import { DashboardInvoicesReceivedComponent } from './dashboard/dashboard-invoic
 import { DashboardInvoicesSentComponent } from './dashboard/dashboard-invoices-sent/dashboard-invoices-sent.component';
 import { DashboardOrdersReceivedComponent } from './dashboard/dashboard-orders-received/dashboard-orders-received.component';
 import { DashboardDeliveryNotesSentComponent } from './dashboard/dashboard-delivery-notes-sent/dashboard-delivery-notes-sent.component';
+import { DashboardRecentTransactionsComponent } from './dashboard/dashboard-recent-transactions/dashboard-recent-transactions.component';
+import { DashboardServiceOfferingsComponent } from './dashboard/dashboard-service-offerings/dashboard-service-offerings.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +72,9 @@ import { DashboardDeliveryNotesSentComponent } from './dashboard/dashboard-deliv
     DashboardInvoicesReceivedComponent,
     DashboardInvoicesSentComponent,
     DashboardOrdersReceivedComponent,
-    DashboardDeliveryNotesSentComponent
+    DashboardDeliveryNotesSentComponent,
+    DashboardRecentTransactionsComponent,
+    DashboardServiceOfferingsComponent
   ],
   imports: [
     BrowserModule,

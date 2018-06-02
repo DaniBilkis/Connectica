@@ -1,16 +1,18 @@
-import {Component, OnInit} from '@angular/core';
-import { Observable }                    from 'rxjs/Observable';
-import { ObservableMedia }               from '@angular/flex-layout';
+import {Component, OnInit}                      from '@angular/core';
+import { Observable }                           from 'rxjs/Observable';
+import { ObservableMedia }                      from '@angular/flex-layout';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/startWith';
 
-import { DashboardCardsService }         from '../_services/dashboard.service';
-import { DashboardCard }                 from '../_shared/dashboard-card';
-import { DashboardUsersComponent }       from './dashboard-users/dashboard-users.component';
-import {DashboardInvoicesReceivedComponent} from './dashboard-invoices-received/dashboard-invoices-received.component';
-import {DashboardInvoicesSentComponent} from './dashboard-invoices-sent/dashboard-invoices-sent.component';
-import {DashboardOrdersReceivedComponent} from './dashboard-orders-received/dashboard-orders-received.component';
-import {DashboardDeliveryNotesSentComponent} from './dashboard-delivery-notes-sent/dashboard-delivery-notes-sent.component';
+import { DashboardCardsService }                from '../_services/dashboard.service';
+import { DashboardCard }                        from '../_shared/dashboard-card';
+import { DashboardUsersComponent }              from './dashboard-users/dashboard-users.component';
+import { DashboardInvoicesReceivedComponent }   from './dashboard-invoices-received/dashboard-invoices-received.component';
+import { DashboardInvoicesSentComponent }       from './dashboard-invoices-sent/dashboard-invoices-sent.component';
+import { DashboardOrdersReceivedComponent }     from './dashboard-orders-received/dashboard-orders-received.component';
+import { DashboardDeliveryNotesSentComponent }  from './dashboard-delivery-notes-sent/dashboard-delivery-notes-sent.component';
+import { DashboardRecentTransactionsComponent } from './dashboard-recent-transactions/dashboard-recent-transactions.component';
+import { DashboardServiceOfferingsComponent }   from './dashboard-service-offerings/dashboard-service-offerings.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -21,7 +23,9 @@ import {DashboardDeliveryNotesSentComponent} from './dashboard-delivery-notes-se
     DashboardInvoicesReceivedComponent,
     DashboardInvoicesSentComponent,
     DashboardOrdersReceivedComponent,
-    DashboardDeliveryNotesSentComponent
+    DashboardDeliveryNotesSentComponent,
+    DashboardRecentTransactionsComponent,
+    DashboardServiceOfferingsComponent
   ]
 })
 export class DashboardComponent implements OnInit {
@@ -248,11 +252,11 @@ export class DashboardComponent implements OnInit {
         {
           name: {
             key: DashboardCard.metadata.NAME,
-            value: 'users'
+            value: 'Recent Transactions'
           },
           routerLink: {
             key: DashboardCard.metadata.ROUTERLINK,
-            value: '/dashboard/users'
+            value: '/transactions'
           },
           iconClass: {
             key: DashboardCard.metadata.ICONCLASS,
@@ -260,7 +264,7 @@ export class DashboardComponent implements OnInit {
           },
           cols: {
             key: DashboardCard.metadata.COLS,
-            value: 3
+            value: 5
           },
           rows: {
             key: DashboardCard.metadata.ROWS,
@@ -270,7 +274,7 @@ export class DashboardComponent implements OnInit {
             key: DashboardCard.metadata.COLOR,
             value: 'blue'
           }
-        }, DashboardUsersComponent
+        }, DashboardRecentTransactionsComponent
       )
     );
     this.cardsService.addCard(
@@ -278,7 +282,7 @@ export class DashboardComponent implements OnInit {
         {
           name: {
             key: DashboardCard.metadata.NAME,
-            value: 'users'
+            value: 'Service Offerings'
           },
           routerLink: {
             key: DashboardCard.metadata.ROUTERLINK,
@@ -290,7 +294,7 @@ export class DashboardComponent implements OnInit {
           },
           cols: {
             key: DashboardCard.metadata.COLS,
-            value: 9
+            value: 7
           },
           rows: {
             key: DashboardCard.metadata.ROWS,
@@ -300,7 +304,7 @@ export class DashboardComponent implements OnInit {
             key: DashboardCard.metadata.COLOR,
             value: 'blue'
           }
-        }, DashboardUsersComponent
+        }, DashboardServiceOfferingsComponent
       )
     );
     this.cardsService.addCard(

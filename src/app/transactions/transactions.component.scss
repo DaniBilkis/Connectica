@@ -63,12 +63,12 @@
   }
 }
 
-
+/*
 .transaction_list_item_div {
   display: flex;
   flex-direction: row;
 }
-
+*/
 
 .transactions_list_item_description {
   flex: 3;
@@ -100,14 +100,4 @@ mat-content.mat-default-theme {
 
 
 
-/* fade animation */
-.animate-show {
-  transition: 0.75s ease-out all;
-  opacity: 1;
-  &.ng-hide {
-    height: 0;
-    min-height: 0;
-    opacity: 0;
-    overflow: hidden;
-  }
-}
+

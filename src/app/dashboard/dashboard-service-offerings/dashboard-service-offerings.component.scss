@@ -1,11 +1,11 @@
 :host {
-  flex: 1;
   display: flex;
+  flex: 1;
 }
 
 .dashboard-card {
-  flex: 1;
   display: flex;
+  flex: 1;
   flex-direction: column;
   margin: 5px;
   padding: 0 10px 0 10px !important;
@@ -36,8 +36,4 @@
   flex: 1;
   display: flex;
   justify-content: flex-end;
-}
-
-.dashboard-card-content {
-  text-align: center;
 }

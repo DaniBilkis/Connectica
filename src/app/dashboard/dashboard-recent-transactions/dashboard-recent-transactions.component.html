@@ -1,0 +1,34 @@
+<mat-card class="dashboard-card">
+  <mat-card-header>
+    <mat-card-title class="dashboard-card-title">
+      <div class="dashboard-card-title-link"><a color="warn" routerLink="{{routerLink}}">{{name}}</a></div>
+      <div class="dashboard-card-title-menu">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+          <i class="material-icons">more_vert</i>
+        </button>
+      </div>
+      <mat-menu #menu="matMenu" xPosition="before">
+        <button mat-menu-item>Expand</button>
+        <button mat-menu-item>Remove</button>
+      </mat-menu>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="dashboard_transactions_card_content">
+    <div class="dashboard_transactions_list_container mat-elevation-z8">
+      <mat-nav-list class="dashboard_transactions_nav_list">
+        <mat-list-item class="dashboard_transactions_list_item" *ngFor="let item of transactions" role="link">
+          <div class="dashboard_transactions_list_item_description">
+            <p>{{item.typeOfOrder}}</p>
+            <p>{{item.supplier.supplierName}}</p>
+            <p>{{item.orderNumber}}</p>
+          </div>
+          <div class="dashboard_transactions_list_item_date">
+            <p>{{item.date | date}}</p>
+            <p>{{item.deliveryStatus}}</p>
+          </div>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-nav-list>
+    </div>
+  </mat-card-content>
+</mat-card>

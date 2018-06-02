@@ -1,5 +1,8 @@
 .grid-container {
-  margin: 20px;
+  margin: 10px;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  font-size: 14px;
+  font-weight: 300;
 }
 
 
