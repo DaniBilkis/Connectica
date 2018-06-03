@@ -1,20 +1,22 @@
-import {Component, OnInit}                      from '@angular/core';
-import { Observable }                           from 'rxjs/Observable';
-import { ObservableMedia }                      from '@angular/flex-layout';
+import {Component, OnInit}                                from '@angular/core';
+import { Observable }                                     from 'rxjs/Observable';
+import { ObservableMedia }                                from '@angular/flex-layout';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/startWith';
 
-import { DashboardCardsService }                from '../_services/dashboard.service';
-import { DashboardCard }                        from '../_shared/dashboard-card';
-import { DashboardUsersComponent }              from './dashboard-users/dashboard-users.component';
-import { DashboardInvoicesReceivedComponent }   from './dashboard-invoices-received/dashboard-invoices-received.component';
-import { DashboardInvoicesSentComponent }       from './dashboard-invoices-sent/dashboard-invoices-sent.component';
-import { DashboardOrdersReceivedComponent }     from './dashboard-orders-received/dashboard-orders-received.component';
-import { DashboardDeliveryNotesSentComponent }  from './dashboard-delivery-notes-sent/dashboard-delivery-notes-sent.component';
-import { DashboardRecentTransactionsComponent } from './dashboard-recent-transactions/dashboard-recent-transactions.component';
-import { DashboardServiceOfferingsComponent }   from './dashboard-service-offerings/dashboard-service-offerings.component';
-import { DashboardAdvertisementTransportationComponent } from './dashboard-advertisement-transportation/dashboard-advertisement-transportation.component';
-import {DashboardAdvertisementFinancialComponent} from './dashboard-advertisement-financial/dashboard-advertisement-financial.component';
+import { DashboardCardsService }                          from '../_services/dashboard.service';
+import { DashboardCard }                                  from '../_shared/dashboard-card';
+import { DashboardUsersComponent }                        from './dashboard-users/dashboard-users.component';
+import { DashboardInvoicesReceivedComponent }             from './dashboard-invoices-received/dashboard-invoices-received.component';
+import { DashboardInvoicesSentComponent }                 from './dashboard-invoices-sent/dashboard-invoices-sent.component';
+import { DashboardOrdersReceivedComponent }               from './dashboard-orders-received/dashboard-orders-received.component';
+import { DashboardDeliveryNotesSentComponent }            from './dashboard-delivery-notes-sent/dashboard-delivery-notes-sent.component';
+import { DashboardRecentTransactionsComponent }           from './dashboard-recent-transactions/dashboard-recent-transactions.component';
+import { DashboardServiceOfferingsComponent }             from './dashboard-service-offerings/dashboard-service-offerings.component';
+import { DashboardAdvertisementTransportationComponent }  from './dashboard-advertisement-transportation/dashboard-advertisement-transportation.component';
+import { DashboardAdvertisementFinancialComponent }       from './dashboard-advertisement-financial/dashboard-advertisement-financial.component';
+import { DashboardChartComponent }                        from './dashboard-chart/dashboard-chart.component';
+import { DashboardPaymentCalendarChartComponent }         from './dashboard-payment-calendar-chart/dashboard-payment-calendar-chart.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -29,7 +31,9 @@ import {DashboardAdvertisementFinancialComponent} from './dashboard-advertisemen
     DashboardRecentTransactionsComponent,
     DashboardServiceOfferingsComponent,
     DashboardAdvertisementTransportationComponent,
-    DashboardAdvertisementFinancialComponent
+    DashboardAdvertisementFinancialComponent,
+    DashboardChartComponent,
+    DashboardPaymentCalendarChartComponent
   ]
 })
 export class DashboardComponent implements OnInit {
@@ -316,11 +320,11 @@ export class DashboardComponent implements OnInit {
         {
           name: {
             key: DashboardCard.metadata.NAME,
-            value: 'users'
+            value: 'Chart'
           },
           routerLink: {
             key: DashboardCard.metadata.ROUTERLINK,
-            value: '/dashboard/users'
+            value: ''
           },
           iconClass: {
             key: DashboardCard.metadata.ICONCLASS,
@@ -338,7 +342,7 @@ export class DashboardComponent implements OnInit {
             key: DashboardCard.metadata.COLOR,
             value: 'blue'
           }
-        }, DashboardUsersComponent
+        }, DashboardChartComponent
       )
     );
     this.cardsService.addCard(
@@ -350,7 +354,7 @@ export class DashboardComponent implements OnInit {
           },
           routerLink: {
             key: DashboardCard.metadata.ROUTERLINK,
-            value: '/dashboard/users'
+            value: ''
           },
           iconClass: {
             key: DashboardCard.metadata.ICONCLASS,
@@ -376,11 +380,11 @@ export class DashboardComponent implements OnInit {
         {
           name: {
             key: DashboardCard.metadata.NAME,
-            value: 'users'
+            value: 'Payment Calendar'
           },
           routerLink: {
             key: DashboardCard.metadata.ROUTERLINK,
-            value: '/dashboard/users'
+            value: ''
           },
           iconClass: {
             key: DashboardCard.metadata.ICONCLASS,
@@ -398,7 +402,7 @@ export class DashboardComponent implements OnInit {
             key: DashboardCard.metadata.COLOR,
             value: 'blue'
           }
-        }, DashboardUsersComponent
+        }, DashboardPaymentCalendarChartComponent
       )
     );
     this.cardsService.addCard(
@@ -410,7 +414,7 @@ export class DashboardComponent implements OnInit {
           },
           routerLink: {
             key: DashboardCard.metadata.ROUTERLINK,
-            value: '/dashboard/users'
+            value: ''
           },
           iconClass: {
             key: DashboardCard.metadata.ICONCLASS,

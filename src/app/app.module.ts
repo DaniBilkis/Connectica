@@ -40,14 +40,16 @@ import { FxMakePaymentsModalComponent }                   from './fx-payments/fx
 import { DashboardCardsSpawnerComponent }                 from './dashboard/dashboard-cards-spawner/dashboard-cards-spawner.component';
 import { DashboardUsersComponent }                        from './dashboard/dashboard-users/dashboard-users.component';
 import { DashboardCardsService }                          from './_services/dashboard.service';
-import { DashboardInvoicesReceivedComponent } from './dashboard/dashboard-invoices-received/dashboard-invoices-received.component';
-import { DashboardInvoicesSentComponent } from './dashboard/dashboard-invoices-sent/dashboard-invoices-sent.component';
-import { DashboardOrdersReceivedComponent } from './dashboard/dashboard-orders-received/dashboard-orders-received.component';
-import { DashboardDeliveryNotesSentComponent } from './dashboard/dashboard-delivery-notes-sent/dashboard-delivery-notes-sent.component';
-import { DashboardRecentTransactionsComponent } from './dashboard/dashboard-recent-transactions/dashboard-recent-transactions.component';
-import { DashboardServiceOfferingsComponent } from './dashboard/dashboard-service-offerings/dashboard-service-offerings.component';
-import { DashboardAdvertisementTransportationComponent } from './dashboard/dashboard-advertisement-transportation/dashboard-advertisement-transportation.component';
-import { DashboardAdvertisementFinancialComponent } from './dashboard/dashboard-advertisement-financial/dashboard-advertisement-financial.component';
+import { DashboardInvoicesReceivedComponent }             from './dashboard/dashboard-invoices-received/dashboard-invoices-received.component';
+import { DashboardInvoicesSentComponent }                 from './dashboard/dashboard-invoices-sent/dashboard-invoices-sent.component';
+import { DashboardOrdersReceivedComponent }               from './dashboard/dashboard-orders-received/dashboard-orders-received.component';
+import { DashboardDeliveryNotesSentComponent }            from './dashboard/dashboard-delivery-notes-sent/dashboard-delivery-notes-sent.component';
+import { DashboardRecentTransactionsComponent }           from './dashboard/dashboard-recent-transactions/dashboard-recent-transactions.component';
+import { DashboardServiceOfferingsComponent }             from './dashboard/dashboard-service-offerings/dashboard-service-offerings.component';
+import { DashboardAdvertisementTransportationComponent }  from './dashboard/dashboard-advertisement-transportation/dashboard-advertisement-transportation.component';
+import { DashboardAdvertisementFinancialComponent }       from './dashboard/dashboard-advertisement-financial/dashboard-advertisement-financial.component';
+import { DashboardChartComponent }                        from './dashboard/dashboard-chart/dashboard-chart.component';
+import { DashboardPaymentCalendarChartComponent } from './dashboard/dashboard-payment-calendar-chart/dashboard-payment-calendar-chart.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +80,9 @@ import { DashboardAdvertisementFinancialComponent } from './dashboard/dashboard-
     DashboardRecentTransactionsComponent,
     DashboardServiceOfferingsComponent,
     DashboardAdvertisementTransportationComponent,
-    DashboardAdvertisementFinancialComponent
+    DashboardAdvertisementFinancialComponent,
+    DashboardChartComponent,
+    DashboardPaymentCalendarChartComponent
   ],
   imports: [
     BrowserModule,
