@@ -396,7 +396,7 @@ export class DashboardComponent implements OnInit {
           },
           rows: {
             key: DashboardCard.metadata.ROWS,
-            value: 2
+            value: 3
           },
           color: {
             key: DashboardCard.metadata.COLOR,
@@ -426,7 +426,7 @@ export class DashboardComponent implements OnInit {
           },
           rows: {
             key: DashboardCard.metadata.ROWS,
-            value: 2
+            value: 3
           },
           color: {
             key: DashboardCard.metadata.COLOR,
