@@ -350,7 +350,7 @@ export class DashboardComponent implements OnInit {
         {
           name: {
             key: DashboardCard.metadata.NAME,
-            value: 'Transportation Ad.'
+            value: 'Financial Ad.'
           },
           routerLink: {
             key: DashboardCard.metadata.ROUTERLINK,
