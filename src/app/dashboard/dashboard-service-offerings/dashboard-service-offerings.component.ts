@@ -12,7 +12,7 @@ import { INVOICES } from '../../_shared/data-invoices';
 export class DashboardServiceOfferingsComponent extends AbstractDashboardCard implements OnInit {
 
   invoices: Invoice[];
-  totalAmount = 137224.98;
+  totalAmount = 1086440.25;
   currency = 'EUR';
 
   constructor(private injector: Injector) {
