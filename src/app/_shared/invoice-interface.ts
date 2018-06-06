@@ -3,11 +3,11 @@ export interface Invoice {
   buyerName: string;
   dueDate: string;
   invoiceValue: number;
-  advancePayment: string;
-  totalBackPayment: string;
-  feesAmount: string;
+  advancePayment: number;
+  totalBackPayment: number;
+  feesAmount: number;
   feesDescription: string;
-  advancedInstallment: string;
+  advancedInstallment: number;
   advancedRate: string;
   currency: string;
   status: string;

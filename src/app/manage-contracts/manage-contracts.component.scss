@@ -1,0 +1,29 @@
+.manage_contracts_container {
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  min-width: 300px;
+  margin: 24px;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+
+.mat-header-row {
+  position: sticky;
+  position: -webkit-sticky;
+  z-index: 1;
+  top: 0;
+  background-color: inherit;
+}
+
+.circle {
+  -moz-border-radius: 7px/7px;
+  -webkit-border-radius: 7px 7px;
+  border-radius: 7px/7px;
+  border: solid 2px;
+  width: 7px;
+  height: 7px;
+}

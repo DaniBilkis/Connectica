@@ -40,8 +40,8 @@
 }
 
 
-.wrapper{
-  height: 100%;
+.dashboard_financial_wrapper{
+  height: 300px;
   width: 100%;
   position: relative;
   margin: 0 auto;
@@ -51,13 +51,13 @@ ui-carousel{
   //display: block;
   //position: relative;
 }
+
 .text{
   text-align:  center;
   line-height: 300px;
   font-size: 40px;
   color: #fff;
 }
-
 
 img {
   max-height: 100%;

@@ -79,7 +79,7 @@ export class MenuComponent implements OnInit {
       ]
     },
     {
-      link : '',
+      link : '/manageContracts',
       title: 'Manage all contracts',
       icon: 'work'
     },
