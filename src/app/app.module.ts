@@ -8,7 +8,7 @@ import { ReactiveFormsModule }                            from '@angular/forms';
 
 import { MaterialModule }                                 from './material.module';
 import { AppRoutingModule }                               from './app-routing/app-routing.module';
-import { UICarouselModule  }                              from 'ui-carousel';
+import { UICarouselModule  }                              from 'ng-carousel-iuno';
 
 
 import { AppComponent }                                   from './app.component';
@@ -103,14 +103,15 @@ import { DashboardPaymentCalendarChartComponent } from './dashboard/dashboard-pa
     AuthenticationService,
     D3Service,
     UserService,
+    /*
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
       multi: true
     },
-
+*/
     // provider used to create fake backend
-    fakeBackendProvider,
+  //  fakeBackendProvider,
     DashboardCardsService
   ],
   bootstrap: [ AppComponent ],

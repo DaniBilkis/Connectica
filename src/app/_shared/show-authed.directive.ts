@@ -21,10 +21,10 @@ export class ShowAuthedDirective implements OnInit {
       (isAuthenticated) => {
         if (isAuthenticated && this.condition || !isAuthenticated && !this.condition) {
           this.el.nativeElement.style.display = 'flex';
-          console.log('This user is Authenticated!!! ->' + isAuthenticated + ' ' + this.condition );
+          // console.log('This user is Authenticated!!! ->' + isAuthenticated + ' ' + this.condition );
         } else {
           this.el.nativeElement.style.display = 'none';
-          console.log('This user is NOT Authenticated!!! ->' + isAuthenticated + ' ' + this.condition );
+          // console.log('This user is NOT Authenticated!!! ->' + isAuthenticated + ' ' + this.condition );
         }
       }
     );

@@ -4,7 +4,7 @@ import { FormBuilder, FormControl, FormGroup,
           FormGroupDirective, NgForm, Validators }      from '@angular/forms';
 import { ErrorStateMatcher }                            from '@angular/material/core';
 
-import { AlertService, UserService }                    from '../_services/index';
+import { AlertService, UserService }                    from '../_services/';
 import { User }                                         from '../_shared/user';
 
 
@@ -91,9 +91,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   onSubmit() {
     this.loading = true;
@@ -102,11 +100,13 @@ export class RegisterComponent implements OnInit {
     this.userService.create( this.prepareUser() )
       .subscribe(
         data => {
-          this.alertService.success('Registration successful', true);
+          // console.log( data );
+          this.alertService.success( data, true );
           this.router.navigate(['/login']);
         },
         error => {
-          this.alertService.error(error);
+          // console.log( 'Here is what we have in the error --> ' + JSON.stringify( error, null, 4 ) );
+          this.alertService.error( error.error );
           this.loading = false;
         });
   }
@@ -120,21 +120,7 @@ export class RegisterComponent implements OnInit {
       email: formModel.emailFormControl,
       password: formModel.passwordFormControl
     };
-    /*
-    // deep copy of form model lairs
-    const secretLairsDeepCopy: Address[] = formModel.secretLairs.map(
-      (address: Address) => Object.assign({}, address)
-    );
 
-    // return new `Hero` object containing a combination of original hero value(s)
-    // and deep copies of changed form model values
-    const saveHero: Hero = {
-      id: this.hero.id,
-      name: formModel.name as string,
-      // addresses: formModel.secretLairs // <-- bad!
-      addresses: secretLairsDeepCopy
-    };
-    */
     return user;
   }
 }

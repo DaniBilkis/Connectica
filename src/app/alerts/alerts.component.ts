@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AlertService } from '../_services/index';
+import { AlertService } from '../_services';
 
 @Component({
   // moduleId: module.id.toString(),
@@ -27,9 +27,9 @@ export class AlertsComponent {
     // return css class based on alert type
     switch (message.type) {
       case 'success':
-        return 'alerts_message alert-success';
+        return 'alerts-message-success';
       case 'error':
-        return 'alerts_message_danger';
+        return 'alerts-message-danger';
       case 'info':
         return 'alerts_message alert-info';
       case 'warning':

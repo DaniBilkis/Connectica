@@ -4,27 +4,30 @@
   border-color: #f5c6cb;
 }
 
-.alerts_message {
+.alerts-message-success {
   position: relative;
   padding: .75rem 1.25rem;
   margin-bottom: 1rem;
-  border: 1px solid transparent;
-  border-radius: .25rem;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 400;
   font-family: Roboto,"Helvetica Neue",sans-serif;
+  color: #ffffff;
+  background-color: #0ef444;
+  border: 1px solid;
+  border-radius: .25rem;
+  border-color: #acf5ad;
 }
 
-.alerts_message_danger {
+.alerts-message-danger {
   position: relative;
   padding: .75rem 1.25rem;
   margin-bottom: 1rem;
-  border-radius: .25rem;
   font-size: 14px;
   font-weight: 400;
   font-family: Roboto,"Helvetica Neue",sans-serif;
   color: #ffffff;
   background-color: #f44336;
   border: 1px solid;
+  border-radius: .25rem;
   border-color: #f5c6cb;
 }

@@ -5,6 +5,7 @@ import { AlertService, AuthenticationService } from '../_services/index';
 import { FormControl, FormGroupDirective, NgForm, FormBuilder, Validators, FormGroup} from '@angular/forms';
 
 import { ErrorStateMatcher } from '@angular/material/core';
+import { Credentials } from '../_shared/credentials.model';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -78,9 +79,25 @@ export class LoginComponent implements OnInit {
   login() {
     this.loading = true;
     console.log( 'This is what comes from the login form ->' + JSON.stringify( this.loginForm.value ) );
-    this.authenticationService.login( this.loginForm.value.emailFormControl, this.loginForm.value.passwordFormControl )
+    const username = this.loginForm.value.emailFormControl;
+    const password = this.loginForm.value.passwordFormControl;
+    console.log( 'This is what comes from the login form after asignment ->' + JSON.stringify( { username, password } ) );
+    console.log( 'if successful will navigate to -> ' + this.returnUrl );
+    const credentials: Credentials = {
+      username,
+      password
+    };
+
+    this.authenticationService.login( credentials )
       .subscribe(
         data => {
+          console.log( 'This is what comes back from the API ->' + JSON.stringify( data ) );
+          this.loading = false;
+          this.authenticationService.setUser(
+            data.token,
+            data.userInfo,
+            data.expiresAt
+          );
           this.router.navigate([this.returnUrl]);
         },
         error => {

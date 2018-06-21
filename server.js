@@ -1,25 +1,48 @@
-var express = require('express');
-var path = require('path');
+require('dotenv').config();
+const express = require('express');
+const path = require('path');
 // var favicon = require('serve-favicon');
-var logger = require('morgan');
+const logger = require('morgan');
 // var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-// var session = require('express-session');
+const bodyParser = require('body-parser');
+const session = require('express-session');
 // var userSchema = require('./server/modules/users');
 
 // var passport = require('passport');
 //var LocalStrategy = require('passport-local').Strategy;
 
 // [SH] Bring in the data model
-//require('./server/modules/db');
+require('./server/api/modules/db');
 
 // [SH] Bring in the Passport config after model is defined
 //require('./server/config/passport');
 
 // [SH] Bring in the routes for the API (delete the default routes)
 //var router = require('./server/routes/router');
+// const router = require( './server/api/users' );
 
-var app = express();
+const app = express();
+
+/*
+// If an incoming request uses
+// a protocol other than HTTPS,
+// redirect that request to the
+// same url but with HTTPS
+const forceSSL = function() {
+  return function (req, res, next) {
+    if (req.headers['x-forwarded-proto'] !== 'https') {
+      return res.redirect(
+        ['https://', req.get('Host'), req.url].join('')
+      );
+    }
+    next();
+  }
+}
+// Instruct the app
+// to use the forceSSL
+// middleware
+app.use(forceSSL());
+*/
 
 /// Settings
 // Make JSON responses beautiful
@@ -41,11 +64,9 @@ if ( 'production' === app.get('env') ) {
 //app.set('view engine', 'ejs');
 
 // app.use(favicon(path.join(__dirname, 'dist', 'favicon.ico')));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  'extended': 'false'
-}));
+app.use( logger('dev') );
+app.use( bodyParser.json() );
+app.use( bodyParser.urlencoded({ 'extended': 'false' }));
 
 // Create link to Angular build directory
 // var distDir = __dirname + "/dist/";
@@ -56,13 +77,16 @@ app.use( express.static( path.join( __dirname, 'dist/connectica' ) ) );
 //app.use(mongo_db());
 
 //use sessions for tracking logins
-/*
-app.use(session({
-  secret: 'work hard',
-  resave: true,
-  saveUninitialized: false
-}));
-*/
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false, httpOnly: true, maxAge: 3600000 },
+    name: 'Connectica.io.cookie'
+  })
+);
+
 // [SH] Initialise Passport before using the route middleware
 // app.use(passport.initialize());
 //app.use(passport.session());
@@ -87,7 +111,11 @@ app.get('*', function (req, res) {
 */
 //app.all('*', router);
 
+// User routes
+app.use('/api/users', require('./server/api/users'));
 
+// Auth routes
+app.use('/api/authenticate', require('./server/api/authenticate'));
 
 /// error handlers
 
