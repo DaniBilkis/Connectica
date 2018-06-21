@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "client": "ng serve --port 3333 --proxy-config proxy.config.json",
+    "client": "ng serve --port 3333 --proxy-config proxy.conf.json",
     "server": "nodemon ./bin/www --watch server",
     "start": "concurrently \"yarn run server\" \"yarn run client\"",
     "build": "ng build",
