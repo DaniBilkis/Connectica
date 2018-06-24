@@ -18,7 +18,7 @@
         <div><a mat-button mat-raised-button color="warn" routerLink="/register" routerLinkActive="active">Sign Up</a>
         </div>
       </div>
-      <div [appShowAuth]="true" *ngIf="user">{{user.firstName}} {{user.lastName}}</div>
+      <div [appShowAuth]="true" *ngIf="isLoggedIn">{{user.firstName}} {{user.lastName}}</div>
       <div class="menu_toolbar_right_user_login" [appShowAuth]="true">
           <a mat-button mat-raised-button color="warn" routerLink="/login" (click)="logout()" routerLinkActive="active">Logout</a>
       </div>
@@ -26,7 +26,7 @@
   </mat-toolbar>
 
   <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav [appShowAuth]="true" #snav mode="side" opened={{navToggle}} [fixedInViewport]="fixed" [fixedTopGap]="fixedTop" [fixedBottomGap]="fixedBottom">
+    <mat-sidenav [appShowAuth]="true" #snav mode="side" opened={{isLoggedIn}} [fixedInViewport]="fixed" [fixedTopGap]="fixedTop" [fixedBottomGap]="fixedBottom">
       <mat-nav-list>
         <div *ngFor="let item of menuList">
           <div *ngIf="!(item.submenus && item.submenus.length > 0)">

@@ -21,7 +21,7 @@ export class MenuComponent implements OnInit {
 
   user: any;
 
-  navToggle: boolean;
+  isLoggedIn: boolean;
 
   menuList = [
     {
@@ -153,9 +153,10 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user = this.authService.getUserInfo();
+    // this.user = this.authService.getUserInfo();
+    this.authService.userInfo.subscribe( userInfo => { this.user = userInfo; });
     // console.log( 'Menu - Here is UserInfo object -> ' + JSON.stringify( this.user, null, 4 ) );
-    this.authService.isAuthenticated.subscribe(message => { this.navToggle = message; });
+    this.authService.isAuthenticated.subscribe(message => { this.isLoggedIn = message; });
     // console.log( 'This is a current user -> ' +  JSON.stringify( this.user.firstName ));
     // console.log( 'This is a current user first name-> ' + this.user.fi);
     // this.navigationBar.toggle();

@@ -9,10 +9,30 @@ import { Credentials } from '../_shared/credentials.model';
 @Injectable()
 export class AuthenticationService {
 
-  private isAuthenticatedSubject = new BehaviorSubject<boolean>( this.hasToken() );
+  private isAuthenticatedSubject = new BehaviorSubject<boolean>( this.isAuthenticatedAndNotExpired() );
   public isAuthenticated = this.isAuthenticatedSubject.asObservable();
 
+  private userInfoSubject = new BehaviorSubject<any>( this.getUserInfo() );
+  public userInfo = this.userInfoSubject.asObservable();
+
   constructor( private http: HttpClient ) {
+  }
+
+  public isAuthenticatedAndNotExpired(): boolean {
+    // Get the time the token expires
+    const expiresAt = localStorage.getItem('expiresAt');
+
+    // If there's no expiresAt value, make
+    // the user log in
+    if ( !expiresAt ) {
+      return false;
+    }
+
+    // Our indication as to whether the user is authenticated or not
+    // is if they have an unexpired token. Return a boolean that compares
+    // the current time with the token expiry time. The expiresAt value
+    // needs to be parsed because it is stored as a string
+    return new Date().getTime() < parseInt(expiresAt);
   }
 
   public login( credentials: Credentials ): Observable<any> {
@@ -23,23 +43,6 @@ export class AuthenticationService {
     return this.http.post('/api/authenticate/', { ...credentials });
   }
 
-  /*
-  login( credentials: Credentials ) {
-    // console.log( 'Authentication Service - calling api/authenticate with  -> ' + username + ' and ' + password );
-    return this.http.post<any>('/api/authenticate', {...credentials} )
-      .map(user => {
-        // login successful if there's a jwt token in the response
-        if (user && user.token) {
-          // store user details and jwt token in local storage to keep user logged in between page refreshes
-          localStorage.setItem('currentUser', JSON.stringify(user));
-          // localStorage.setItem('currentUser', user );
-          this.isAuthenticatedSubject.next(true);
-        }
-
-        return user;
-      });
-  }
-*/
   private setUserInfo(userInfo: any): void {
     localStorage.setItem('userInfo', JSON.stringify(userInfo));
   }
@@ -58,6 +61,7 @@ export class AuthenticationService {
     // this.setToken(token);
     this.setUserInfo(userInfo);
     this.setExpiresAt(expiresAt);
+    this.userInfoSubject.next( userInfo );
     this.isAuthenticatedSubject.next(true);
   }
 
@@ -65,30 +69,12 @@ export class AuthenticationService {
     return JSON.parse(localStorage.getItem('userInfo'));
   }
 
-  /*
-  public getUser(): string {
-    console.log( 'Authentication Service - getUser method ->' + localStorage.getItem('userInfo') );
-    return JSON.parse( localStorage.getItem('userInfo') );
-  }
-*/
-  private hasToken(): boolean {
-    return !!localStorage.getItem('userInfo');
-  }
-  /*
-  public isAuthenticated(): boolean {
-    // get the token
-    const token = this.getToken();
-    // return a boolean reflecting
-    // whether or not the token is expired
-
-    return this.jwtHelperService.isTokenExpired(token);
-  }
-*/
-  logout() {
+  public logout(): void {
     // remove user from local storage to log user out
     localStorage.removeItem('token');
     localStorage.removeItem('userInfo');
     localStorage.removeItem('expiresAt');
+    this.userInfoSubject.next( '' );
     this.isAuthenticatedSubject.next(false);
   }
 }

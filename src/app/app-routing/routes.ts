@@ -11,12 +11,6 @@ import {FxPaymentsComponent}            from '../fx-payments/fx-payments.compone
 
 import { OpenContractsComponent }                from '../open-contracts/open-contracts.component';
 
-// import { MenuComponent }                from '../menu/menu.component';
-// import { DishdetailComponent }          from '../dishdetail/dishdetail.component';
-// import { HomeComponent }                from '../home/home.component';
-// import { AboutComponent }               from '../about/about.component';
-// import { ContactComponent }             from '../contact/contact.component';
-
 export const routes: Routes = [
   { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
@@ -25,8 +19,8 @@ export const routes: Routes = [
   { path: 'invoices', component: InvoicesComponent, canActivate: [AuthGuard] },
   { path: 'transactions', component: TransactionsComponent, canActivate: [AuthGuard] },
   { path: 'fx_payments', component: FxPaymentsComponent, canActivate: [AuthGuard] },
+  { path: 'openContracts', component: OpenContractsComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'openContracts', component: OpenContractsComponent },
-  { path: '',     redirectTo: 'index.html', pathMatch: 'full' }
+  { path: 'register', component: RegisterComponent }
+  // { path: '',     redirectTo: 'index.html', pathMatch: 'full' }
 ];

@@ -20,7 +20,7 @@ const postUser = async (req, res) => {
     //const existingUsername = await queries.getUserByUsername(userData.username);
 
     if ( existingEmail ) {
-      return sendJsonResponse( res, 409, { message: 'Email already exists' } );
+      sendJsonResponse( res, 409, { message: 'Email already exists' } );
       // return res.status(400).json({ message: 'Email already exists' });
     }
 
@@ -35,9 +35,9 @@ const postUser = async (req, res) => {
     await queries.createUser(userData);
 
     // console.log(userData);
-    return sendJsonResponse( res, 201, { message: 'User created!' } );
+    sendJsonResponse( res, 201, { message: 'User created!' } );
   } catch (err) {
-    return sendJsonResponse( res, 400, { message: 'There was a problem creating your account! - ' + err } );
+    sendJsonResponse( res, 400, { message: 'There was a problem creating your account! - ' + err } );
   }
 };
 
@@ -48,11 +48,11 @@ const getUserByEmail = async (req, res) => {
     const existingEmail = await queries.getUserByEmail(email);
 
     if (existingEmail) {
-      return sendJsonResponse( res, 200, { emailTaken: true } );
+      sendJsonResponse( res, 200, { emailTaken: true } );
     }
-    return sendJsonResponse( res, 200, { emailTaken: false } );
+    sendJsonResponse( res, 200, { emailTaken: false } );
   } catch (err) {
-    return sendJsonResponse( res, 400, { message: 'There was a problem checking the email' } );
+    sendJsonResponse( res, 400, { message: 'There was a problem checking the email' } );
   }
 };
 

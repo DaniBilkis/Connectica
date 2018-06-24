@@ -3,9 +3,10 @@ const express = require('express');
 const path = require('path');
 // var favicon = require('serve-favicon');
 const logger = require('morgan');
-// var cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const jwt = require('jsonwebtoken');
 // var userSchema = require('./server/modules/users');
 
 // var passport = require('passport');
@@ -14,6 +15,7 @@ const session = require('express-session');
 // [SH] Bring in the data model
 require('./server/api/modules/db');
 
+const { sendJsonResponse } = require('./server/api/_shared');
 // [SH] Bring in the Passport config after model is defined
 //require('./server/config/passport');
 
@@ -87,22 +89,42 @@ app.use(
   })
 );
 
-// [SH] Initialise Passport before using the route middleware
-// app.use(passport.initialize());
-//app.use(passport.session());
+app.use( cookieParser() );
 
-// configure passport
-//passport.use(new LocalStrategy(userSchema.authenticate()));
-//passport.serializeUser(userSchema.serializeUser());
-//passport.deserializeUser(userSchema.deserializeUser());
-//app.use(require('less-middleware')(path.join(__dirname, 'src')));
-// app.use( express.static(path.join(__dirname, 'dist')) );
+const attachUser = (req, res, next) => {
+  const token = req.cookies.token;
+  if (!token) {
+    return sendJsonResponse( res, 401, { message: 'Authentication invalid' });
+  }
+  const decodedToken = jwtDecode(token);
+
+  if (!decodedToken) {
+    return sendJsonResponse( res, 401, { message: 'There was a problem authorizing the request' });
+  } else {
+    req.user = decodedToken;
+    next();
+  }
+};
+
+const checkJwt = (req, res, next) => {
+  const token = req.cookies.token;
+  if (!token) {
+    return sendJsonResponse( res, 403, { message: 'Access denied' } );
+  }
+  try {
+    const decoded = jwt.verify( token, process.env.JWT_SECRET, {
+      audience: 'api.connectica.io',
+      issuer: 'api.connectica.io'
+    });
+    console.log(decoded);
+    next();
+  } catch (err) {
+    return sendJsonResponse( res, 403, { message: 'Access denied' } );
+  }
+};
 
 
-// Set our api routes
-// app.use('/api', router);
-// app.use('/login', router);
-
+//---------- PUBLIC ROUTES --------------
 // Catch all other routes and return the index file
 app.get( '/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
@@ -114,12 +136,18 @@ app.use('/api/users', require('./server/api/users'));
 
 // Auth routes
 app.use('/api/authenticate', require('./server/api/authenticate'));
+app.use('/api/logout', require('./server/api/logout'));
 
-/// error handlers
+// -------- AUTHENTICATED ROUTES ---------
 
+app.use( attachUser );
+app.use( checkJwt );
+
+
+// -------- ERROR HANDLERS ---------------
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  var err = new Error('Not Found');
+  const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });

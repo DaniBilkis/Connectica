@@ -11,11 +11,11 @@ const postAuthenticate = async (req, res) => {
     const usernameOrEmail = req.body.username;
     const password = req.body.password;
 
-    console.log ( 'Here in the Auth API -> ' + usernameOrEmail + ' ' + password );
-    console.log ( 'Here in the Auth API - BODY -> ' + JSON.stringify( req.body, null, 4) );
+    // console.log ( 'Here in the Auth API -> ' + usernameOrEmail + ' ' + password );
+    // console.log ( 'Here in the Auth API - BODY -> ' + JSON.stringify( req.body, null, 4) );
 
     const user = await getUser( usernameOrEmail );
-    console.log ( 'Here in the Auth API - User Found -> ' + JSON.stringify( user, null, 4) );
+    // console.log ( 'Here in the Auth API - User Found -> ' + JSON.stringify( user, null, 4) );
     const passwordValid = await verifyPassword( password, user.password );
 
     if ( passwordValid ) {
@@ -37,16 +37,16 @@ const postAuthenticate = async (req, res) => {
 
       res.cookie( 'token', token, { maxAge: 360000, httpOnly: true } );
 
-      return sendJsonResponse( res, 200, { message: 'Authentication successful!', token, userInfo, expiresAt } );
+      sendJsonResponse( res, 200, { message: 'Authentication successful!', token, userInfo, expiresAt } );
       // res.json({ message: 'Authentication successful!' });
     } else {
-      return sendJsonResponse( res, 403, { message: 'Wrong username, email, or password.' } );
+      sendJsonResponse( res, 403, { message: 'Wrong username, email, or password.' } );
       // res.status(403).json({ message: 'Wrong username, email, or password.' });
     }
 
   } catch (err) {
     console.log( err );
-    return sendJsonResponse( res, 400, { message: 'Something went wrong.' } );
+    sendJsonResponse( res, 400, { message: 'Something went wrong.' } );
   }
 
 };
