@@ -11,11 +11,17 @@ import { AlertService } from '../_services';
 
 export class AlertsComponent {
   message: any;
+  cssMainDivClassName: any;
+  cssFirstChildDivClassName: any;
+  icon: any;
 
   constructor(private alertService: AlertService) { }
 
   ngOnInit() {
-    this.alertService.getMessage().subscribe(message => { this.message = message; });
+    this.alertService.getMessage().subscribe(message => {
+      this.message = message;
+      this.cssClass( this.message );
+    });
   }
 
   cssClass( message ) {
@@ -23,17 +29,33 @@ export class AlertsComponent {
     if (!message) {
       return;
     }
+/*
+    const classes =  {
+      alertsMessageSuccess: message.type === 'success',
+      alertsMessageDanger: message.type === 'error'
+    };
 
+    return classes;
+    */
     // return css class based on alert type
+
     switch (message.type) {
       case 'success':
-        return 'alerts-message-success';
+        this.cssFirstChildDivClassName = 'first-div-success';
+        this.icon = 'check_circle';
+        break;
       case 'error':
-        return 'alerts-message-danger';
+        this.cssFirstChildDivClassName = 'first-div-error';
+        this.icon = 'error';
+        break;
       case 'info':
-        return 'alerts_message alert-info';
+        this.cssFirstChildDivClassName = 'first-div-info';
+        this.icon = 'info';
+        break;
       case 'warning':
-        return 'alerts_message alert-warning';
+        this.cssFirstChildDivClassName = 'first-div-warning';
+        this.icon = 'info';
+        break;
     }
   }
 }

@@ -2,137 +2,146 @@ import {
   Component,
   OnInit,
   ChangeDetectorRef,
-  ViewChild
+  ViewChild, ViewEncapsulation
 }                          from '@angular/core';
 import { MediaMatcher }    from '@angular/cdk/layout';
 
 import { AuthenticationService } from '../_services/authentication.service';
+import { AlertService } from '../_services';
+import { Router } from '@angular/router';
+import { NavItem } from '../_shared/navitem';
+import { MenuListItemComponent } from '../menu-list-item/menu-list-item.component';
+import { MenuService } from '../_services/menu.service';
 
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  styleUrls: ['./menu.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class MenuComponent implements OnInit {
 
   mobileQuery: MediaQueryList;
   @ViewChild('snav') navigationBar;
+  @ViewChild( MenuListItemComponent ) menuItems;
 
   user: any;
 
+  sidenavWidth = 4;
+
   isLoggedIn: boolean;
 
-  menuList = [
+  isExpanded = false;
+
+  navItems: NavItem[] = [
     {
-      link : '/dashboard',
-      title: 'Dashboard',
-      icon: 'dashboard' // we have to use Google's naming convention for the IDs of the SVGs in the spritesheet
+      displayName: 'Dashboard',
+      iconName: 'dashboard',
+      route: '/dashboard'
     },
     {
-      link : '/messages',
-      title: 'Messages',
-      icon: 'message'
+      displayName: 'Messages',
+      iconName: 'message',
+      route: '/messages'
     },
     {
-      link : '/transactions',
-      title: 'Transactions',
-      icon: 'compare_arrows'
+      displayName: 'Transactions',
+      iconName: 'compare_arrows',
+      route: '/transactions'
     },
     {
-      link : '',
-      title: 'Statistics',
-      icon: 'insert_chart'
+      displayName : 'Statistics',
+      iconName: 'insert_chart',
+      route: ''
     },
     {
-      link : '',
-      title: 'Invoice financing',
-      icon: 'description',
+      displayName: 'Invoice financing',
+      iconName: 'description',
       submenus: [
         {
-          link : '/invoices',
-          title: 'Invoices',
-          icon: 'filter_none'
+          displayName: 'Invoices',
+          iconName: 'filter_none',
+          route : '/invoices'
         },
         {
-          link : '/offers',
-          title: 'Offers',
-          icon: 'local_offer'
+          displayName: 'Offers',
+          iconName: 'local_offer',
+          route : '/offers'
         }
       ]
     },
     {
-      link : '',
-      title: 'Logistics',
-      icon: 'local_shipping',
+      displayName: 'Logistics',
+      iconName: 'local_shipping',
       submenus: [
         {
-          link : '',
-          title: 'List of offerings',
-          icon: 'list'
+          displayName: 'List of offerings',
+          iconName: 'list',
+          route : ''
         },
         {
-          link : '',
-          title: 'Manage contracts',
-          icon: 'assignment'
+          displayName: 'Manage contracts',
+          iconName: 'assignment',
+          route : ''
         }
       ]
     },
     {
-      link : '/manageContracts',
-      title: 'Manage all contracts',
-      icon: 'work'
+      displayName: 'Manage all contracts',
+      iconName: 'work',
+      route : '/manageContracts',
     },
     {
-      link : '',
-      title: 'Manage access rights',
-      icon: 'style',
+      displayName: 'Manage access rights',
+      iconName: 'style',
       submenus: [
         {
-          link : '',
-          title: 'Current access pool',
-          icon: 'style'
+          displayName: 'Current access pool',
+          iconName: 'style',
+          route : '',
         },
         {
-          link : '',
-          title: 'Manage open pools',
-          icon: 'style'
+          displayName: 'Manage open pools',
+          iconName: 'style',
+          route : ''
         },
         {
-          link : '',
-          title: 'Granted access pools',
-          icon: 'style'
+          displayName: 'Granted access pools',
+          iconName: 'style',
+          route : ''
         }
       ]
     },
     {
-      link: '/openContracts' ,
-      title: 'Open Contracts',
-      icon: 'monetization_on'
+      displayName: 'Open Contracts',
+      iconName: 'monetization_on',
+      route: '/openContracts'
     },
     {
-      link : '',
-      title: 'FX hedging',
-      icon: 'euro_symbol',
+      displayName: 'FX hedging',
+      iconName: 'euro_symbol',
       submenus: [
         {
-          link : '/fx_payments',
-          title: 'FX payments',
-          icon: 'euro_symbol'
+          displayName: 'FX payments',
+          iconName: 'euro_symbol',
+          route : '/fx_payments'
         },
         {
-          link : '',
-          title: 'List of FX invoices',
-          icon: 'euro_symbol'
+          displayName: 'List of FX invoices',
+          iconName: 'euro_symbol',
+          route : ''
         },
         {
-          link : '',
-          title: 'History of FX hedging',
-          icon: 'euro_symbol'
+          displayName: 'History of FX hedging',
+          iconName: 'euro_symbol',
+          route : ''
         }
       ]
     }
-  ];
+    ];
+
+
 
   adminList = [
     {
@@ -146,7 +155,14 @@ export class MenuComponent implements OnInit {
   private _mobileQueryListener: () => void;
 
 
-  constructor( changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private authService: AuthenticationService ) {
+  constructor(
+    changeDetectorRef: ChangeDetectorRef,
+    media: MediaMatcher,
+    private authService: AuthenticationService,
+    private alertService: AlertService,
+    private router: Router,
+    private menuService: MenuService ) {
+
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -160,15 +176,46 @@ export class MenuComponent implements OnInit {
     // console.log( 'This is a current user -> ' +  JSON.stringify( this.user.firstName ));
     // console.log( 'This is a current user first name-> ' + this.user.fi);
     // this.navigationBar.toggle();
+    this.menuService.isLeftNavigationExpanded.subscribe( expanded => { this.isExpanded = expanded; } );
   }
+
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
   logout() {
-    this.authService.logout();
-    this.navigationBar.toggle();
+    this.authService.logout()
+      .subscribe(
+        data => {
+          console.log( 'Menu - Logout - before sending message to AlertService' );
+          this.alertService.success( data, true );
+          this.navigationBar.toggle();
+          this.router.navigate(['/login']);
+          console.log( 'Menu - Logout - after sending message to AlertService' );
+        },
+        error => {
+          // console.log( 'Here is what we have in the error --> ' + JSON.stringify( error, null, 4 ) );
+          this.alertService.error( error.error );
+          // this.loading = false;
+        });
+    // this.authService.logout();
+
   }
 
+  expandCollapse( fromChild: boolean ) {
+    if ( !fromChild || ( fromChild && !this.isExpanded ) ) {
+      this.isExpanded = !this.isExpanded;
+      this.menuService.leftNavigatoinMenuExpanded( this.isExpanded );
+    }
+
+    if ( this.isExpanded ) {
+      this.sidenavWidth = 12;
+    } else {
+      if ( !fromChild ) {
+        this.sidenavWidth = 4;
+      }
+    }
+    // this.navigationBar.toggle();
+  }
 }

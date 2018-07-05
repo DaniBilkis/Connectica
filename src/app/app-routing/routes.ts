@@ -21,6 +21,6 @@ export const routes: Routes = [
   { path: 'fx_payments', component: FxPaymentsComponent, canActivate: [AuthGuard] },
   { path: 'openContracts', component: OpenContractsComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent }
-  // { path: '',     redirectTo: 'index.html', pathMatch: 'full' }
+  { path: 'register', component: RegisterComponent },
+  // { path: '**',     redirectTo: 'dashboard', pathMatch: 'full' }
 ];

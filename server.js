@@ -7,6 +7,10 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const jwt = require('jsonwebtoken');
+const cors = require('cors');
+const csrf = require('csurf');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 // var userSchema = require('./server/modules/users');
 
 // var passport = require('passport');
@@ -76,7 +80,18 @@ app.use( bodyParser.urlencoded({ 'extended': 'false' }));
 app.use( express.static( path.join( __dirname, 'dist/connectica' ) ) );
 // app.use(cookieParser());
 
-//app.use(mongo_db());
+// Required if we serve our API at a
+// different origin than the Angular app
+app.use( cors() ); // Cross-Origin Resource Sharing
+
+const limiter = new rateLimit({
+  windowMs: 15 * 60 * 1000, // set window to 15 minutes
+  max: 100,
+  delayMs: 0 // don't require a delay disabled
+});
+
+app.use( limiter );
+app.use( helmet() );
 
 //use sessions for tracking logins
 app.use(
@@ -123,6 +138,10 @@ const checkJwt = (req, res, next) => {
   }
 };
 
+const makeCsrfToken = (req, res, next) => {
+  res.cookie('csrf-token', req.csrfToken());
+  next();
+};
 
 //---------- PUBLIC ROUTES --------------
 // Catch all other routes and return the index file
@@ -139,7 +158,8 @@ app.use('/api/authenticate', require('./server/api/authenticate'));
 app.use('/api/logout', require('./server/api/logout'));
 
 // -------- AUTHENTICATED ROUTES ---------
-
+app.use( csrf({ cookie: true }) );
+app.use( makeCsrfToken );
 app.use( attachUser );
 app.use( checkJwt );
 
