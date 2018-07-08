@@ -21,7 +21,6 @@ import { TransactionTreeComponent }                       from './transaction-tr
 import { TransactionDetailsComponent } 					          from './transactions/transaction-details/transaction-details.component';
 import { OpenContractsComponent }                         from './open-contracts/open-contracts.component';
 import { AuthGuard }                                      from './_guards/auth.guard';
-import { JwtInterceptor }                                 from './_helpers/jwt.interceptor';
 import { AlertService, AuthenticationService, UserService } from './_services/index';
 import { DashboardComponent }                             from './dashboard/dashboard.component';
 import { LoginComponent }                                 from './login/login.component';
@@ -29,8 +28,6 @@ import { RegisterComponent }                              from './register/regis
 import { AlertsComponent }                                from './alerts/alerts.component';
 
 import { D3Service }                                      from 'd3-ng2-service';
-
-import { fakeBackendProvider }                            from './_helpers/fake-backend';
 
 import { ShowAuthedDirective }                            from './_shared/show-authed.directive';
 import { FxPaymentsComponent }                            from './fx-payments/fx-payments.component';

@@ -48,3 +48,9 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+
+.width-of-the-dialog .mat-dialog-container {
+  width: auto!important;
+  max-width: 60vw!important;
+}

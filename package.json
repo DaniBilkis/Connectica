@@ -14,7 +14,7 @@
     "postinstall": "ng build"
   },
   "engines": {
-    "node": "10.5.0",
+    "node": "10.6.0",
     "yarn": "1.7.0"
   },
   "private": true,

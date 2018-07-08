@@ -1,52 +1,87 @@
-<h2 mat-dialog-title>Invoice {{data.invoice}}</h2>
-
-<mat-dialog-content layout-xs="column">
-  <div class="invoice-summary-main-container">
-    <!-- <div class="invoice-summary-div"> -->
-    <div class="invoice-summary-left">
-      <div>
-        <h3>Financing Offer</h3>
-        <p>Buyer: <b>{{data.buyerName}}</b></p>
-        <p>Invoice Number: <b>{{data.invoice}}</b></p>
-      </div>
-      <mat-divider></mat-divider>
-      <div class="invoice_summary_totals">
-        <div>
-          <span>INVOICE AMOUNT</span>
-          <span>{{data.invoiceValue | currency: data.currency}}</span>
-        </div>
-        <div>
-          <span>ADVANCE PAYMENT</span>
-          <span>{{data.advancePayment | currency: data.currency}}</span>
-        </div>
-        <div>
-          <span>TOTAL BACK PAYMENT</span>
-          <span>{{data.totalBackPayment | currency: data.currency}}</span>
-        </div>
-      </div>
-    </div>
-    <mat-divider></mat-divider>
-    <div class="invoice-summary-right">
-      <h3>Details</h3>
-      <p>Due Date: <b>{{data.dueDate | date}}</b></p>
-      <p>Total Invoice Amount: <b>{{data.invoiceValue}}</b></p>
-      <p>Fees Amount: <b>{{data.feesAmount}}</b></p>
-      <p>Fees: <b>{{data.feesDescription}}</b></p>
-      <p>Advance installment: <b>{{data.advancedInstallment}}</b></p>
-      <p>Advance Rate: <b>{{data.advancedRate}}</b></p>
-      <mat-divider></mat-divider>
-    </div>
-    <!-- </div> -->
-    <div class="invoice-summary-authorization-div">
-      <mat-checkbox class="invoice-summary-auth-checkbox"></mat-checkbox>
-      <p class="invoice-summary-auth-text">I authorise Connectica GmbH to collect the payments payable by me from my
-        account when due by means of a direct
-        debit from my account.</p>
-    </div>
+<div class="invoice-summary-main-div">
+  <div class="invoice-summary-title">
+    <h2 mat-dialog-title>Invoice {{data.invoice}}</h2>
   </div>
-</mat-dialog-content>
 
-<mat-dialog-actions class="invoice-summary-buttons">
-  <button mat-raised-button mat-dialog-close>Cancel</button>
-  <button mat-raised-button color="warn" [mat-dialog-close]="true" cdkFocusInitial>Submit</button>
-</mat-dialog-actions>
+
+  <mat-dialog-content layout-xs="column">
+    <div class="invoice-summary-main-container">
+      <!-- <div class="invoice-summary-div"> -->
+      <div class="invoice-summary-left">
+        <div>
+          <h3 class="invoice-summary-h3">Financing Offer</h3>
+          <mat-divider></mat-divider>
+          <div class="inv-summary-buyer">
+            <span>Buyer:</span>
+            <span class="invoice-summary-buyer-names">{{data.buyerName}}</span>
+          </div>
+          <div class="inv-summary-buyer">
+            <span>Invoice Number:</span>
+            <span class="invoice-summary-buyer-names">{{data.invoice}}</span>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="invoice_summary_totals">
+          <div class="invoice-summary-totals-element">
+            <h3>Invoice Amount</h3>
+            <span class="invoice-summary-totals-sums">{{data.invoiceValue | currency: data.currency}}</span>
+          </div>
+          <div class="invoice-summary-totals-element">
+            <h3>Advance Payment</h3>
+            <span class="invoice-summary-totals-sums">{{data.advancePayment | currency: data.currency}}</span>
+          </div>
+          <div class="invoice-summary-totals-element">
+            <h3>Total Back Payment</h3>
+            <span class="invoice-summary-totals-sums">{{data.totalBackPayment | currency: data.currency}}</span>
+          </div>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="invoice-summary-right">
+        <h3>Details</h3>
+        <div class="inv-summary-buyer">
+          <span>Due Date:</span>
+          <span class="invoice-summary-buyer-names">{{data.dueDate | date}}</span>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="inv-summary-buyer">
+          <span>Total Invoice Amount:</span>
+          <span class="invoice-summary-buyer-names">{{data.invoiceValue}}</span>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="inv-summary-buyer">
+          <span>Fees Amount:</span>
+          <span class="invoice-summary-buyer-names">{{data.feesAmount}}</span>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="inv-summary-buyer">
+          <span>Fees:</span>
+          <span class="invoice-summary-buyer-names">{{data.feesDescription}}</span>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="inv-summary-buyer">
+          <span>Advance installment:</span>
+          <span class="invoice-summary-buyer-names">{{data.advancedInstallment}}</span>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="inv-summary-buyer">
+          <span>Advance Rate:</span>
+          <span class="invoice-summary-buyer-names">{{data.advancedRate}}</span>
+        </div>
+        <mat-divider></mat-divider>
+      </div>
+      <!-- </div> -->
+      <div class="invoice-summary-authorization-div">
+        <mat-checkbox class="invoice-summary-auth-checkbox"></mat-checkbox>
+        <span class="invoice-summary-auth-text">I authorise Connectica GmbH to collect the payments payable by me from my
+          account when due by means of a direct
+          debit from my account.</span>
+      </div>
+    </div>
+  </mat-dialog-content>
+</div>
+  <mat-dialog-actions class="invoice-summary-buttons">
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="warn" [mat-dialog-close]="true" cdkFocusInitial>Submit</button>
+  </mat-dialog-actions>
+
