@@ -46,7 +46,7 @@
         <mat-divider></mat-divider>
         <div class="inv-summary-buyer">
           <span>Total Invoice Amount:</span>
-          <span class="invoice-summary-buyer-names">{{data.invoiceValue}}</span>
+          <span class="invoice-summary-buyer-names">{{data.invoiceValue | currency: data.currency}}</span>
         </div>
         <mat-divider></mat-divider>
         <div class="inv-summary-buyer">
@@ -61,7 +61,7 @@
         <mat-divider></mat-divider>
         <div class="inv-summary-buyer">
           <span>Advance installment:</span>
-          <span class="invoice-summary-buyer-names">{{data.advancedInstallment}}</span>
+          <span class="invoice-summary-buyer-names">{{data.advancedInstallment | currency: data.currency}}</span>
         </div>
         <mat-divider></mat-divider>
         <div class="inv-summary-buyer">
