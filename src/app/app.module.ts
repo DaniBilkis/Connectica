@@ -2,7 +2,7 @@ import { BrowserModule }                                  from '@angular/platfor
 import { NgModule }                                       from '@angular/core';
 import { BrowserAnimationsModule }                        from '@angular/platform-browser/animations';
 import { FlexLayoutModule }                               from '@angular/flex-layout';
-import { HttpClientModule, HTTP_INTERCEPTORS }            from '@angular/common/http';
+import { HttpClientModule, HttpClientXsrfModule }         from '@angular/common/http';
 
 import { ReactiveFormsModule }                            from '@angular/forms';
 
@@ -21,7 +21,6 @@ import { TransactionTreeComponent }                       from './transaction-tr
 import { TransactionDetailsComponent } 					          from './transactions/transaction-details/transaction-details.component';
 import { OpenContractsComponent }                         from './open-contracts/open-contracts.component';
 import { AuthGuard }                                      from './_guards/auth.guard';
-import { JwtInterceptor }                                 from './_helpers/jwt.interceptor';
 import { AlertService, AuthenticationService, UserService } from './_services/index';
 import { DashboardComponent }                             from './dashboard/dashboard.component';
 import { LoginComponent }                                 from './login/login.component';
@@ -29,8 +28,6 @@ import { RegisterComponent }                              from './register/regis
 import { AlertsComponent }                                from './alerts/alerts.component';
 
 import { D3Service }                                      from 'd3-ng2-service';
-
-import { fakeBackendProvider }                            from './_helpers/fake-backend';
 
 import { ShowAuthedDirective }                            from './_shared/show-authed.directive';
 import { FxPaymentsComponent }                            from './fx-payments/fx-payments.component';
@@ -49,7 +46,9 @@ import { DashboardServiceOfferingsComponent }             from './dashboard/dash
 import { DashboardAdvertisementTransportationComponent }  from './dashboard/dashboard-advertisement-transportation/dashboard-advertisement-transportation.component';
 import { DashboardAdvertisementFinancialComponent }       from './dashboard/dashboard-advertisement-financial/dashboard-advertisement-financial.component';
 import { DashboardChartComponent }                        from './dashboard/dashboard-chart/dashboard-chart.component';
-import { DashboardPaymentCalendarChartComponent } from './dashboard/dashboard-payment-calendar-chart/dashboard-payment-calendar-chart.component';
+import { DashboardPaymentCalendarChartComponent }         from './dashboard/dashboard-payment-calendar-chart/dashboard-payment-calendar-chart.component';
+import { MenuListItemComponent }                          from './menu-list-item/menu-list-item.component';
+import { MenuService }                                    from './_services/menu.service';
 
 @NgModule({
   declarations: [
@@ -82,7 +81,8 @@ import { DashboardPaymentCalendarChartComponent } from './dashboard/dashboard-pa
     DashboardAdvertisementTransportationComponent,
     DashboardAdvertisementFinancialComponent,
     DashboardChartComponent,
-    DashboardPaymentCalendarChartComponent
+    DashboardPaymentCalendarChartComponent,
+    MenuListItemComponent
   ],
   imports: [
     BrowserModule,
@@ -92,7 +92,11 @@ import { DashboardPaymentCalendarChartComponent } from './dashboard/dashboard-pa
     FlexLayoutModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    UICarouselModule
+    UICarouselModule,
+    HttpClientXsrfModule.withOptions({
+      cookieName: 'csrf-token',
+      headerName: 'csrf-token'
+    })
   ],
   exports: [
     ShowAuthedDirective
@@ -112,7 +116,8 @@ import { DashboardPaymentCalendarChartComponent } from './dashboard/dashboard-pa
 */
     // provider used to create fake backend
   //  fakeBackendProvider,
-    DashboardCardsService
+    DashboardCardsService,
+    MenuService
   ],
   bootstrap: [ AppComponent ],
   entryComponents: [

@@ -12,7 +12,7 @@ const postAuthenticate = async (req, res) => {
     const password = req.body.password;
 
     // console.log ( 'Here in the Auth API -> ' + usernameOrEmail + ' ' + password );
-    // console.log ( 'Here in the Auth API - BODY -> ' + JSON.stringify( req.body, null, 4) );
+    console.log ( 'Here in the Auth API - BODY -> ' + JSON.stringify( req.body, null, 4) );
 
     const user = await getUser( usernameOrEmail );
     // console.log ( 'Here in the Auth API - User Found -> ' + JSON.stringify( user, null, 4) );
@@ -30,7 +30,7 @@ const postAuthenticate = async (req, res) => {
       const userInfo = {
         email: user.email,
         // username: user.username,
-        // role: user.role
+        role: user.role,
         firstName: user.firstName,
         lastName: user.lastName
       };

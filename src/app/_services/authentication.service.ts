@@ -69,12 +69,13 @@ export class AuthenticationService {
     return JSON.parse(localStorage.getItem('userInfo'));
   }
 
-  public logout(): void {
+  public logout(): Observable<any> {
     // remove user from local storage to log user out
     localStorage.removeItem('token');
     localStorage.removeItem('userInfo');
     localStorage.removeItem('expiresAt');
     this.userInfoSubject.next( '' );
     this.isAuthenticatedSubject.next(false);
+    return this.http.post('/api/logout', {});
   }
 }

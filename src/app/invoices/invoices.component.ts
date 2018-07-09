@@ -24,7 +24,8 @@ export class InvoicesComponent implements OnInit {
     console.log('Clicking Button of Invoice');
 
     const dialogRef = this.dialog.open( InvoiceSummaryComponent, {
-      // width: '250px',
+      // width: 'auto',
+      panelClass: 'width-of-the-dialog',
       data: {
         invoice: element.invoice,
         buyerName: element.buyerName,

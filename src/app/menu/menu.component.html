@@ -1,11 +1,13 @@
 <div class="menu-container" [class.example-is-mobile]="mobileQuery.matches">
 
-  <mat-toolbar class="menu_toolbar">
+  <mat-toolbar class="menu-toolbar">
     <div class="menu_toolbar_logo">
       <div [appShowAuth]="true">
-        <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+        <button mat-icon-button (click)="snav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
       </div>
-      <div><h1>Connectica</h1></div>
+      <div><h1 class="logo">Connectica</h1></div>
     </div>
     <div class="menu_toolbar_fill-remaining-space"></div>
     <div class="menu_toolbar_right">
@@ -20,53 +22,24 @@
       </div>
       <div [appShowAuth]="true" *ngIf="isLoggedIn">{{user.firstName}} {{user.lastName}}</div>
       <div class="menu_toolbar_right_user_login" [appShowAuth]="true">
-          <a mat-button mat-raised-button color="warn" routerLink="/login" (click)="logout()" routerLinkActive="active">Logout</a>
+        <a mat-button mat-raised-button color="warn" routerLink="/login" (click)="logout()" routerLinkActive="active">Logout</a>
       </div>
     </div>
   </mat-toolbar>
 
-  <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav [appShowAuth]="true" #snav mode="side" opened={{isLoggedIn}} [fixedInViewport]="fixed" [fixedTopGap]="fixedTop" [fixedBottomGap]="fixedBottom">
+  <mat-sidenav-container [autosize]="true">
+    <mat-sidenav class="menu-side-navigation" [appShowAuth]="true" #snav mode="side" opened={{isLoggedIn}} [fixedInViewport]="fixed" [ngStyle]="{ 'width.px': sidenavWidth }"
+                 [fixedTopGap]="fixedTop" [fixedBottomGap]="fixedBottom">
       <mat-nav-list>
-        <div *ngFor="let item of menuList">
-          <div *ngIf="!(item.submenus && item.submenus.length > 0)">
-            <mat-list-item>
-              <i class="material-icons">{{item.icon}}</i>
-              <a routerLink="{{item.link}}" routerLinkActive="active">{{item.title}}</a>
-              <mat-divider></mat-divider>
-            </mat-list-item>
-          </div>
-          <div class="sidenav-container__accordion" *ngIf="(item.submenus && item.submenus.length > 0)">
-            <mat-accordion>
-              <mat-expansion-panel class="mat-elevation-z">
-                <mat-expansion-panel-header>
-                  <i class="material-icons">{{item.icon}}</i>
-                  <a routerLink="{{item.link}}" routerLinkActive="active">{{item.title}}</a>
-                </mat-expansion-panel-header>
-                <mat-list>
-                  <div *ngFor="let submenu of item.submenus">
-                    <mat-list-item>
-                      <i class="material-icons">{{submenu.icon}}</i>
-                      <a routerLink="{{submenu.link}}" routerLinkActive="active">{{submenu.title}}</a>
-                    </mat-list-item>
-                  </div>
-                </mat-list>
-              </mat-expansion-panel>
-            </mat-accordion>
-          </div>
-        </div>
-        <mat-list-item *ngFor="let item of adminList">
-          <i class="material-icons">{{item.icon}}</i>
-          <a routerLink="{{item.link}}" routerLinkActive="active">{{item.title}}</a>
-          <mat-divider></mat-divider>
-        </mat-list-item>
+        <app-menu-list-item *ngFor="let item of navItems" [item]="item" (messageEvent)="expandCollapse($event)"></app-menu-list-item>
+        <a class="menu-expansion-button" mat-list-item  (click)="expandCollapse( false )">
+          <mat-icon class="routeIcon" *ngIf="!isExpanded">chevron_right</mat-icon>
+          <mat-icon class="routeIcon" *ngIf="isExpanded">chevron_left</mat-icon>
+        </a>
       </mat-nav-list>
-
     </mat-sidenav>
-
     <mat-sidenav-content>
       <app-alerts></app-alerts>
-      <!--  <p *ngFor="let content of fillerContent">{{content}}</p>  -->
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>

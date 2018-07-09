@@ -1,1 +1,8 @@
-<div class="{{ cssClass(message) }}" *ngIf="message">{{message.text}}</div>
+<div class="alerts alerts-messages" *ngIf="message">
+  <div class="first-div" [ngClass]="cssFirstChildDivClassName">
+    <i class="material-icons">{{icon}}</i>
+  </div>
+  <div class="second-div">
+    <p>{{message.text}}</p>
+  </div>
+</div>

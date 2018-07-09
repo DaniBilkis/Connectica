@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import {AuthenticationService} from '../_services';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
 
-  constructor(private router: Router) { }
+  constructor(private authSerive: AuthenticationService, private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if ( localStorage.getItem('userInfo') ) {
+    if ( this.authSerive.isAuthenticatedAndNotExpired() ) {
       // logged in so return true
+      console.log( 'userInfo is available in localStorage' );
       return true;
     }
 
