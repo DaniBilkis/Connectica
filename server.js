@@ -163,6 +163,7 @@ app.use( makeCsrfToken );
 app.use( attachUser );
 app.use( checkJwt );
 
+app.use('/api/menus', require('./server/api/menus'));
 
 // -------- ERROR HANDLERS ---------------
 // catch 404 and forward to error handler
