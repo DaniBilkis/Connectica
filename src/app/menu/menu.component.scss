@@ -9,7 +9,7 @@
 }
 
 .menu-toolbar {
-  display: flex;
+  display: flex!important;
   background: rgb(30, 30, 30)!important;
   color: rgb(217, 217, 217)!important;
 }
@@ -67,60 +67,67 @@
 
 $app-primary: red;
 
-.mat-sidenav {
+.menu-side-navigation {
   //width: 360px;
   background-color: rgba(60, 60, 60, 1);
   color: rgb(217, 217, 217);
 }
+
+
+
 .mat-sidenav-container {
-  background-color: white !important;
+  // background-color: white !important;
   height: 100vh;
 }
+/*
+.mat-sidenav-content {
+  // height: 100%!important;
+}
+*/
+.demo-content {
+  width: 100%;
+  height: 100vh;
+  padding-bottom: 5px;
+  //height: -webkit-fill-available;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
 .sidenav-toolbar {
   //height: 64px;
   background-color: #f44336;
   display: flex;
   flex-direction: row;
 }
+
 .mat-nav-list {
   padding-top: 0;
 }
 
-.mat-list-item {
+.menu-expansion-button {
   // padding: 8px 0;
 
   .routeIcon {
     margin-right: 10px;
-    color: #f44336;
+    color: #ffffff;
   }
 
   &:hover,
   &:focus {
 
-      background-color: #f44336 !important;
+    background-color: #f44336 !important;
+    color: #FFF;
+    .routeIcon {
       color: #FFF;
-      .routeIcon {
-        color: #FFF;
-      }
     }
-}
-
-.mat-list-item:hover .routeIcon {
-  background-color: #f44336 !important;
-  color: #FFF;
-}
-
-.mat-list-item.active {
-  background-color: #f44336 !important;
-  color: #FFF;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  transform: translate3d( 0px, 5px, 0px);
-  transition: all 0.5s cubic-bezier( 0.29, 1.42, 0.70, 1.0);
-  border-radius: 4px 0px 0px 4px;
-  .routeIcon {
-    color: #FFF
   }
 }
+
+.menu-expansion-button:hover .routeIcon {
+  background-color: #f44336 !important;
+  color: #FFF;
+}
+
 
 .username {
   padding: 15px;

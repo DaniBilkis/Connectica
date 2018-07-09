@@ -80,6 +80,8 @@ export class DashboardChartComponent extends AbstractDashboardCard implements On
         ]
       },
       options: {
+        responsive: true,
+        maintainAspectRatio: true,
         legend: {
           display: false
         },

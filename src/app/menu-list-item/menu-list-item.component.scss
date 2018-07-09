@@ -10,3 +10,40 @@
   font-size: 14px;
   font-weight: 300;
 }
+
+.mat-list-item {
+  // padding: 8px 0;
+
+  .routeIcon {
+    margin-right: 10px;
+    color: #ffffff;
+  }
+
+  &:hover,
+  &:focus {
+
+    background-color: #f44336 !important;
+    color: #FFF;
+    .routeIcon {
+      color: #FFF;
+    }
+  }
+}
+
+.mat-list-item:hover .routeIcon {
+  background-color: #f44336 !important;
+  color: #FFF;
+}
+
+.mat-list-item.active {
+  background-color: #f44336 !important;
+  color: #FFF;
+  box-shadow: 1px 1px 5px 5px rgba(0,0,0,0.19) , 0 6px 6px rgba(0,0,0,0.23);
+  //box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  transform: translate3d( 0px, 0px, 5px);
+  transition: all 0.5s cubic-bezier( 0.29, 1.42, 0.70, 1.0);
+  border-radius: 4px 0px 0px 4px;
+  .routeIcon {
+    color: #FFF
+  }
+}

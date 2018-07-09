@@ -28,7 +28,7 @@ export class MenuComponent implements OnInit {
 
   user: any;
 
-  sidenavWidth = 4;
+  sidenavWidth = 66;
 
   isLoggedIn: boolean;
 
@@ -189,7 +189,7 @@ export class MenuComponent implements OnInit {
       .subscribe(
         data => {
           console.log( 'Menu - Logout - before sending message to AlertService' );
-          this.alertService.success( data, true );
+          this.alertService.success( data, false );
           this.navigationBar.toggle();
           this.router.navigate(['/login']);
           console.log( 'Menu - Logout - after sending message to AlertService' );
@@ -210,10 +210,10 @@ export class MenuComponent implements OnInit {
     }
 
     if ( this.isExpanded ) {
-      this.sidenavWidth = 12;
+      this.sidenavWidth = 198;
     } else {
       if ( !fromChild ) {
-        this.sidenavWidth = 4;
+        this.sidenavWidth = 66;
       }
     }
     // this.navigationBar.toggle();

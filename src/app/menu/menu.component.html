@@ -28,11 +28,11 @@
   </mat-toolbar>
 
   <mat-sidenav-container [autosize]="true">
-    <mat-sidenav [appShowAuth]="true" #snav mode="side" opened={{isLoggedIn}} [fixedInViewport]="fixed" [ngStyle]="{ 'width.em': sidenavWidth }"
+    <mat-sidenav class="menu-side-navigation" [appShowAuth]="true" #snav mode="side" opened={{isLoggedIn}} [fixedInViewport]="fixed" [ngStyle]="{ 'width.px': sidenavWidth }"
                  [fixedTopGap]="fixedTop" [fixedBottomGap]="fixedBottom">
       <mat-nav-list>
         <app-menu-list-item *ngFor="let item of navItems" [item]="item" (messageEvent)="expandCollapse($event)"></app-menu-list-item>
-        <a mat-list-item  (click)="expandCollapse( false )">
+        <a class="menu-expansion-button" mat-list-item  (click)="expandCollapse( false )">
           <mat-icon class="routeIcon" *ngIf="!isExpanded">chevron_right</mat-icon>
           <mat-icon class="routeIcon" *ngIf="isExpanded">chevron_left</mat-icon>
         </a>

@@ -1,9 +1,13 @@
-<mat-sidenav-container class="grid-container">
-  <mat-sidenav-content>
+<mat-toolbar>
+  <span>Dashboard</span>
+  <span class="fill-remaining-space"></span>
+</mat-toolbar>
+<div class="grid-container">
+  <mat-sidenav-content class="dashboard-sidenav-content">
     <mat-grid-list [cols]="12" rowHeight="200px">
       <mat-grid-tile *ngFor="let card of cards" [colspan]="card.input.cols.value" [rowspan]="card.input.rows.value">
         <app-dashboard-cards-spawner [card]="card"></app-dashboard-cards-spawner>
       </mat-grid-tile>
     </mat-grid-list>
   </mat-sidenav-content>
-</mat-sidenav-container>
+</div>
