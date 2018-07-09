@@ -189,7 +189,7 @@ export class MenuComponent implements OnInit {
       .subscribe(
         data => {
           console.log( 'Menu - Logout - before sending message to AlertService' );
-          this.alertService.success( data, true );
+          this.alertService.success( data, false );
           this.navigationBar.toggle();
           this.router.navigate(['/login']);
           console.log( 'Menu - Logout - after sending message to AlertService' );
