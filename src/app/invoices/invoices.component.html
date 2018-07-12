@@ -4,16 +4,82 @@
   <span class="fill-remaining-space"></span>
 
 </mat-toolbar>
+
+<div class="container mat-elevation-z0">
+<div class="george">
+  <mat-card class="dashboard-card mat-elevation-z8 border-top-lila">
+    <mat-card-header>
+      <mat-card-title class="dashboard-card-title">
+        Financeable Items
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="line-div">
+        <div><p class=grey>Finaceable Amount:</p></div>
+        <div class="font20">12.805,67 €</div>
+      </div>
+      <div class="line-div">
+        <div>
+          <p class=grey>Number of invoices</p>
+        </div>
+        <div class="font20">
+          4
+        </div>
+      </div>
+      <div class="line-div">
+          <button mat-raised-button color="primary">Finance All</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="dashboard-card mat-elevation-z8 border-top-orange">
+    <mat-card-header>
+      <mat-card-title class="dashboard-card-title">
+        Total Items
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="line-div">
+        <div><p class=grey>Total Amount:</p></div>
+        <div class="font20">32.452,67 €</div>
+      </div>
+      <div class="line-div">
+        <div>
+          <p class=grey>Number of invoices</p>
+        </div>
+        <div class="font20">
+          18
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <div></div>
+  <div></div> 
+</div>
+</div>
+
 <div class="container mat-elevation-z8">
+  <div class="line-div invoices-table-header">Finance individual invoices</div>
   <mat-table #table [dataSource]="dataSource">
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
 
+    <ng-container matColumnDef="checkb">
+      <mat-cell *matCellDef="let element"> 
+          <mat-checkbox>
+          </mat-checkbox>
+      </mat-cell>
+    </ng-container>
+
     <!-- Position Column -->
     <ng-container matColumnDef="invoice">
       <mat-header-cell *matHeaderCellDef> Invoice </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.buyerName}}: {{element.invoice}} </mat-cell>
+      <mat-cell *matCellDef="let element"> 
+        <div class="insideCellWrap">
+        <div><p class="bld">{{element.buyerName}}</p></div>
+        <div class=grey>Invoice: {{element.invoice}}</div> 
+      </div>
+      </mat-cell>
     </ng-container>
 
     <!-- Name Column -->
