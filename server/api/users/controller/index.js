@@ -21,17 +21,11 @@ const postUser = async (req, res) => {
 
     if ( existingEmail ) {
       sendJsonResponse( res, 409, { message: 'Email already exists' } );
-      // return res.status(400).json({ message: 'Email already exists' });
     }
 
-/*
-    if (existingUsername) {
-      return res.status(400).json({ message: 'Username already exists' });
-    }
-  */
-// We'll eventually create the user in a
-// database, but for now we'll just log
-// the incoming data to the console
+    // We'll eventually create the user in a
+    // database, but for now we'll just log
+    // the incoming data to the console
     await queries.createUser(userData);
 
     // console.log(userData);
@@ -42,6 +36,7 @@ const postUser = async (req, res) => {
 };
 
 const getUserByEmail = async (req, res) => {
+  console.log( 'Inside getUSerByEmail' );
   try {
 
     const email = req.query.email.toLowerCase();

@@ -11,44 +11,16 @@ const cors = require('cors');
 const csrf = require('csurf');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
-// var userSchema = require('./server/modules/users');
-
-// var passport = require('passport');
-//var LocalStrategy = require('passport-local').Strategy;
 
 // [SH] Bring in the data model
 require('./server/api/modules/db');
 
 const { sendJsonResponse } = require('./server/api/_shared');
-// [SH] Bring in the Passport config after model is defined
-//require('./server/config/passport');
-
-// [SH] Bring in the routes for the API (delete the default routes)
-//var router = require('./server/routes/router');
-// const router = require( './server/api/users' );
 
 const app = express();
 
-/*
-// If an incoming request uses
-// a protocol other than HTTPS,
-// redirect that request to the
-// same url but with HTTPS
-const forceSSL = function() {
-  return function (req, res, next) {
-    if (req.headers['x-forwarded-proto'] !== 'https') {
-      return res.redirect(
-        ['https://', req.get('Host'), req.url].join('')
-      );
-    }
-    next();
-  }
-}
-// Instruct the app
-// to use the forceSSL
-// middleware
-app.use(forceSSL());
-*/
+
+
 
 /// Settings
 // Make JSON responses beautiful
@@ -65,6 +37,7 @@ if ( 'production' === app.get('env') ) {
   app.disable('x-powered-by');
 }
 
+
 // Set a View Engine
 //app.set('views', path.join(__dirname, 'views'));
 //app.set('view engine', 'ejs');
@@ -75,10 +48,7 @@ app.use( bodyParser.json() );
 app.use( bodyParser.urlencoded({ 'extended': 'false' }));
 
 // Create link to Angular build directory
-// var distDir = __dirname + "/dist/";
-// app.use( express.static( distDir ) );
 app.use( express.static( path.join( __dirname, 'dist/connectica' ) ) );
-// app.use(cookieParser());
 
 // Required if we serve our API at a
 // different origin than the Angular app
@@ -105,6 +75,7 @@ app.use(
 );
 
 app.use( cookieParser() );
+
 
 const attachUser = (req, res, next) => {
   const token = req.cookies.token;
@@ -143,12 +114,18 @@ const makeCsrfToken = (req, res, next) => {
   next();
 };
 
+
 //---------- PUBLIC ROUTES --------------
 // Catch all other routes and return the index file
+/*
 app.get( '/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
+*/
 //app.all('*', router);
+app.get('/ping', (req, res) => {
+  res.send('Hello world!');
+});
 
 // User routes
 app.use('/api/users', require('./server/api/users'));
@@ -156,6 +133,7 @@ app.use('/api/users', require('./server/api/users'));
 // Auth routes
 app.use('/api/authenticate', require('./server/api/authenticate'));
 app.use('/api/logout', require('./server/api/logout'));
+app.use('/api/menus', require('./server/api/menus'));
 
 // -------- AUTHENTICATED ROUTES ---------
 app.use( csrf({ cookie: true }) );
@@ -163,7 +141,7 @@ app.use( makeCsrfToken );
 app.use( attachUser );
 app.use( checkJwt );
 
-app.use('/api/menus', require('./server/api/menus'));
+
 
 // -------- ERROR HANDLERS ---------------
 // catch 404 and forward to error handler
