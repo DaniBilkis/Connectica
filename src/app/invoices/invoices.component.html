@@ -66,8 +66,10 @@
 
     <ng-container matColumnDef="checkb">
       <mat-cell *matCellDef="let element"> 
-          <mat-checkbox>
-          </mat-checkbox>
+          <mat-checkbox (click)="$event.stopPropagation()"
+          (change)="$event ? selection.toggle(row) : null"
+          [checked]="selection.isSelected(row)">
+      </mat-checkbox>
       </mat-cell>
     </ng-container>
 
@@ -97,7 +99,7 @@
     <!-- Symbol Column -->
     <ng-container matColumnDef="status">
       <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
-      <mat-cell *matCellDef="let element"> <button mat-button color="warn" [disabled]="!element.active" (click)="buttonClick(element)">{{element.status}}</button></mat-cell>
+      <mat-cell *matCellDef="let element"> <button mat-raised-button color="warn" [disabled]="!element.active" (click)="buttonClick(element)">{{element.status}}</button></mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
