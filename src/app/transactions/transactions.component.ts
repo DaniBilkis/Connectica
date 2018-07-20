@@ -35,7 +35,7 @@ export class TransactionsComponent implements OnInit {
     return TRANSACTIONS;
   }
   clickedItem(item: TransactionDetails): void {
-    console.log('Transaction Component. Clicked on ' + JSON.stringify(item));
+    // console.log('Transaction Component. Clicked on ' + JSON.stringify(item));
 
     this.selectedItem = item;
 // this._router.navigate([ 'search' ]);

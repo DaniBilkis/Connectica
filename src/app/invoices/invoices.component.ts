@@ -2,7 +2,7 @@ import { Component, OnInit }        from '@angular/core';
 import { InvoiceSummaryComponent }  from '../invoice-summary/invoice-summary.component';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { Router }                     from '@angular/router';
-import { Invoice }                    from '../_shared/invoice-interface';
+import { Invoice }                    from '../_shared/interface-invoice';
 import { INVOICES }                   from '../_shared/data-invoices';
 @Component({
   selector: 'app-invoices',

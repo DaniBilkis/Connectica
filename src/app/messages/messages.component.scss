@@ -1,0 +1,76 @@
+.messages-main-div {
+  display: flex;
+  margin: 10px;
+}
+
+.messages-left-div {
+  flex: 30%;
+  margin-right: 5px;
+}
+
+.messages-right-div {
+  flex: 70%;
+  margin-left: 5px;
+}
+
+.message-content {
+  padding: 0 10px;
+}
+
+// ---------- RIGHT PANE ---------------
+.message_details_content {
+  display: flex;
+  font-size: 14px;
+  font-weight: 300;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+
+.message-details-main {
+  display: flex;
+  flex-direction: row;
+}
+
+.message-details-main > div {
+  flex: 1;
+  font-size: 11px;
+  font-weight: 300;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  h3 {
+    font-size: 14px;
+  }
+}
+
+.message_details_left_pane {
+  flex: 2;
+}
+
+.message_details_right_pane {
+  flex: 1;
+}
+
+.message_details_sections {
+  display: flex;
+}
+
+.message_details_sections > div {
+  flex: 1;
+}
+
+.message-total-charge {
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  text-align: right;
+  margin: 10px 0 10px;
+}
+
+.message_details_footer {
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+  font-weight: 300;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+}

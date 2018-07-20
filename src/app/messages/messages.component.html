@@ -1,0 +1,195 @@
+<mat-toolbar>
+  <span>Messages</span>
+
+  <span class="fill-remaining-space"></span>
+
+</mat-toolbar>
+<div class="messages-main-div">
+  <div class="messages-left-div mat-elevation-z8">
+    <mat-table #table [dataSource]="dataSource">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Partner Column -->
+      <ng-container matColumnDef="partner">
+        <mat-header-cell *matHeaderCellDef> Partner</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.partner}}</mat-cell>
+      </ng-container>
+
+      <!-- Message Number Column -->
+      <ng-container matColumnDef="messageNumber">
+        <mat-header-cell *matHeaderCellDef> Number</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.messageNumber}}</mat-cell>
+      </ng-container>
+
+      <!-- Inbound Outbound Column -->
+      <ng-container matColumnDef="inOutMessageType">
+        <mat-header-cell *matHeaderCellDef> In / Out</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.inOutMessageType}}</mat-cell>
+      </ng-container>
+
+      <!-- Inbound Outbound Column -->
+      <ng-container matColumnDef="typeOfMessage">
+        <mat-header-cell *matHeaderCellDef> Type</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.typeOfMessage}}</mat-cell>
+      </ng-container>
+
+
+      <!-- Inbound Outbound Column -->
+      <ng-container matColumnDef="date">
+        <mat-header-cell *matHeaderCellDef> Date</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.date | date}}</mat-cell>
+      </ng-container>
+
+      <!-- | currency: element.currency -->
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectedMessage(row)"></mat-row>
+    </mat-table>
+  </div>
+  <div *ngIf="selectedRow" class="messages-right-div mat-elevation-z8">
+    <mat-toolbar>
+      <div>
+        <h3>{{selectedRow.typeOfMessage}}</h3>
+      </div>
+    </mat-toolbar>
+    <div class="message-content">
+      <div class="message-details-main">
+        <div>
+          <p>Document-Nr</p>
+          <h3>{{selectedRow.messageNumber}}</h3>
+        </div>
+        <div>
+          <p>Sender</p>
+          <h3>{{selectedRow.partner}}</h3>
+        </div>
+        <div>
+          <p>Document Date</p>
+          <h3>{{selectedRow.date}}</h3>
+        </div>
+      </div>
+      <div class="message_details_content">
+        <div class="message_details_left_pane">
+          <div><h3>Supplier</h3></div>
+          <div class="message_details_sections">
+            <div>
+              <p>{{selectedRow.supplierName}}</p>
+              <p>{{selectedRow.supplierAddress}}</p>
+            </div>
+          </div>
+          <div><h3>Buyer</h3></div>
+          <div class="message_details_sections">
+            <div>
+              <p>{{selectedRow.buyerName}}</p>
+              <p>{{selectedRow.buyerAddress}}</p>
+            </div>
+          </div>
+          <div><h3>Delivery Address</h3></div>
+          <div class="message_details_sections">
+            <div>
+              <p>{{selectedRow.deliverTo}}</p>
+              <p>{{selectedRow.deliveryAddress}}</p>
+            </div>
+          </div>
+          <div><h3>Ultimate Customer</h3></div>
+          <div class="message_details_sections">
+            <div>
+              <p>{{selectedRow.ultimateCustomerName}}</p>
+              <p>{{selectedRow.ultimateCustomerAddress}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="message_details_right_pane">
+          <div><h3>Various Information</h3></div>
+          <div>
+            <p>Order Date: {{selectedRow.orderDate | date}}</p>
+            <p>Order-Nr. Customer: {{selectedRow.orderNoCustomer}}</p>
+          </div>
+          <div><h3>Delivery Info</h3></div>
+          <div>
+            <p>Earliest Delivery Date: {{selectedRow.earliestDeliveryDate | date}}</p>
+            <p>Latest Delivery Date: {{selectedRow.latestDeliveryDate | date}}</p>
+            <p>Requested Delivery Date: {{selectedRow.requestedDeliveryDate | date}}</p>
+          </div>
+          <div><h3>Payment Conditions</h3></div>
+          <div>
+            <p>Payment due at: {{selectedRow.paymentDueDate | date}}</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <mat-table #table [dataSource]="selectedRow.messageDetails">
+
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+
+          <!-- Partner Column -->
+          <ng-container matColumnDef="position">
+            <mat-header-cell *matHeaderCellDef> Pos.</mat-header-cell>
+            <mat-cell *matCellDef="let item">{{item.position}}</mat-cell>
+          </ng-container>
+
+          <!-- Message Number Column -->
+          <ng-container matColumnDef="article">
+            <mat-header-cell *matHeaderCellDef> Article Number</mat-header-cell>
+            <mat-cell *matCellDef="let item"> {{item.articleNumber}}</mat-cell>
+          </ng-container>
+
+          <!-- Inbound Outbound Column -->
+          <ng-container matColumnDef="description">
+            <mat-header-cell *matHeaderCellDef> Description</mat-header-cell>
+            <mat-cell *matCellDef="let item"> {{item.description}}</mat-cell>
+          </ng-container>
+
+          <!-- Inbound Outbound Column -->
+          <ng-container matColumnDef="quantity">
+            <mat-header-cell *matHeaderCellDef> Qty.</mat-header-cell>
+            <mat-cell *matCellDef="let item"> {{item.quantity}}</mat-cell>
+          </ng-container>
+
+          <!-- Inbound Outbound Column -->
+          <ng-container matColumnDef="price">
+            <mat-header-cell *matHeaderCellDef> Price</mat-header-cell>
+            <mat-cell *matCellDef="let item"> {{item.price}}</mat-cell>
+          </ng-container>
+
+          <!-- Inbound Outbound Column -->
+          <ng-container matColumnDef="total">
+            <mat-header-cell *matHeaderCellDef> Total</mat-header-cell>
+            <mat-cell *matCellDef="let item"> {{item.totalCharge}}</mat-cell>
+          </ng-container>
+
+          <!-- | currency: element.currency -->
+
+          <mat-header-row *matHeaderRowDef="displayedDetailedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedDetailedColumns;"></mat-row>
+        </mat-table>
+      </div>
+      <div class="message-total-charge">
+        Total: {{selectedRow.totalCharge | currency: selectedRow.currency}}
+      </div>
+    </div>
+    <div class="message_details_footer">
+      <div>
+        <button mat-raised-button>Set Status</button>
+      </div>
+      <div>
+        <button mat-raised-button>Create Dispatch Advice</button>
+      </div>
+      <div>
+        <button mat-raised-button>Create Invoice</button>
+      </div>
+      <div>
+        <button mat-raised-button>Show EDI Message</button>
+      </div>
+      <div>
+        <button mat-raised-button>Export to PDF</button>
+      </div>
+      <div>
+        <button mat-raised-button>Export to XLSX</button>
+      </div>
+    </div>
+  </div>
+
+</div>

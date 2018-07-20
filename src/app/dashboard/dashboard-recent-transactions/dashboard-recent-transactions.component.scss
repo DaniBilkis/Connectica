@@ -60,9 +60,9 @@
 }
 
 .dashboard_transactions_list_item {
-  display: flex;
+  display: flex!important;
   flex-direction: row;
-  height: 100px;
+  height: 100px!important;
   font-size: 14px;
   font-weight: 300;
   font-family: Roboto,"Helvetica Neue",sans-serif;

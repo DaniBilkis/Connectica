@@ -49,6 +49,7 @@ import { DashboardChartComponent }                        from './dashboard/dash
 import { DashboardPaymentCalendarChartComponent }         from './dashboard/dashboard-payment-calendar-chart/dashboard-payment-calendar-chart.component';
 import { MenuListItemComponent }                          from './menu-list-item/menu-list-item.component';
 import { MenuService }                                    from './_services/menu.service';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import { MenuService }                                    from './_services/menu
     DashboardAdvertisementFinancialComponent,
     DashboardChartComponent,
     DashboardPaymentCalendarChartComponent,
-    MenuListItemComponent
+    MenuListItemComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
