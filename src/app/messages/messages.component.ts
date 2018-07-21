@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MESSAGES } from '../_shared/data-messages';
-import { Message } from '../_shared/interface-message';
+import { MESSAGES }          from '../_shared/data-messages';
+import { Message }           from '../_shared/interface-message';
+import { SelectionModel }    from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-messages',
@@ -13,6 +14,7 @@ export class MessagesComponent implements OnInit {
   displayedDetailedColumns = ['position', 'article', 'description', 'quantity', 'price', 'total'];
   dataSource = MESSAGES;
   selectedRow: Message;
+  selection = new SelectionModel<Message>(false, []);
 
   constructor() { }
 
@@ -21,6 +23,8 @@ export class MessagesComponent implements OnInit {
 
   selectedMessage( row: Message ) {
     this.selectedRow = row;
+    this.selection.clear();
+    this.selection.select(row);
   }
 
 }

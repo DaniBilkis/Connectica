@@ -45,7 +45,7 @@
       <!-- | currency: element.currency -->
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectedMessage(row)"></mat-row>
+      <mat-row class="ripple" *matRowDef="let row; columns: displayedColumns;" (click)="selectedMessage(row)" [ngClass]="{ 'selected': selection.isSelected(row)}"></mat-row>
     </mat-table>
   </div>
   <div *ngIf="selectedRow" class="messages-right-div mat-elevation-z8">

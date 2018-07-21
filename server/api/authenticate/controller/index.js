@@ -17,6 +17,9 @@ const postAuthenticate = async (req, res) => {
 
     try {
        user = await getUser( usernameOrEmail );
+      if( !user ) {
+        throw new Error( 'No user defined' );
+      }
     } catch( err ) {
       console.log ( 'There was an error to get the user -> ' + JSON.stringify( err, null, 4) );
       sendJsonResponse( res, 400, { message: 'There was an internal error to get the user ' } );
