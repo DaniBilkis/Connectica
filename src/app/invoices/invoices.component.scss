@@ -17,4 +17,137 @@
   z-index: 1;
   top: 0;
   background-color: inherit;
+  /*font-size: 16px!important;*/
+}
+
+.mat-header-cell{
+  font-size:16px!important;
+}
+
+.george{
+  display:flex;
+  flex-direction: row;
+}
+
+.george > div {
+  flex:1;
+}
+
+.font16{
+  font-size: 16px;
+}
+
+.font20{
+  font-size: 22px;
+}
+
+.font30{
+  font-size: 30px;
+}
+
+.weight500{
+  font-weight: 500;
+}
+
+.bld{
+  font-weight: 700;
+}
+
+.grey{
+  color: #808080;
+}
+
+.border-top-lila{
+  border-top: 5px solid;
+  border-top-color: rgb(158, 164, 196)!important;
+}
+
+.border-top-orange{
+  border-top: 5px solid;
+  border-top-color: #fc930A!important;/*ff9933*/
+}
+
+.dashboard-card {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin: 5px;
+  padding: 10px 10px 10px 10px !important;
+  /*background-color: rgb(158, 164, 196);*/
+  color: #000;
+
+  /*#808080;*/
+ /* padding: 5px 0px 0px 0px;*/
+}
+
+.dashboard-card-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 500;
+
+
+}
+
+::ng-deep div.mat-card-header-text {
+  /* CSS styles go here */
+  flex: 1;
+  margin: 0px; // for example to remove the margin
+}
+
+.dashboard-card-title-link {
+  flex: 4 1 auto;
+}
+
+.dashboard-card-title-link > a {
+  color: #f44336;
+  text-decoration: none;
+}
+
+.dashboard-card-title-menu {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.line-div {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: left;
+  align-items: center;
+  flex-direction: row;
+}
+
+.line-div > div {
+  flex: 1;
+}
+
+p {
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: ellipsis;
+}
+
+.invoices-table-header{
+  padding: 10px 10px 20px 10px !important;
+  font-family: Roboto;
+  font-size: 22px;
+  border-top: 5px solid;
+  border-top-color: rgb(158, 164, 196)!important;
+  background-color: #FFF;
+}
+
+
+.insideCellWrap{
+  display: flex;
+  flex-direction: column;
+}
+
+.insideCellWrap > div{
+  flex: 1;
+}
+
+.mat-cell{
+  padding: 10px 10px 10px 10px!important;
 }

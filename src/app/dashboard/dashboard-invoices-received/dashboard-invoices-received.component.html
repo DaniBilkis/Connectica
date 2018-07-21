@@ -1,7 +1,7 @@
-<mat-card class="dashboard-card">
+<mat-card class="dashboard-card border-top-lila">
   <mat-card-header>
     <mat-card-title class="dashboard-card-title">
-        <div class="dashboard-card-title-link"><a color="warn" routerLink="{{routerLink}}">{{name}}</a></div>
+        <div class="dashboard-card-title-link">Invoices Received</div><!--<a color="warn" routerLink="{{routerLink}}">{{name}}</a>-->
         <div class="dashboard-card-title-menu">
           <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Toggle menu">
             <i class="material-icons">more_vert</i>
@@ -14,17 +14,17 @@
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <div class="line-div">
-      <div><p>Number:</p></div>
-      <div>{{numberOfReceivedInvoices}}</div>
-    </div>
-    <div class="line-div">
-      <div>
-        <p>Total Amount:</p>
-      </div>
-      <div>
-        {{totalAmount | currency: currency}}
-      </div>
-    </div>
+      <div class="line-div">
+          <div><p class="grey">Number Last Month:</p></div>
+          <div  class="font20">{{numberOfReceivedInvoices}}</div>
+        </div>
+        <div class="line-div">
+          <div>
+            <p class="grey">Total Amount:</p>
+          </div>
+          <div class="font20">
+            {{totalAmount | currency: currency}}
+          </div>
+        </div>
   </mat-card-content>
 </mat-card>
