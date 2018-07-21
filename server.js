@@ -1,4 +1,5 @@
-require('dotenv').config();
+//require('dotenv').config();
+require('dotenv').config({path: '.env.example'});
 const express = require('express');
 const path = require('path');
 // var favicon = require('serve-favicon');
