@@ -1,4 +1,4 @@
-//require('dotenv').config();
+// require('dotenv').config();
 require('dotenv').config({path: '.env.example'});
 const express = require('express');
 const path = require('path');
@@ -73,7 +73,7 @@ if ( 'production' === app.get('env') ) {
 // app.use(favicon(path.join(__dirname, 'dist', 'favicon.ico')));
 app.use( logger('dev') );
 app.use( bodyParser.json() );
-app.use( bodyParser.urlencoded({ 'extended': 'false' }));
+app.use( bodyParser.urlencoded({ 'extended': 'false' }) );
 
 // Create link to Angular build directory
 // var distDir = __dirname + "/dist/";

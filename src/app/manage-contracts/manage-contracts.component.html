@@ -4,15 +4,90 @@
   <span class="fill-remaining-space"></span>
 
 </mat-toolbar>
+<div class="manage_contracts_summary">
+  <div class="manage_contracts_summary_center_div">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title class="dashboard-card-title">
+          <div class="dashboard-card-title-link">Invoices Sent</div>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="line-div">
+          <div><p class="grey">Number of Invoices Sent:</p></div>
+          <div class="font20">{{numberOfSentInvoices}}</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="manage_contracts_summary_center_div">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title class="dashboard-card-title">
+          <div class="dashboard-card-title-link">Invoices Sent</div>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="line-div">
+          <div>
+            <p class="grey">Total Amount:</p>
+          </div>
+          <div class="font20">
+            {{totalAmount | currency: currency}}
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="manage_contracts_summary_center_div">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title class="dashboard-card-title">
+          <div class="dashboard-card-title-link">Invoices Sent</div>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="line-div">
+          <div>
+            <p class="grey">Amount to Finance:</p>
+          </div>
+          <div class="font20">
+            {{totalAmount | currency: currency}}
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="manage_contracts_summary_center_div">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title class="dashboard-card-title">
+          <div class="dashboard-card-title-link">Invoices Sent</div>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="line-div">
+          <div><p class="grey">Number of Items to Finance:</p></div>
+          <div class="font20">{{numberOfSentInvoices}}</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
 <div class="manage_contracts_container mat-elevation-z8">
-  <mat-table #table [dataSource]="dataSource">
+  <div class="manage_contracts_container_input">
+    <mat-form-field floatPlaceholder="never">
+      <input matInput #filter placeholder="Find partner">
+    </mat-form-field>
+  </div>
+  <mat-table #table [dataSource]="dataSource" matSort>
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
 
     <!-- Position Column -->
     <ng-container matColumnDef="color">
-      <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header="color"></mat-header-cell>
       <mat-cell *matCellDef="let element">
         <div class="circle" [ngStyle]="{'color': element.color}"><img/></div>
       </mat-cell>
@@ -20,35 +95,48 @@
 
     <!-- Name Column -->
     <ng-container matColumnDef="documentDate">
-      <mat-header-cell *matHeaderCellDef> Document Date </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.documentDate | date}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header="documentDate"> Document Date</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.documentDate | date}}</mat-cell>
     </ng-container>
 
     <!-- Weight Column -->
     <ng-container matColumnDef="type">
-      <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.type}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header="type"> Type</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.type}}</mat-cell>
     </ng-container>
 
     <!-- Weight Column -->
     <ng-container matColumnDef="partner">
-      <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.partner}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header="partner"> Partner</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.partner}}</mat-cell>
     </ng-container>
 
     <!-- Weight Column -->
     <ng-container matColumnDef="description">
-      <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header="description"> Description</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.description}}</mat-cell>
     </ng-container>
 
     <!-- Symbol Column -->
     <ng-container matColumnDef="download">
-      <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
-      <mat-cell *matCellDef="let element"> <span (click)="buttonClick(element)"><i class="material-icons">get_app</i></span></mat-cell>
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let element"><span (click)="buttonClick(element)"><i
+        class="material-icons">get_app</i></span></mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
+
+  <div class="example-no-results"
+       [style.display]="dataSource?.renderedData.length == 0 ? '' : 'none'">
+    No users found matching filter.
+  </div>
+
+  <mat-paginator #paginator
+                 [length]="dataSource?.filteredData.length"
+                 [pageIndex]="0"
+                 [pageSize]="25"
+                 [pageSizeOptions]="[5, 10, 25, 100]">
+  </mat-paginator>
 </div>
