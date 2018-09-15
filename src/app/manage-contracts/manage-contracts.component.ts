@@ -136,15 +136,15 @@ export class ExampleDatabase {
 
   /** Builds and returns a new User. */
   private createNewContract() {
-    const partner =
-      PARTNERS[Math.round(Math.random() * (PARTNERS.length - 1))] + ' ' +
-      PARTNERS[Math.round(Math.random() * (PARTNERS.length - 1))].charAt(0) + '.';
+    // const partner =
+    //   PARTNERS[Math.round(Math.random() * (PARTNERS.length - 1))] + ' ' +
+    //   PARTNERS[Math.round(Math.random() * (PARTNERS.length - 1))].charAt(0) + '.';
 
     return {
       color: COLORS[Math.round(Math.random() * (COLORS.length - 1))],
       documentDate: DATES[Math.round(Math.random() * (DATES.length - 1))],
       type: TYPES_OF_CONTRACT[Math.round(Math.random() * (TYPES_OF_CONTRACT.length - 1))],
-      partner: partner,
+      partner: PARTNERS[Math.round(Math.random() * (PARTNERS.length - 1))],
       description: DESCRIPTIONS[Math.round(Math.random() * (DESCRIPTIONS.length - 1))],
       download: true,
       icon: 'download_icon'
@@ -188,7 +188,7 @@ export class ExampleDataSource extends DataSource<any> {
     return Observable.merge(...displayDataChanges).map(() => {
       // Filter data
       this.filteredData = this._exampleDatabase.data.slice().filter((item: ContractList) => {
-        let searchStr = (item.partner + item.color).toLowerCase();
+        let searchStr = (item.partner).toLowerCase();
         return searchStr.indexOf(this.filter.toLowerCase()) !== -1;
       });
 
