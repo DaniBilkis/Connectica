@@ -24,6 +24,14 @@
   margin: 12px 24px 0px 24px;
 }
 
+.mat-row:hover, .example-selected-row {
+  background: #f5f5f5;
+}
+
+.mat-row:active, .mat-row.example-selected-row {
+  background: #eaeaea;
+}
+
 .mat-table {
   overflow: auto;
   max-height: 500px;
