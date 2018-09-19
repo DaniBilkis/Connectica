@@ -66,6 +66,7 @@ if ( 'production' === app.get('env') ) {
   app.disable('x-powered-by');
 }
 
+
 // Set a View Engine
 //app.set('views', path.join(__dirname, 'views'));
 //app.set('view engine', 'ejs');
@@ -107,6 +108,7 @@ app.use(
 
 app.use( cookieParser() );
 
+
 const attachUser = (req, res, next) => {
   const token = req.cookies.token;
   if (!token) {
@@ -146,9 +148,11 @@ const makeCsrfToken = (req, res, next) => {
 
 //---------- PUBLIC ROUTES --------------
 // Catch all other routes and return the index file
+/*
 app.get( '/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
+*/
 //app.all('*', router);
 
 // User routes
@@ -157,6 +161,7 @@ app.use('/api/users', require('./server/api/users'));
 // Auth routes
 app.use('/api/authenticate', require('./server/api/authenticate'));
 app.use('/api/logout', require('./server/api/logout'));
+app.use('/api/menus', require('./server/api/menus'));
 
 // -------- AUTHENTICATED ROUTES ---------
 app.use( csrf({ cookie: true }) );
@@ -164,7 +169,7 @@ app.use( makeCsrfToken );
 app.use( attachUser );
 app.use( checkJwt );
 
-app.use('/api/menus', require('./server/api/menus'));
+
 
 // -------- ERROR HANDLERS ---------------
 // catch 404 and forward to error handler

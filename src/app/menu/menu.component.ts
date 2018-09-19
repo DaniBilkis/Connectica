@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 import { NavItem } from '../_shared/navitem';
 import { MenuListItemComponent } from '../menu-list-item/menu-list-item.component';
 import { MenuService } from '../_services/menu.service';
+import {MenuItemsResults} from '../_shared/MenuItemsResults';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class MenuComponent implements OnInit {
 
   mobileQuery: MediaQueryList;
   @ViewChild('snav') navigationBar;
-  @ViewChild( MenuListItemComponent ) menuItems;
+  @ViewChild( MenuListItemComponent ) menuItem;
 
   user: any;
 
@@ -34,6 +35,9 @@ export class MenuComponent implements OnInit {
 
   isExpanded = false;
 
+  menuSet: MenuItemsResults;
+
+  /*
   navItems: NavItem[] = [
     {
       displayName: 'Dashboard',
@@ -140,7 +144,7 @@ export class MenuComponent implements OnInit {
       ]
     }
     ];
-
+*/
 
 
   adminList = [
@@ -166,6 +170,8 @@ export class MenuComponent implements OnInit {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+
+
   }
 
   ngOnInit() {
@@ -176,6 +182,18 @@ export class MenuComponent implements OnInit {
     // console.log( 'This is a current user -> ' +  JSON.stringify( this.user.firstName ));
     // console.log( 'This is a current user first name-> ' + this.user.fi);
     // this.navigationBar.toggle();
+
+    if ( this.menuSet === undefined && this.isLoggedIn ) {
+      this.menuService.getMenus();
+    }
+
+    this.menuService.leftNavigationMenu.subscribe( response => {
+      console.log( 'These are menu items from the db -> ' + JSON.stringify( response, null, 4 ) );
+      console.log( 'User is logged in? -> ' + this.isLoggedIn );
+      this.menuSet = response;
+    });
+    console.log( 'These are menu items from the db after assignment -> ' + JSON.stringify( this.menuSet, null, 4 ) );
+
     this.menuService.isLeftNavigationExpanded.subscribe( expanded => { this.isExpanded = expanded; } );
   }
 

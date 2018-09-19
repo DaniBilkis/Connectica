@@ -30,6 +30,7 @@ import { AlertsComponent }                                from './alerts/alerts.
 import { D3Service }                                      from 'd3-ng2-service';
 
 import { ShowAuthedDirective }                            from './_shared/show-authed.directive';
+import { FxInvoicesComponent }                            from './fx-invoices/fx-invoices.component';
 import { FxPaymentsComponent }                            from './fx-payments/fx-payments.component';
 import { FxViewPaymentsModalComponent }                   from './fx-payments/fx-view-payments-modal/fx-view-payments-modal.component';
 import { FxMakePaymentsModalComponent }                   from './fx-payments/fx-make-payments-modal/fx-make-payments-modal.component';
@@ -50,6 +51,8 @@ import { DashboardPaymentCalendarChartComponent }         from './dashboard/dash
 import { MenuListItemComponent }                          from './menu-list-item/menu-list-item.component';
 import { MenuService }                                    from './_services/menu.service';
 
+import { MessagesComponent } from './messages/messages.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +69,7 @@ import { MenuService }                                    from './_services/menu
     // DashboardComponent,
     AlertsComponent,
     ShowAuthedDirective,
+    FxInvoicesComponent,
     FxPaymentsComponent,
     FxViewPaymentsModalComponent,
     FxMakePaymentsModalComponent,
@@ -82,7 +86,8 @@ import { MenuService }                                    from './_services/menu
     DashboardAdvertisementFinancialComponent,
     DashboardChartComponent,
     DashboardPaymentCalendarChartComponent,
-    MenuListItemComponent
+    MenuListItemComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,

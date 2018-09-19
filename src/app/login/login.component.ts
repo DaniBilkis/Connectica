@@ -6,6 +6,7 @@ import { FormControl, FormGroupDirective, NgForm, FormBuilder, Validators, FormG
 
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Credentials } from '../_shared/credentials.model';
+import {MenuService} from '../_services/menu.service';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -56,7 +57,8 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
-    private alertService: AlertService) {
+    private alertService: AlertService,
+    private menuService: MenuService ) {
 
     this.loginDescription = 'Login';
 
@@ -78,11 +80,11 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.loading = true;
-    console.log( 'This is what comes from the login form ->' + JSON.stringify( this.loginForm.value ) );
+    // console.log( 'This is what comes from the login form ->' + JSON.stringify( this.loginForm.value ) );
     const username = this.loginForm.value.emailFormControl;
     const password = this.loginForm.value.passwordFormControl;
-    console.log( 'This is what comes from the login form after asignment ->' + JSON.stringify( { username, password } ) );
-    console.log( 'if successful will navigate to -> ' + this.returnUrl );
+    // console.log( 'This is what comes from the login form after asignment ->' + JSON.stringify( { username, password } ) );
+    // console.log( 'if successful will navigate to -> ' + this.returnUrl );
     const credentials: Credentials = {
       username,
       password
@@ -91,13 +93,14 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login( credentials )
       .subscribe(
         data => {
-          console.log( 'This is what comes back from the API ->' + JSON.stringify( data ) );
+          // console.log( 'This is what comes back from the API ->' + JSON.stringify( data ) );
           this.loading = false;
           this.authenticationService.setUser(
             data.token,
             data.userInfo,
             data.expiresAt
           );
+          this.menuService.getMenus();
           this.router.navigate([this.returnUrl]);
         },
         error => {

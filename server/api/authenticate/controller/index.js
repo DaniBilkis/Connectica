@@ -10,11 +10,21 @@ const postAuthenticate = async (req, res) => {
 
     const usernameOrEmail = req.body.username;
     const password = req.body.password;
+    let user;
 
     // console.log ( 'Here in the Auth API -> ' + usernameOrEmail + ' ' + password );
-    console.log ( 'Here in the Auth API - BODY -> ' + JSON.stringify( req.body, null, 4) );
+    // console.log ( 'Here in the Auth API - BODY -> ' + JSON.stringify( req.body, null, 4) );
 
-    const user = await getUser( usernameOrEmail );
+    try {
+       user = await getUser( usernameOrEmail );
+      if( !user ) {
+        throw new Error( 'No user defined' );
+      }
+    } catch( err ) {
+      console.log ( 'There was an error to get the user -> ' + JSON.stringify( err, null, 4) );
+      sendJsonResponse( res, 400, { message: 'There was an internal error to get the user ' } );
+    }
+
     // console.log ( 'Here in the Auth API - User Found -> ' + JSON.stringify( user, null, 4) );
     const passwordValid = await verifyPassword( password, user.password );
 
