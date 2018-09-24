@@ -2,6 +2,12 @@
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 @import url("//fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto|Roboto+Condensed|Lobster|Cabin:200,300,400,500,600,700");
 
+
+.mat-raised-button.mat-primary{
+  background-color: #3f51b5;
+}
+
+
 .primary-color {
   color: #3F51B5!important;
 }

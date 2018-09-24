@@ -3,7 +3,7 @@
 <mat-dialog-content layout-xs="column" [formGroup]="makePaymentForm">
   
   <div class="fx-make-payment-div">
-      <div class="fx-make-payment-right">
+    
       <h3> Transaction Details </h3>
       <div class="line-div">
         <div>
@@ -37,6 +37,7 @@
             <input matInput placeholder="Select Amount" [formControl]="makePaymentForm.controls.amountFormControl"
                    [errorStateMatcher]="matcher">
             <mat-error *ngIf="amountFormControl.hasError('required')">
+              Amount is <strong>required</strong>
             </mat-error>
           </mat-form-field>
         </div>
@@ -50,39 +51,52 @@
           </mat-form-field>
         </div>
       </div>  
-</div>
 
 
 
 
+      
+  <div class="line-div">
     <div class="fx-make-payment-right">
       <h3> Recepient Details </h3>
       <div class="line-div">
+        <div>
+          <p>Name: </p>
+        </div>
         <div>
           <mat-form-field>
             <input matInput placeholder="Name of account holder" [formControl]="makePaymentForm.controls.nameFormControl"
                    [errorStateMatcher]="matcher">
             <mat-error *ngIf="nameFormControl.hasError('required')">
+              Name is <strong>required</strong>
             </mat-error>
           </mat-form-field>
         </div>
       </div>
       <div class="line-div">
+        <div>
+          <p>IBAN: </p>
+        </div>
         <div>
           <mat-form-field>
             <input matInput placeholder="IBAN of account" [formControl]="makePaymentForm.controls.iBANFormControl"
                    [errorStateMatcher]="matcher">
             <mat-error *ngIf="iBANFormControl.hasError('required')">
+              <!--IBAN is <strong>required</strong>-->
             </mat-error>
           </mat-form-field>
         </div>
       </div>
       <div class="line-div">
         <div>
+          <p>BIC: </p>
+        </div>
+        <div>
           <mat-form-field>
             <input matInput placeholder="BIC of account" [formControl]="makePaymentForm.controls.bicFormControl"
                    [errorStateMatcher]="matcher">
             <mat-error *ngIf="bicFormControl.hasError('required')">
+              <!--IBAN is <strong>required</strong>-->
             </mat-error>
           </mat-form-field>
         </div>
@@ -90,40 +104,56 @@
       <h3> Address </h3>
       <div class="line-div">
         <div>
+          <!--<p>Street and No.: </p>-->
+        </div>
+        <div>
           <mat-form-field>
             <input matInput placeholder="Street" [formControl]="makePaymentForm.controls.streetFormControl"
                    [errorStateMatcher]="matcher">
             <mat-error *ngIf="streetFormControl.hasError('required')">
+              <!--Street address is <strong>required</strong>-->
             </mat-error>
           </mat-form-field>
         </div>
       </div>
       <div class="line-div">
+        <div>
+          <!--<p>Zip Code: </p>-->
+        </div>
         <div>
           <mat-form-field>
             <input matInput placeholder="Zip code" [formControl]="makePaymentForm.controls.zipCodeFormControl"
                    [errorStateMatcher]="matcher">
             <mat-error *ngIf="zipCodeFormControl.hasError('required')">
+              <!--Zip code is <strong>required</strong>-->
             </mat-error>
           </mat-form-field>
         </div>
       </div>
       <div class="line-div">
+        <div>
+          <p>City: </p>
+        </div>
         <div>
           <mat-form-field>
             <input matInput placeholder="City" [formControl]="makePaymentForm.controls.cityFormControl"
                    [errorStateMatcher]="matcher">
             <mat-error *ngIf="cityFormControl.hasError('required')">
+              City is <strong>required</strong>
             </mat-error>
           </mat-form-field>
         </div>
       </div>
       <div class="line-div">
         <div>
+          <p>Country: </p>
+        </div>
+        <div>
           <mat-form-field>
             <input matInput placeholder="Country" [formControl]="makePaymentForm.controls.countryFormControl"
                    [errorStateMatcher]="matcher">
             <mat-error *ngIf="countryFormControl.hasError('required')">
+              Country is <strong>required</strong>
             </mat-error>
           </mat-form-field>
         </div>
@@ -131,12 +161,13 @@
     </div>
     </div>
 
+  </div>
+
 </mat-dialog-content>
 
-
 <mat-dialog-actions class="fx-make-payment-buttons">
-  <span class=".fx-make-payment-button-left"><button mat-raised-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Submit</button></span>
-  <span fxflex="" style="flex: 1 1 0%; box-sizing: border-box;"></span>
-  <span class=".fx-make-payment-button-right"><button mat-button color="warn" (click)="closeFXPayModal()">Close</button></span>
+  <button mat-button (click)="closeFXPayModal()">Close</button>
+  <button mat-raised-button color="warn" [mat-dialog-close]="true" cdkFocusInitial>Submit
+  </button>
 </mat-dialog-actions>
 

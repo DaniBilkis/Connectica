@@ -99,7 +99,7 @@
     <!-- Symbol Column -->
     <ng-container matColumnDef="status">
       <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
-      <mat-cell *matCellDef="let element"> <button mat-raised-button color="warn" [disabled]="!element.active" (click)="buttonClick(element)">{{element.status}}</button></mat-cell>
+      <mat-cell *matCellDef="let element"> <button mat-raised-button color="primary" [disabled]="!element.active" (click)="buttonClick(element)">{{element.status}}</button></mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

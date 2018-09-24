@@ -12,13 +12,13 @@
 .fx-make-payment-left {
   flex: 1;
   padding-right: 12px;
-  flex-direction: column;
+  flex-direction: row; /*column*/
 }
 
 .fx-make-payment-right {
   flex: 1;
   padding-left: 12px;
-  flex-direction: column;
+  flex-direction: row; /*column*/
 }
 
 .line-div {
@@ -40,6 +40,16 @@
 }
 
 .fx-make-payment-buttons {
+  /*justify-content: flex-end;*/
+  align-items: center;
+}
+
+.fx-make-payment-button-left {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.fx-make-payment-button-right {
   justify-content: flex-end;
   align-items: center;
 }
