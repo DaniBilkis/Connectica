@@ -1,25 +1,45 @@
 .fx-make-payment-div {
   display: flex;
-  flex-direction: row;
+  flex-direction: column; /*row*/
   justify-content: space-around;
   flex-wrap: nowrap;
   height: 100%;
+  /*width: 150%;*/
+  min-width: 50vw;
+  max-width: 80vw;
   font-family: Roboto,"Helvetica Neue",sans-serif;
   font-size: 14px;
   font-weight: 300;
 }
 
-.fx-make-payment-left {
+.fx-make-payment-upper {
   flex: 1;
-  padding-right: 12px;
+  /*padding-right: 12px;*/
   flex-direction: row; /*column*/
 }
 
-.fx-make-payment-right {
+.fx-make-payment-bottom {
   flex: 1;
-  padding-left: 12px;
+  /*padding-left: 12px;*/
   flex-direction: row; /*column*/
+  display: flex;
 }
+
+.fx-make-payment-bottom-left {
+  flex: 1 1 100%;
+  padding-right: 6px;
+  flex-direction: column; /*column*/
+  /*border-style: solid;
+  border-width: 1px 1px 1px 1px;*/
+}
+
+.fx-make-payment-bottom-right {
+  flex: 1 1 100%;
+  /*width: 100vw;*/
+  padding-left: 6px;
+  flex-direction: column; /*column*/
+}
+
 
 .line-div {
   display: flex;
