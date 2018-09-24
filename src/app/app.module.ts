@@ -7,6 +7,7 @@ import { HttpClientModule, HttpClientXsrfModule }         from '@angular/common/
 import { ReactiveFormsModule }                            from '@angular/forms';
 
 import { MaterialModule }                                 from './material.module';
+import { DevExtremeModules }                              from './devextreme.modules';
 import { AppRoutingModule }                               from './app-routing/app-routing.module';
 import { UICarouselModule  }                              from 'ng-carousel-iuno';
 
@@ -94,6 +95,7 @@ import { MessagesComponent } from './messages/messages.component';
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
+    DevExtremeModules,
     FlexLayoutModule,
     AppRoutingModule,
     ReactiveFormsModule,
@@ -112,15 +114,6 @@ import { MessagesComponent } from './messages/messages.component';
     AuthenticationService,
     D3Service,
     UserService,
-    /*
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: JwtInterceptor,
-      multi: true
-    },
-*/
-    // provider used to create fake backend
-  //  fakeBackendProvider,
     DashboardCardsService,
     MenuService
   ],

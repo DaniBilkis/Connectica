@@ -1,3 +1,45 @@
-<p>
-  fx-invoices works!
-</p>
+<mat-toolbar>
+  <span>Manage Invoices</span>
+
+  <span class="fill-remaining-space"></span>
+
+</mat-toolbar>
+<div class="container mat-elevation-z8">
+  <dx-data-grid
+    id="gridContainer"
+    [dataSource]="dataSource"
+    [showBorders]="true">
+
+    <dxo-scrolling mode="virtual"></dxo-scrolling>
+    <dxo-group-panel [visible]="true"></dxo-group-panel>
+    <dxo-filter-row
+      [visible]="showFilterRow"
+      [applyFilter]="currentFilter"></dxo-filter-row>
+    <dxo-header-filter
+      [visible]="showHeaderFilter"></dxo-header-filter>
+    <dxo-search-panel
+      [visible]="true"
+      [width]="240"
+      placeholder="Search..."></dxo-search-panel>
+    <dxi-column dataField="direction" caption="Direction" [width]="90">
+      <dxo-header-filter [groupInterval]="10000"></dxo-header-filter>
+    </dxi-column>
+    <dxi-column dataField="invoice" [width]="190" caption="Subject">
+      <!-- <dxo-header-filter [dataSource]="orderHeaderFilter"></dxo-header-filter> -->
+    </dxi-column>
+    <dxi-column dataField="invoiceDate" caption="Invoice Date" [groupIndex]="0">
+    </dxi-column>
+    <dxi-column dataField="dueDate" caption="Priority" [groupIndex]="1">
+      <dxo-lookup [dataSource]="priority" valueExpr="value" displayExpr="name">
+      </dxo-lookup>
+    </dxi-column>
+    <dxi-column dataField="invoiceValue" caption="Invoice Value" [allowGrouping]="false" [allowSorting]="false">
+    </dxi-column>
+    <dxi-column dataField="currency" caption="Currency">
+    </dxi-column>
+    <dxi-column dataField="hedgeNow" caption="Hedge" dataType="boolean">
+    </dxi-column>
+    <dxi-column dataField="payNow" caption="Pay" dataType="boolean">
+    </dxi-column>
+  </dx-data-grid>
+</div>
