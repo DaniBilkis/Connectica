@@ -1,7 +1,7 @@
 import {Component, Injector, OnInit} from '@angular/core';
 import { DashboardCard } from '../../_shared/dashboard-card';
 import { AbstractDashboardCard } from '../../_shared/abstract-dashboard-card';
-import { Invoice } from '../../_shared/invoice-interface';
+import { Invoice } from '../../_shared/interface-invoice';
 import { INVOICES } from '../../_shared/data-invoices';
 
 @Component({

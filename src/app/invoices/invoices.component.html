@@ -53,7 +53,7 @@
     </mat-card-content>
   </mat-card>
   <div></div>
-  <div></div> 
+  <div></div>
 </div>
 </div>
 
@@ -65,7 +65,7 @@
           The actual rendered columns are set as a property on the row definition" -->
 
     <ng-container matColumnDef="checkb">
-      <mat-cell *matCellDef="let element"> 
+      <mat-cell *matCellDef="let element">
           <mat-checkbox (click)="$event.stopPropagation()"
           (change)="$event ? selection.toggle(row) : null"
           [checked]="selection.isSelected(row)">
@@ -76,10 +76,10 @@
     <!-- Position Column -->
     <ng-container matColumnDef="invoice">
       <mat-header-cell *matHeaderCellDef> Invoice </mat-header-cell>
-      <mat-cell *matCellDef="let element"> 
+      <mat-cell *matCellDef="let element">
         <div class="insideCellWrap">
         <div><p class="bld">{{element.buyerName}}</p></div>
-        <div class=grey>Invoice: {{element.invoice}}</div> 
+        <div class=grey>Invoice: {{element.invoice}}</div>
       </div>
       </mat-cell>
     </ng-container>

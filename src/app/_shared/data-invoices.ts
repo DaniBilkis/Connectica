@@ -1,4 +1,4 @@
-import { Invoice } from './invoice-interface';
+import { Invoice } from './interface-invoice';
 
 export const INVOICES: Invoice[] = [
   {invoice: '12345-789-0781', buyerName: 'Kaufland Warenhandel GmbH & Co. KG', dueDate: '2017-10-16T17:57:28.556094Z', invoiceValue: 5375.81, advancePayment: 1456, totalBackPayment: 12453, feesAmount: 365.12, feesDescription: '3% per 60 days', advancedInstallment: 1619, advancedRate: '80%', currency: 'EUR', status: 'Not financeable', active: false},
