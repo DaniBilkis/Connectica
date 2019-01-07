@@ -5,8 +5,8 @@
   "scripts": {
     "ng": "ng",
     "client": "ng serve --base-href /connectica/ --deploy-url /connectica/ --port 3333 --proxy-config proxy.conf.json",
-    "server": "node ./bin/www --watch server",
-    "start": "nodemon ./bin/www",
+    "server": "nodemon ./bin/www",
+    "start": "node ./bin/www --watch server",
     "build": "ng build --prod --base-href /connectica/ --deploy-url /connectica/",
     "test": "ng test",
     "lint": "ng lint",
