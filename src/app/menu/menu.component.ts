@@ -2,14 +2,14 @@ import {
   Component,
   OnInit,
   ChangeDetectorRef,
-  ViewChild, ViewEncapsulation
+  ViewChild,
+  ViewEncapsulation
 }                          from '@angular/core';
 import { MediaMatcher }    from '@angular/cdk/layout';
 
 import { AuthenticationService } from '../_services/authentication.service';
 import { AlertService } from '../_services';
 import { Router } from '@angular/router';
-import { NavItem } from '../_shared/navitem';
 import { MenuListItemComponent } from '../menu-list-item/menu-list-item.component';
 import { MenuService } from '../_services/menu.service';
 import {MenuItemsResults} from '../_shared/MenuItemsResults';
@@ -30,6 +30,8 @@ export class MenuComponent implements OnInit {
   user: any;
 
   sidenavWidth = 66;
+  fixedTop = 0;
+  fixedBottom = 0;
 
   isLoggedIn: boolean;
 
@@ -188,11 +190,11 @@ export class MenuComponent implements OnInit {
     }
 
     this.menuService.leftNavigationMenu.subscribe( response => {
-      console.log( 'These are menu items from the db -> ' + JSON.stringify( response, null, 4 ) );
-      console.log( 'User is logged in? -> ' + this.isLoggedIn );
+      // console.log( 'These are menu items from the db -> ' + JSON.stringify( response, null, 4 ) );
+      // console.log( 'User is logged in? -> ' + this.isLoggedIn );
       this.menuSet = response;
     });
-    console.log( 'These are menu items from the db after assignment -> ' + JSON.stringify( this.menuSet, null, 4 ) );
+    // console.log( 'These are menu items from the db after assignment -> ' + JSON.stringify( this.menuSet, null, 4 ) );
 
     this.menuService.isLeftNavigationExpanded.subscribe( expanded => { this.isExpanded = expanded; } );
   }
@@ -206,11 +208,11 @@ export class MenuComponent implements OnInit {
     this.authService.logout()
       .subscribe(
         data => {
-          console.log( 'Menu - Logout - before sending message to AlertService' );
+          // console.log( 'Menu - Logout - before sending message to AlertService' );
           this.alertService.success( data, false );
           this.navigationBar.toggle();
           this.router.navigate(['/login']);
-          console.log( 'Menu - Logout - after sending message to AlertService' );
+          // console.log( 'Menu - Logout - after sending message to AlertService' );
         },
         error => {
           // console.log( 'Here is what we have in the error --> ' + JSON.stringify( error, null, 4 ) );

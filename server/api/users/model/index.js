@@ -9,4 +9,7 @@ const userModel = new Schema({
   role: { type: String, required: true, default: 'user' }
 });
 
+// Here 'users' is what will be defined in the MongoDB (table name) that uses userModel schema to define
+// the parameters of the objects stored in 'users'. Mongoose uses plural and transform 'user' into 'users'
+// ('Menu' into 'menus')).
 module.exports = mongoose.model('user', userModel);

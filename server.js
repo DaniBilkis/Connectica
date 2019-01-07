@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const jwt = require('jsonwebtoken');
+const jwtDecode = require('jwt-decode');
 const cors = require('cors');
 const csrf = require('csurf');
 const helmet = require('helmet');
@@ -114,6 +115,7 @@ const attachUser = (req, res, next) => {
   if (!token) {
     return sendJsonResponse( res, 401, { message: 'Authentication invalid' });
   }
+
   const decodedToken = jwtDecode(token);
 
   if (!decodedToken) {
@@ -134,7 +136,7 @@ const checkJwt = (req, res, next) => {
       audience: 'api.connectica.io',
       issuer: 'api.connectica.io'
     });
-    console.log(decoded);
+    // console.log(decoded);
     next();
   } catch (err) {
     return sendJsonResponse( res, 403, { message: 'Access denied' } );
@@ -157,11 +159,12 @@ app.get( '/*', function (req, res) {
 
 // User routes
 app.use('/api/users', require('./server/api/users'));
+// app.use('/api/data', require('./server/api/data'));
 
 // Auth routes
 app.use('/api/authenticate', require('./server/api/authenticate'));
 app.use('/api/logout', require('./server/api/logout'));
-app.use('/api/menus', require('./server/api/menus'));
+
 
 // -------- AUTHENTICATED ROUTES ---------
 app.use( csrf({ cookie: true }) );
@@ -169,7 +172,8 @@ app.use( makeCsrfToken );
 app.use( attachUser );
 app.use( checkJwt );
 
-
+app.use('/api/menus', require('./server/api/menus'));
+app.use('/api/data', require('./server/api/data'));
 
 // -------- ERROR HANDLERS ---------------
 // catch 404 and forward to error handler

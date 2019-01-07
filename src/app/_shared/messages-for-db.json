@@ -1,0 +1,303 @@
+{
+  "TYPE_OF_MESSAGE": "Order",
+  "ORDER_NUMBER": "PO4500002323",
+  "DOCUMENT_NUMBER": "DLNOTE00023",
+  "DOCUMENT_SENDER": "Fraunhofer IAO",
+  "DATE": "2001-09-28T10:32:01+01:00",
+  "DELIVERY_STATUS": "PENDING",
+  "SUPPLIER": {
+    "SUPPLIER_ID": "UEG-FB5-BLI",
+    "NAME": "Universitaet Essen",
+    "NAME2": "FB Wirtschaftswissenschaften/Wirtschaftsinformatik",
+    "DEPARTMENT": "Beschaffung, Logistik und Informationsmanagement",
+    "ADDRESS": {
+      "CONTACT": {
+        "CONTACT_NAME": "Volker Schmitz",
+        "PHONE": [
+          {
+            "TYPE": "office",
+            "NUMBER": "+49 201 183 4084"
+          },
+          {
+            "TYPE": "office",
+            "NUMBER": "+49 201 183 4076"
+          }
+        ],
+        "FAX": "+49 201 183 934084",
+        "EMAIL": "volker.schmitz@uni-essen.de"
+      },
+      "STREET": "Universitaetsstr. 9",
+      "ZIP": "45117",
+      "CITY": "Essen",
+      "COUNTRY": "DE",
+      "PHONE": {
+        "TYPE": "office",
+        "NUMBER": "+49 201 183 0"
+      }
+    },
+    "URL": "http://www.bli.uni-essen.de"
+  },
+  "BUYER": {
+    "BUYER_ID": "FhG-IAO-4356",
+    "NAME": "Fraunhofer IAO",
+    "NAME2": "Gebaeude TIII",
+    "DEPARTMENT": "Marktstrategie Team E-Procurement",
+    "ADDRESS": {
+      "CONTACT": {
+        "CONTACT_NAME": "Sekretariat",
+        "PHONE": {
+          "TYPE": "office",
+          "NUMBER": "+49 711 970 2331"
+        },
+        "FAX": "+49 711 970 2300",
+        "URL": "http://www.iao.fhg.de"
+      },
+      "STREET": "Nobelstr. 12",
+      "ZIP": "70569",
+      "CITY": "Stuttgart",
+      "COUNTRY": "DE",
+      "PHONE": {
+        "TYPE": "office",
+        "NUMBER": "+49 711 970 0"
+      }
+    },
+    "URL": "http://www.iao.fhg.de",
+    "VAT_ID": "DE 129515865"
+  },
+  "SHIP_TO": {
+    "NAME": "Fraunhofer IAO",
+    "NAME2": "Gebaeude TIII",
+    "DEPARTMENT": "Marktstrategie Team E-Procurement",
+    "ADDRESS": {
+      "CONTACT": {
+        "CONTACT_NAME": "Sekretariat",
+        "PHONE": {
+          "TYPE": "office",
+          "NUMBER": "+49 711 970 2331"
+        },
+        "FAX": "+49 711 970 2300",
+        "URL": "http://www.iao.fhg.de"
+      },
+      "STREET": "Nobelstr. 12",
+      "ZIP": "70569",
+      "CITY": "Stuttgart",
+      "COUNTRY": "DE",
+      "PHONE": {
+        "TYPE": "office",
+        "NUMBER": "+49 711 970 0"
+      }
+    },
+    "VAT_ID": "DE 129515865"
+  },
+  "ULTIMATE_CUSTOMER": {
+    "ID": "FhG-IAO-4356",
+    "NAME": "Fraunhofer IAO",
+    "NAME2": "Gebaeude TIII",
+    "DEPARTMENT": "Marktstrategie Team E-Procurement",
+    "ADDRESS": {
+      "CONTACT": {
+        "CONTACT_NAME": "Sekretariat",
+        "PHONE": {
+          "TYPE": "office",
+          "NUMBER": "+49 711 970 2331"
+        },
+        "FAX": "+49 711 970 2300",
+        "URL": "http://www.iao.fhg.de"
+      },
+      "STREET": "Nobelstr. 12",
+      "ZIP": "70569",
+      "CITY": "Stuttgart",
+      "COUNTRY": "DE",
+      "PHONE": {
+        "TYPE": "office",
+        "NUMBER": "+49 711 970 0"
+      }
+    },
+    "URL": "http://www.iao.fhg.de",
+    "VAT_ID": "DE 129515865"
+  },
+  "DELIVERY_DATE": {
+    "DELIVERY_START_DATE": "2001-09-28T10:32:01+01:00",
+    "DELIVERY_END_DATE": "2001-09-28T10:32:01+01:00",
+    "DELIVERY_REQUESTED_DATE": "2001-09-28T10:32:01+01:00"
+  },
+  "PAYMENT": {
+    "CARD": {
+      "CARD_NUM": "0000111122223333",
+      "CARD_EXPIRATION_DATE": "2002-06",
+      "CARD_TYPE": "VISA",
+      "CARD_HOLDER_NAME": "Fraunhofer IAO"
+    },
+    "PRICE_CURRENCY": "EUR"
+  },
+
+  "TERMS_AND_CONDITIONS": "http://www.iao.fhg.de/procurement/agb.pdf",
+
+  "ITEM_LIST": [
+     {
+      "LINE_ITEM_ID": "R33",
+      "ARTICLE_ID": {
+        "SUPPLIER_AID": "55-K-31",
+        "INTERNATIONAL_AID": {
+          "TYPE": "EAN",
+          "NUMBER": "8712670911213"
+        },
+        "BUYER_AID": {
+          "TYPE": "BRZNR",
+          "NUMBER": "4711"
+        },
+        "DESCRIPTION_SHORT": "Standard Briefkorb DIN A4",
+        "DESCRIPTION_LONG": "Ein Klassiker unter den Briefkoerben.",
+        "MANUFACTURER_INFO": {
+          "MANUFACTURER_NAME": "Plastikpartner",
+          "MANUFACTURER_AID": "123-RD-67-U",
+          "MANUFACTURER_TYPE_DESCR": "Briefkorb 02133"
+        }
+      },
+      "QUANTITY": "20",
+      "ORDER_UNIT": "C62",
+      "ARTICLE_PRICE": {
+        "PRICE_AMOUNT": "2.90",
+        "PRICE_FLAG": [
+          {
+            "TYPE": "incl_freight",
+            "TEXT": "TRUE"
+          },
+          {
+            "TYPE": "incl_assurance",
+            "TEXT": "FALSE"
+          },
+          {
+            "TYPE": "incl_duty",
+            "TEXT": "TRUE"
+          }
+        ],
+        "PRICE_LINE_AMOUNT": "58.00",
+        "TAX": "0.16",
+        "TAX_AMOUNT": "9.28",
+        "PRICE_QUANTITY": "1",
+        "TYPE": "net_list"
+      },
+      "ORDER_REFERENCE": {
+        "ORDER_ID": "PO4500002323",
+        "LINE_ITEM_ID": "P100012",
+        "ORDER_DATE": "2001-09-21T16:55:30+01:00",
+        "AGREEMENT": [
+          {
+            "AGREEMENT_ID": "5100000220",
+            "AGREEMENT_LINE_ID": "10",
+            "TYPE": "buyer"
+          },
+          {
+            "AGREEMENT_ID": "21312",
+            "AGREEMENT_LINE_ID": "110",
+            "TYPE": "supplier"
+          }
+        ],
+        "CATALOG_REFERENCE": {
+          "CATALOG_ID": "12348s5121",
+          "CATALOG_VERSION": "7.0",
+          "CATALOG_NAME": "Bueromaterial 2001"
+        }
+      },
+      "DELIVERY_REFERENCE": {
+        "DELIVERYNOTE_ID": "DLNOTE00023",
+        "LINE_ITEM_ID": "DN26"
+      },
+      "ACCOUNTING_INFO": {
+        "COST_CATEGORY_ID": {
+          "TYPE": "cost_center",
+          "TEXT": "11047115"
+        },
+        "COST_TYPE": "Verbrauch",
+        "COST_ACCOUNT": "S0202556600"
+      }
+    },
+    {
+      "LINE_ITEM_ID": "R33",
+      "ARTICLE_ID": {
+        "SUPPLIER_AID": "55-K-31",
+        "INTERNATIONAL_AID": {
+          "TYPE": "EAN",
+          "NUMBER": "8712670911213"
+        },
+        "BUYER_AID": {
+          "TYPE": "BRZNR",
+          "NUMBER": "4711"
+        },
+        "DESCRIPTION_SHORT": "Standard Briefkorb DIN A4",
+        "DESCRIPTION_LONG": "Ein Klassiker unter den Briefkoerben.",
+        "MANUFACTURER_INFO": {
+          "MANUFACTURER_NAME": "Plastikpartner",
+          "MANUFACTURER_AID": "123-RD-67-U",
+          "MANUFACTURER_TYPE_DESCR": "Briefkorb 02133"
+        }
+      },
+      "QUANTITY": "60",
+      "ORDER_UNIT": "C52",
+      "ARTICLE_PRICE": {
+        "PRICE_AMOUNT": "6.90",
+        "PRICE_FLAG": [
+          {
+            "TYPE": "incl_freight",
+            "TEXT": "TRUE"
+          },
+          {
+            "TYPE": "incl_assurance",
+            "TEXT": "FALSE"
+          },
+          {
+            "TYPE": "incl_duty",
+            "TEXT": "TRUE"
+          }
+        ],
+        "PRICE_LINE_AMOUNT": "18.00",
+        "TAX": "0.16",
+        "TAX_AMOUNT": "9.28",
+        "PRICE_QUANTITY": "1",
+        "TYPE": "net_list"
+      },
+      "ORDER_REFERENCE": {
+        "ORDER_ID": "PO4500002323",
+        "LINE_ITEM_ID": "P100012",
+        "ORDER_DATE": "2001-09-21T16:55:30+01:00",
+        "AGREEMENT": [
+          {
+            "AGREEMENT_ID": "5100000220",
+            "AGREEMENT_LINE_ID": "10",
+            "TYPE": "buyer"
+          },
+          {
+            "AGREEMENT_ID": "21312",
+            "AGREEMENT_LINE_ID": "110",
+            "TYPE": "supplier"
+          }
+        ],
+        "CATALOG_REFERENCE": {
+          "CATALOG_ID": "12348s5121",
+          "CATALOG_VERSION": "7.0",
+          "CATALOG_NAME": "Bueromaterial 2001"
+        }
+      },
+      "DELIVERY_REFERENCE": {
+        "DELIVERYNOTE_ID": "DLNOTE00023",
+        "LINE_ITEM_ID": "DN26"
+      },
+      "ACCOUNTING_INFO": {
+        "COST_CATEGORY_ID": {
+          "TYPE": "cost_center",
+          "TEXT": "11047115"
+        },
+        "COST_TYPE": "Verbrauch",
+        "COST_ACCOUNT": "S0202556600"
+      }
+    }
+  ],
+  "PROFILE": {
+    "OWNER": "user",
+    "DATE_MESSAGE_CREATED": "2018-11-15T10:32:01+01:00",
+    "DESCRIPTION": "Order Message"
+  }
+
+}
+

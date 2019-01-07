@@ -28,7 +28,7 @@
   </mat-toolbar>
 
   <mat-sidenav-container [autosize]="true">
-    <mat-sidenav class="menu-side-navigation" [appShowAuth]="true" #snav mode="side" opened={{isLoggedIn}} [fixedInViewport]="fixed" [ngStyle]="{ 'width.px': sidenavWidth }"
+    <mat-sidenav class="menu-side-navigation" [appShowAuth]="true" #snav mode="side" opened={{isLoggedIn}} [fixedInViewport]="false" [ngStyle]="{ 'width.px': sidenavWidth }"
                  [fixedTopGap]="fixedTop" [fixedBottomGap]="fixedBottom">
       <mat-nav-list *ngIf="menuSet">
         <app-menu-list-item *ngFor="let item of menuSet.navigationMenus()" [item]="item" (messageEvent)="expandCollapse($event)"></app-menu-list-item>
@@ -39,6 +39,7 @@
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
+      <div id="pageTop"></div>
       <app-alerts></app-alerts>
       <router-outlet></router-outlet>
     </mat-sidenav-content>

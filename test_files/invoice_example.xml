@@ -1,0 +1,84 @@
+<order>
+  <Envelope>
+    <InterchangeSender>4388800000007</InterchangeSender>
+    <InterchangeRecipient>4044663000003</InterchangeRecipient>
+    <InterchnageControlReference>00383</InterchnageControlReference>
+    <TransmissionDate>2018-10-16</TransmissionDate>
+    <TransmissionTime>14:10:00</TransmissionTime>
+    <ContextSyntxSet>UNOC</ContextSyntxSet>
+  </Envelope>
+  <OrderHeader>
+    <DocumentTypeCode>Order</DocumentTypeCode>
+    <DocumentNumber>1181016156</DocumentNumber>
+    <DocumentDate>2018-10-16</DocumentDate>
+    <NumberOfLineItemQuantities>40</NumberOfLineItemQuantities>
+    <DocumentControlReference>1</DocumentControlReference>
+    <ImportantDates>
+      <RequestedDeliveryDate>2018-10-19</RequestedDeliveryDate>
+    </ImportantDates>
+    <Parties>
+      <Supplier>
+        <GLN>4044663000003</GLN>
+      </Supplier>
+      <Buyer>
+        <GLN>4388100000004</GLN>
+      </Buyer>
+      <DeliverTo>
+        <GLN>4388100200183</GLN>
+        <Address>
+          <Name>FD Lager 018 Nossen</Name>
+          <Street>Rewestr. 1</Street>
+          <City>Nossen</City>
+          <PostalCode>01683</PostalCode>
+          <CountryCode>DE</CountryCode>
+        </Address>
+        <Contact>
+          <ContactTypeCode>Purchasing Contact</ContactTypeCode>
+          <ContactName>Schmalisch</ContactName>
+          <TelephoneNumber>03620283170</TelephoneNumber>
+          <TelefaxNumber>0362028349170</TelefaxNumber>
+          <EMailAddress>Birgit.Schmalisch@rewe-group.com</EMailAddress>
+        </Contact>
+      </DeliverTo>
+    </Parties>
+    <PaymentTerms>
+      <NumberOfDueDays>72</NumberOfDueDays>
+      <NumberOfDiscountDays>68</NumberOfDiscountDays>
+      <PaymentDiscountPercentage>3.250</PaymentDiscountPercentage>
+    </PaymentTerms>
+  </OrderHeader>
+  <OrderLineItems>
+    <LineItem>
+      <LineItemNumber>10</LineItemNumber>
+      <GTIN>4044663451348</GTIN>
+      <ItemNumberBuyer>10413740006</ItemNumberBuyer>
+      <ItemNumberSupplier>64513</ItemNumberSupplier>
+      <ItemDescription>SCHINKENROELLCHENVITAL GOURMET</ItemDescription>
+      <LineItemQuantities>
+        <QuantitiyOrdered>2</QuantitiyOrdered>
+      </LineItemQuantities>
+    </LineItem>
+    <LineItem>
+      <LineItemNumber>20</LineItemNumber>
+      <GTIN>4009199121240</GTIN>
+      <ItemNumberBuyer>4310002</ItemNumberBuyer>
+      <ItemNumberSupplier>121240</ItemNumberSupplier>
+      <EuropeanCustomsTariffNumber>76169990</EuropeanCustomsTariffNumber>
+      <ItemDescription>Tribilo VielzweckLeiter Treppe 3x10 Spr</ItemDescription>
+      <LineItemQuantities>
+        <QuantitiyOrdered>2</QuantitiyOrdered>
+      </LineItemQuantities>
+    </LineItem>
+    <LineItem>
+      <LineItemNumber>30</LineItemNumber>
+      <GTIN>4009199121257</GTIN>
+      <ItemNumberBuyer>4310003</ItemNumberBuyer>
+      <ItemNumberSupplier>4310003</ItemNumberSupplier>
+      <EuropeanCustomsTariffNumber>76169990</EuropeanCustomsTariffNumber>
+      <ItemDescription>Tribilo VielzweckLeiter Treppe 3x8 Spr.</ItemDescription>
+      <LineItemQuantities>
+        <QuantitiyOrdered>2</QuantitiyOrdered>
+      </LineItemQuantities>
+    </LineItem>
+  </OrderLineItems>
+</order>

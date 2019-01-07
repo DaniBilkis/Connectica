@@ -8,6 +8,90 @@
   margin-right: 5px;
 }
 
+.messages_nav_list {
+  flex-grow: 1;
+  overflow: auto;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.messages_nav_list_toolbar {
+  position: sticky;
+  position: -webkit-sticky;
+  z-index: 1;
+}
+
+.messages_list_toolbar {
+  display: flex;
+  flex: 1;
+  padding: 15px;
+  height: auto;
+  max-height: 150px;
+  align-items: center;
+  flex-direction: row;
+}
+
+.messages_list_toolbar_search_buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.messages_list_toolbar_fill_remaining_space {
+  flex: 1 1 auto;
+}
+////////////////////////// MAT LIST ITEM /////////////////////////////////
+.messages_list_item {
+  display: flex!important;
+  flex-direction: row;
+  height: 100px!important;
+  font-size: 14px;
+  font-weight: 300;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+::ng-deep div.mat-list-item-content {
+  flex: 1;
+}
+
+/*
+.transaction_list_item_div {
+  display: flex;
+  flex-direction: row;
+}
+*/
+
+.messages_list_item_description {
+  flex: 3;
+}
+
+.messages_list_item_date {
+  flex: 1;
+}
+
+.messages_list_item_date > p {
+  justify-content: center;
+}
+
+
+// Colors
+$gray: #eee;
+
+// Angular
+[click] {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+// Main content bg color
+mat-content.mat-default-theme {
+  background-color: $gray;
+}
+////////////////////////// MAT LIST ITEM /////////////////////////////////
 .mat-row:hover {
   background-color: #f1f1f1;
   cursor: pointer;

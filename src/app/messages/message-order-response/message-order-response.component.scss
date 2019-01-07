@@ -1,0 +1,70 @@
+.messages-order-response-main-div {
+  border: 1px solid #2D3E4F;
+  font-family: Roboto;
+}
+
+.messages-order-response-main-div span {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.messages-order-response-title {
+  color: #FFFFFF;
+  background: #2D3E4F;
+  height: 40px;
+}
+
+.messages-order-response-title h2 {
+  font-size: 18px;
+  padding: 4px 15px;
+}
+
+.message-order-main-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  height: 100%;
+  padding: 0 15px;
+}
+
+.message-mat-cell {
+  padding-right: 10px;
+}
+
+.mat-form-field-infix {
+  width: 100%!important;
+}
+
+.message-order-input {
+  width: 85%;
+}
+
+.message-delete-icon {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.message-response-footer {
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+  font-weight: 300;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin-top: 10px;
+}
+
+.message-response-footer-add {
+  flex: 1;
+}
+
+.message-response-footer-space {
+  flex: 5;
+}
+
+.message-response-footer-submit {
+  margin-right: 10px;
+}

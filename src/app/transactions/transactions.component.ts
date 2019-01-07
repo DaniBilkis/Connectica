@@ -42,4 +42,8 @@ export class TransactionsComponent implements OnInit {
 // this.sharedService.searchFor( searchTerm );
   }
 
+  onKeyUp( searchValue: any ) {
+
+  }
+
 }

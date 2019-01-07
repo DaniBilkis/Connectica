@@ -3,7 +3,7 @@ import { NgModule }                                       from '@angular/core';
 import { BrowserAnimationsModule }                        from '@angular/platform-browser/animations';
 import { FlexLayoutModule }                               from '@angular/flex-layout';
 import { HttpClientModule, HttpClientXsrfModule }         from '@angular/common/http';
-
+import { FormsModule }                                    from '@angular/forms';
 import { ReactiveFormsModule }                            from '@angular/forms';
 
 import { MaterialModule }                                 from './material.module';
@@ -51,8 +51,10 @@ import { DashboardChartComponent }                        from './dashboard/dash
 import { DashboardPaymentCalendarChartComponent }         from './dashboard/dashboard-payment-calendar-chart/dashboard-payment-calendar-chart.component';
 import { MenuListItemComponent }                          from './menu-list-item/menu-list-item.component';
 import { MenuService }                                    from './_services/menu.service';
+import { DataService }                                    from './_services/data.service';
 
-import { MessagesComponent } from './messages/messages.component';
+import { MessagesComponent }                              from './messages/messages.component';
+import { MessageOrderResponseComponent }                  from './messages/message-order-response/message-order-response.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +90,8 @@ import { MessagesComponent } from './messages/messages.component';
     DashboardChartComponent,
     DashboardPaymentCalendarChartComponent,
     MenuListItemComponent,
-    MessagesComponent
+    MessagesComponent,
+    MessageOrderResponseComponent
   ],
   imports: [
     BrowserModule,
@@ -103,7 +106,8 @@ import { MessagesComponent } from './messages/messages.component';
     HttpClientXsrfModule.withOptions({
       cookieName: 'csrf-token',
       headerName: 'csrf-token'
-    })
+    }),
+    FormsModule
   ],
   exports: [
     ShowAuthedDirective
@@ -115,13 +119,15 @@ import { MessagesComponent } from './messages/messages.component';
     D3Service,
     UserService,
     DashboardCardsService,
-    MenuService
+    MenuService,
+    DataService
   ],
   bootstrap: [ AppComponent ],
   entryComponents: [
     InvoiceSummaryComponent,
     FxViewPaymentsModalComponent,
-    FxMakePaymentsModalComponent
+    FxMakePaymentsModalComponent,
+    MessageOrderResponseComponent
   ]
 })
 export class AppModule { }

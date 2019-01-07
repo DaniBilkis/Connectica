@@ -25,7 +25,7 @@ export class AlertsComponent {
   }
 
   cssClass( message ) {
-    console.log( 'Here is the message -> ' + JSON.stringify( message ) );
+    console.log( 'Here is the alerts message -> ' + JSON.stringify( message ) );
     if (!message) {
       return;
     }

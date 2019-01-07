@@ -1,0 +1,105 @@
+<div class="messages-order-response-main-div">
+  <div class="messages-order-response-title">
+    <h2 mat-dialog-title>Response to Order {{data.recordDetails.ORDER_NUMBER}}</h2>
+  </div>
+
+  <div class="message-order-main-container">
+    <mat-table #table [dataSource]="data.recordDetails.ITEM_LIST">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Partner Column -->
+      <ng-container matColumnDef="position">
+        <mat-header-cell *matHeaderCellDef> Pos.</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{item.LINE_ITEM_ID}}</mat-cell>
+      </ng-container>
+
+      <!-- Message Number Column -->
+      <ng-container matColumnDef="article">
+        <mat-header-cell *matHeaderCellDef> Item Number</mat-header-cell>
+        <mat-cell *matCellDef="let item"> {{item.ARTICLE_ID.SUPPLIER_AID}}</mat-cell>
+      </ng-container>
+
+      <!-- Inbound Outbound Column -->
+      <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef> Description</mat-header-cell>
+        <mat-cell *matCellDef="let item"> {{item.ARTICLE_ID.DESCRIPTION_SHORT}}</mat-cell>
+      </ng-container>
+
+      <!--
+       Inbound Outbound Column
+      <ng-container matColumnDef="quantity">
+        <mat-header-cell *matHeaderCellDef> Qty.</mat-header-cell>
+        <mat-cell *matCellDef="let item"> {{item.quantity}}</mat-cell>
+      </ng-container>
+-->
+      <!-- Quantity -->
+      <ng-container matColumnDef="quantity">
+        <mat-header-cell *matHeaderCellDef> Qty. </mat-header-cell>
+        <mat-cell class="message-mat-cell" *matCellDef="let item">
+          <mat-form-field floatLabel="never">
+            <input matInput (keyup)="onKeyQuantity( $event, item.LINE_ITEM_ID )" class="message-order-input" placeholder="Quantity" [value]="item.QUANTITY" [(ngModel)]="item.QUANTITY">
+          </mat-form-field>
+        </mat-cell>
+      </ng-container>
+
+      <!-- Price -->
+      <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef> Price</mat-header-cell>
+        <mat-cell *matCellDef="let item">
+          <mat-form-field floatLabel="never">
+            <input matInput (keyup)="onKeyPrice( $event, item.LINE_ITEM_ID )" class="message-order-input" placeholder="Price" [value]="item.ARTICLE_PRICE.PRICE_AMOUNT" [(ngModel)]="item.ARTICLE_PRICE.PRICE_AMOUNT">
+          </mat-form-field>
+        </mat-cell>
+      </ng-container>
+
+      <!-- Delivery Date -->
+      <ng-container matColumnDef="deliveryDate">
+        <mat-header-cell *matHeaderCellDef> Delivery Date</mat-header-cell>
+        <mat-cell *matCellDef="let item">
+          <input class="message-order-input" [matDatepicker]="myDatepicker">
+          <mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
+          <mat-datepicker #myDatepicker></mat-datepicker>
+          <!--
+          <mat-form-field floatLabel="never">
+            <input matInput placeholder="Delivery Date" [value]="item.earliestDeliveryDate" [(ngModel)]="item.earliestDeliveryDate">
+          </mat-form-field>
+          -->
+        </mat-cell>
+      </ng-container>
+
+      <!-- Total Charge per Row Column -->
+      <ng-container matColumnDef="total">
+        <mat-header-cell *matHeaderCellDef> Total</mat-header-cell>
+        <mat-cell *matCellDef="let item"> {{item.ARTICLE_PRICE.PRICE_LINE_AMOUNT | number:'1.0-2'}} </mat-cell>
+      </ng-container>
+
+      <!-- Delete column -->
+      <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef> Delete</mat-header-cell>
+        <mat-cell *matCellDef="let item">
+            <span class="message-delete-icon" (click)="deleteRow( $event, item.LINE_ITEM_ID )">
+              <i class="material-icons">delete</i>
+            </span>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedDetailedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedDetailedColumns;"></mat-row>
+    </mat-table>
+  </div>
+
+</div>
+<div class="message-response-footer">
+  <div class="message-response-footer-add">
+    <button mat-raised-button (click)="addNewRow()">Add New Row</button>
+  </div>
+  <div class="message-response-footer-space"></div>
+  <div class="message-response-footer-submit">
+    <button mat-raised-button (click)="submitResponse()">Submit</button>
+  </div>
+  <div>
+    <button mat-raised-button (click)="closeModal()">Cancel</button>
+  </div>
+</div>

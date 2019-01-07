@@ -26,6 +26,11 @@ export class ManageContractsComponent implements OnInit {
   exampleDatabase = new ExampleDatabase();
   dataSource: ExampleDataSource | null;
   sortedData: ContractList[];
+  // -------------- SOME DUMMY DATA ------------------
+  numberOfSentInvoices = 30;
+  totalAmount = 12367.67;
+  currency = 'USD';
+
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
